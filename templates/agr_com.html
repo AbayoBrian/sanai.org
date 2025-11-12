@@ -1,0 +1,2447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SANAI HOLDINGS - Your Communications & Agricultural Partner</title>
+    <meta name="description" content="SANAI HOLDINGS provides quality goods, services, and agricultural solutions with professionalism, integrity, and passion since 2014.">
+    
+    <!-- Performance Optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af',
+                        'primary-dark': '#1e3a8a',
+                        secondary: '#0f172a',
+                        accent: '#3b82f6',
+                        success: '#059669',
+                        'green-dark': '#047857',
+                        'green-light': '#10b981',
+                        'agri-green': '#16a34a',
+                        'agri-dark': '#15803d',
+                        'agri-light': '#22c55e'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'pulse-slow': 'pulse 3s infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        :root {
+            --primary: #1e40af;
+            --primary-dark: #1e3a8a;
+            --secondary: #0f172a;
+            --accent: #3b82f6;
+            --success: #059669;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            overflow-x: hidden;
+        }
+        
+        /* Hero Backgrounds */
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.85) 0%, rgba(15, 23, 42, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .agri-hero-bg {
+            background: linear-gradient(135deg, rgba(22, 163, 74, 0.85) 0%, rgba(15, 23, 42, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        /* Section Spacing */
+        .section-padding {
+            padding: 5rem 0;
+        }
+        
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Card Hover Effects */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        /* Button Styles - Enhanced for Mobile */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary:hover, .btn-primary:active {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(30, 64, 175, 0.3);
+        }
+        
+        /* Enhanced mobile button interaction */
+        .btn-primary:active {
+            transform: translateY(0);
+            box-shadow: 0 5px 10px rgba(30, 64, 175, 0.3);
+        }
+        
+        .btn-agri {
+            background: linear-gradient(135deg, var(--agri-green) 0%, var(--agri-light) 100%);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-agri:hover, .btn-agri:active {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(22, 163, 74, 0.3);
+        }
+        
+        .btn-agri:active {
+            transform: translateY(0);
+            box-shadow: 0 5px 10px rgba(22, 163, 74, 0.3);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, var(--success) 0%, var(--green-light) 100%);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-success:hover, .btn-success:active {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(5, 150, 105, 0.3);
+        }
+        
+        .btn-success:active {
+            transform: translateY(0);
+            box-shadow: 0 5px 10px rgba(5, 150, 105, 0.3);
+        }
+        
+        /* Ripple effect for buttons */
+        .btn-ripple {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-ripple::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+        
+        .btn-ripple:focus:not(:active)::after {
+            animation: ripple 1s ease-out;
+        }
+        
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(20, 20);
+                opacity: 0;
+            }
+        }
+        
+        /* Gradient Backgrounds */
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+        }
+        
+        .agri-gradient-bg {
+            background: linear-gradient(135deg, var(--agri-green) 0%, var(--agri-light) 100%);
+        }
+        
+        /* Custom Elements */
+        .green-heading {
+            color: var(--success);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .green-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--green-light);
+            border-radius: 2px;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Loading Animation */
+        .loading-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            width: 0%;
+            z-index: 1000;
+            transition: width 0.4s ease;
+        }
+        
+        /* Image Optimization */
+        img {
+            transition: transform 0.3s ease;
+        }
+        
+        .product-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Mobile Menu Animation */
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        /* Table Styles */
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .price-table th, .price-table td {
+            border: 1px solid #e5e7eb;
+            padding: 12px;
+            text-align: center;
+        }
+        
+        .price-table th {
+            background-color: #f9fafb;
+            font-weight: 600;
+        }
+        
+        .quotation-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .quotation-table th, .quotation-table td {
+            border: 1px solid #e5e7eb;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        
+        .quotation-table th {
+            background-color: #f9fafb;
+            font-weight: 600;
+        }
+        
+        /* Form Improvements */
+        .form-input {
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+            border-color: #3b82f6;
+        }
+        
+        /* Mobile-specific improvements */
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 3rem 0;
+            }
+            
+            .hero-bg, .agri-hero-bg {
+                background-attachment: scroll;
+            }
+            
+            /* Enhanced button sizing for mobile */
+            .btn-primary, .btn-agri, .btn-success {
+                padding: 14px 24px;
+                font-size: 16px;
+                min-height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            /* Improved form inputs for mobile */
+            .form-input {
+                font-size: 16px; /* Prevents zoom on iOS */
+                padding: 14px 16px;
+            }
+            
+            /* Better touch targets */
+            .mobile-touch-target {
+                min-height: 44px;
+                min-width: 44px;
+            }
+        }
+        
+        /* Performance Optimizations */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body class="font-inter bg-gray-50">
+    <!-- Loading Bar -->
+    <div class="loading-bar" id="loadingBar"></div>
+    
+    <!-- Header & Navigation -->
+    <header class="fixed w-full bg-white shadow-lg z-50 transition-all duration-300" id="header">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <!-- Original Logo -->
+                <img src="../images/logo.png" alt="Sanai Holdings Logo" class="h-14 mr-4 object-contain">
+                <h1 class="text-2xl font-bold text-primary">SANAI HOLDINGS</h1>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex space-x-8">
+                <a href="home.html" class="nav-link text-secondary hover:text-primary font-medium transition duration-300">Home</a>
+                <a href="#about" class="nav-link text-secondary hover:text-primary font-medium transition duration-300">About Us</a>
+                <a href="#services" class="nav-link text-secondary hover:text-primary font-medium transition duration-300">Services</a>
+                <a href="#products" class="nav-link text-secondary hover:text-primary font-medium transition duration-300">Products</a>
+                <a href="#agricultural" class="nav-link text-secondary hover:text-primary font-medium transition duration-300">Agricultural</a>
+                <a href="#team" class="nav-link text-secondary hover:text-primary font-medium transition duration-300">Our Team</a>
+                <a href="#contact" class="nav-link text-secondary hover:text-primary font-medium transition duration-300">Contact</a>
+            </nav>
+            
+            <!-- CTA Button -->
+            <div class="hidden lg:block">
+                <a href="#contact" class="btn-primary btn-ripple text-white px-6 py-2 rounded-lg font-medium">Get Quote</a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="lg:hidden text-secondary p-2 mobile-touch-target" id="mobile-menu-button" aria-label="Toggle mobile menu">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu lg:hidden absolute top-16 left-0 w-full bg-white p-6 shadow-lg">
+            <nav class="flex flex-col space-y-4">
+                <a href="#home" class="text-secondary hover:text-primary font-medium transition duration-300 py-2 border-b border-gray-100 mobile-touch-target">Home</a>
+                <a href="#about" class="text-secondary hover:text-primary font-medium transition duration-300 py-2 border-b border-gray-100 mobile-touch-target">About Us</a>
+                <a href="#services" class="text-secondary hover:text-primary font-medium transition duration-300 py-2 border-b border-gray-100 mobile-touch-target">Services</a>
+                <a href="#products" class="text-secondary hover:text-primary font-medium transition duration-300 py-2 border-b border-gray-100 mobile-touch-target">Products</a>
+                <a href="#agricultural" class="text-secondary hover:text-primary font-medium transition duration-300 py-2 border-b border-gray-100 mobile-touch-target">Agricultural</a>
+                <a href="#team" class="text-secondary hover:text-primary font-medium transition duration-300 py-2 border-b border-gray-100 mobile-touch-target">Our Team</a>
+                <a href="#contact" class="text-secondary hover:text-primary font-medium transition duration-300 py-2 border-b border-gray-100 mobile-touch-target">Contact</a>
+                <a href="#contact" class="btn-primary btn-ripple text-white px-6 py-3 rounded-lg font-medium text-center mt-4 mobile-touch-target">Get Quote</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg pt-32 pb-40 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-slide-up">YOUR TRUSTED COMMUNICATIONS PARTNER</h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto animate-fade-in">Providing quality goods and services with professionalism, integrity, and passion since 2014.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in">
+                    <a href="#contact" class="btn-primary btn-ripple text-white px-8 py-4 rounded-lg font-medium mobile-touch-target">Contact Us</a>
+                    <a href="#products" class="bg-white text-primary px-8 py-4 rounded-lg font-medium transition duration-300 hover:bg-gray-100 mobile-touch-target">Our Products</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-12 bg-white shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="fade-in">
+                    <div class="text-3xl md:text-4xl font-bold text-primary mb-2">9+</div>
+                    <div class="text-gray-600">Years Experience</div>
+                </div>
+                <div class="fade-in">
+                    <div class="text-3xl md:text-4xl font-bold text-primary mb-2">500+</div>
+                    <div class="text-gray-600">Happy Clients</div>
+                </div>
+                <div class="fade-in">
+                    <div class="text-3xl md:text-4xl font-bold text-primary mb-2">100+</div>
+                    <div class="text-gray-600">Products & Services</div>
+                </div>
+                <div class="fade-in">
+                    <div class="text-3xl md:text-4xl font-bold text-primary mb-2">24/7</div>
+                    <div class="text-gray-600">Customer Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-secondary mb-4">ABOUT US</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-semibold green-heading mb-6">Our Story</h3>
+                    <p class="text-gray-700 mb-4 leading-relaxed">Sanai Holdings Ltd is a general merchandise supplies company. It was founded in 2014 and registered on 7th June 2014 under Companies Act. Its main focus is effective and efficient provision of general merchandise and supplies to both private and government sectors.</p>
+                    <p class="text-gray-700 mb-4 leading-relaxed">It pools together the efforts of young minds, with great interpersonal skills and versatility to perform duties. Impressive Solutions aims at provision of a wide variety of goods and services.</p>
+                    <p class="text-gray-700 mb-4 leading-relaxed">Our office located at Kenya House Complex, Koinange Street, Nairobi for effective management and coordination of all activities involved from sourcing, packaging, and delivery to monitoring the communication with the customers. Sanai Holdings Company Ltd believes that quality performance is a result of ability to understand client's specific needs, and provide goods and services to resolve the demands of the organization.</p>
+                    <p class="text-gray-700 mb-4 leading-relaxed">We at Sanai Holdings Company Ltd, will work with you by listening, understanding your needs and timely supply of the goods and services for effective sustainability of your company's / organization's operations. These efforts substantiate our pledge to perform all of our work in a safe manner and to meet and exceed the quality expectations of our customers.</p>
+                    <div class="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-lg border-l-4 border-success shadow-sm">
+                        <h4 class="text-lg font-semibold text-secondary mb-3">COMPANY PROFILE 2021</h4>
+                        <p class="text-gray-700 leading-relaxed">At Sanai Holdings Company Ltd, we realize that our customers have many options when selecting a general supplies provider. We are committed to being supplier of choice. The services we provide are beyond doubt and our staffs are driven by customer satisfaction. The highly experienced staff of Impressive Solutions will provide with professionalism the quality and quantity of goods and services you deserve. You deserve the best!</p>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
+                        <h3 class="text-2xl font-semibold green-heading mb-6">Our Vision & Mission</h3>
+                        <div class="mb-8">
+                            <h4 class="text-xl font-semibold text-green-dark mb-3">OUR VISION</h4>
+                            <p class="text-gray-700 leading-relaxed">Sanai Holdings Company Ltd is committed to being the most trusted and relied-upon business partner in providing best-in-class supply of goods and services, with exceptional expertise excel in our field sourcing, effective packaging and timely delivery of quality goods and a passion for quality and customer satisfaction. Our company vision is to services to our customers.</p>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-semibold text-green-dark mb-3">OUR MISSION STATEMENT</h4>
+                            <p class="text-gray-700 mb-4 leading-relaxed">Sanai Holdings Company Ltd aims to develop long-term partnerships with our customers and clients, embrace change and encourage innovation, to consistently meet our customers' expectations with provision of quality goods and services by exceeding their expectations, uphold honesty, integrity and respect at all times.</p>
+                            <p class="text-gray-700 leading-relaxed">To continuously improve our best practices to maximize environmental, social and economic sustainability while respecting the environment and communities within which we operate, offer our employees a challenging and rewarding workplace that inspires loyalty and success.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Core Values Summary -->
+                    <div class="mt-8 bg-white p-6 rounded-xl shadow-lg card-hover">
+                        <h4 class="text-xl font-semibold green-heading mb-4">Why Choose Us?</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-success rounded-full flex items-center justify-center mr-3 mt-1">
+                                    <i class="fas fa-check text-white text-sm"></i>
+                                </div>
+                                <p class="text-gray-700">Young & Dynamic Team</p>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-success rounded-full flex items-center justify-center mr-3 mt-1">
+                                    <i class="fas fa-check text-white text-sm"></i>
+                                </div>
+                                <p class="text-gray-700">Quality Guaranteed</p>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-success rounded-full flex items-center justify-center mr-3 mt-1">
+                                    <i class="fas fa-check text-white text-sm"></i>
+                                </div>
+                                <p class="text-gray-700">Timely Delivery</p>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-success rounded-full flex items-center justify-center mr-3 mt-1">
+                                    <i class="fas fa-check text-white text-sm"></i>
+                                </div>
+                                <p class="text-gray-700">Competitive Pricing</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section class="py-16 gradient-bg text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">OUR CORE VALUES</h2>
+                <div class="w-20 h-1 bg-white mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white bg-opacity-10 p-8 rounded-xl backdrop-blur-sm card-hover">
+                    <div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-user-tie text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-center">Professionalism</h3>
+                    <p class="text-white text-opacity-90 text-center">At all times, we engage professionals and experts to serve our customers.</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-8 rounded-xl backdrop-blur-sm card-hover">
+                    <div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-users text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-center">Team Work</h3>
+                    <p class="text-white text-opacity-90 text-center">At Impressive Solutions, we work as a team to enhance improvement.</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-8 rounded-xl backdrop-blur-sm card-hover">
+                    <div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-comments text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-center">Communication</h3>
+                    <p class="text-white text-opacity-90 text-center">We are available to offer support 24/7 through efficient and effective communication.</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-8 rounded-xl backdrop-blur-sm card-hover">
+                    <div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-smile text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-center">Customer Satisfaction</h3>
+                    <p class="text-white text-opacity-90 text-center">We are customer driven. The satisfaction of our customers' needs is our inspiration.</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-8 rounded-xl backdrop-blur-sm card-hover">
+                    <div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-heart text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-center">Passion</h3>
+                    <p class="text-white text-opacity-90 text-center">Passion is at the heart of our business. We are continuously moving forward, innovating, and improving.</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-8 rounded-xl backdrop-blur-sm card-hover">
+                    <div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-handshake text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-center">Integrity</h3>
+                    <p class="text-white text-opacity-90 text-center">We are honest, open, ethical, and fair. People trust us to adhere to our word.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="section-padding bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-secondary mb-4">OUR PRODUCTS</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto mt-4 text-lg">We provide a comprehensive range of high-quality products to meet all your business needs. Each product is carefully selected to ensure reliability and performance.</p>
+            </div>
+
+            <!-- Computers & Accessories (Local Images) -->
+            <div class="mb-20 fade-in">
+                <h3 class="text-2xl font-bold green-heading mb-8 text-center">Computers & Accessories</h3>
+                <p class="text-gray-700 mb-8 text-center max-w-3xl mx-auto text-lg">We supply computers and accessories, perform software installation, repair and maintenance of computer systems.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Computer systems and Laptops -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../images/computer-systems-laptops.jpg" 
+                                 alt="Computer systems and Laptops" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Computer Systems & Laptops</h4>
+                            <p class="text-gray-600">High-performance desktop computers and laptops for all your computing needs.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Mass Storage Devices -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../images/OIP-2224594983.jpeg" 
+                                 alt="Mass Storage Devices" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Mass Storage Devices</h4>
+                            <p class="text-gray-600">External hard drives, SSDs, and other storage solutions for data backup and expansion.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Computer Desks -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../images/OIP-293642809.jpeg" 
+                                 alt="Computer Desks" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Computer Desks</h4>
+                            <p class="text-gray-600">Ergonomic and functional computer desks for comfortable working environments.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Keyboards and Mouse -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../images/keyboards-mouse.png" 
+                                 alt="Keyboards and Mouse" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Keyboards & Mouse</h4>
+                            <p class="text-gray-600">Wired and wireless keyboards and mice for efficient computer operation.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Software Installation & Support -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../images/OIP-4005132209.jpeg" 
+                                 alt="Software Installation & Support" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Software Installation & Support</h4>
+                            <p class="text-gray-600">Professional software installation, configuration, and ongoing technical support.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Computer Repair & Maintenance -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../images/OIP-3319165082.jpeg" 
+                                 alt="Computer Repair & Maintenance" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Computer Repair & Maintenance</h4>
+                            <p class="text-gray-600">Comprehensive computer repair services and regular maintenance to keep systems running smoothly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Office Furniture & Stationery (Local Images) -->
+            <div class="mb-20 fade-in">
+                <h3 class="text-2xl font-bold green-heading mb-8 text-center">Office Furniture & Stationery</h3>
+                <p class="text-gray-700 mb-8 text-center max-w-3xl mx-auto text-lg">We cater for all your office needs including furniture, stationery and equipment.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Leather Office Chairs -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../images/OIP-509147929.jpeg" 
+                                 alt="Leather Office Chairs" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Leather Office Chairs</h4>
+                            <p class="text-gray-600">Premium leather office chairs for comfort and professional appearance.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Office Storage Cabinets -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../images/OIP-3831802369.jpeg" 
+                                 alt="Office Storage Cabinets" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Office Storage Cabinets</h4>
+                            <p class="text-gray-600">Secure and organized storage solutions for documents and office supplies.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Office Reception Desks -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../images/OIP-3881611535.jpeg" 
+                                 alt="Office Reception Desks" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Office Reception Desks</h4>
+                            <p class="text-gray-600">Impressive reception desks to create a welcoming first impression for visitors.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Office Box Files and Spring Files -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../images/office-files.png" 
+                                 alt="Office Box Files and Spring Files" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Office Files</h4>
+                            <p class="text-gray-600">Box files and spring files for organized document management.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Staplers, Mark pens, Pencils, Rubbers -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../images/office-stationery.png" 
+                                 alt="Office Stationery" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Office Stationery</h4>
+                            <p class="text-gray-600">Complete range of stationery including staplers, markers, pencils, and erasers.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Visitors Waiting Seats -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../images/OIP-442439766.jpeg" 
+                                 alt="Visitors Waiting Seats" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Visitor Waiting Seats</h4>
+                            <p class="text-gray-600">Comfortable seating for visitors in reception and waiting areas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Printing Supplies (Local Images) -->
+            <div class="mb-20 fade-in">
+                <h3 class="text-2xl font-bold green-heading mb-8 text-center">Printing Supplies</h3>
+                <p class="text-gray-700 mb-8 text-center max-w-3xl mx-auto text-lg">We supply printing papers, printers, toners and related equipment.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Photocopying and Printing Papers -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../images/printing-papers.png" 
+                                 alt="Photocopying and Printing Papers" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Printing Papers</h4>
+                            <p class="text-gray-600">High-quality photocopying and printing papers in various sizes and weights.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Photocopying & Printing machines -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../images/OIP-2912883664.jpeg" 
+                                 alt="Photocopying & Printing machines" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Photocopying Machines</h4>
+                            <p class="text-gray-600">Reliable photocopying and printing machines for office use.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Printers -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../images/printers.png" 
+                                 alt="Printers" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Printers</h4>
+                            <p class="text-gray-600">Inkjet and laser printers for all printing needs.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Binding and Laminating Machines -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../images/binding-laminating.png" 
+                                 alt="Binding and Laminating Machines" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Binding & Laminating</h4>
+                            <p class="text-gray-600">Professional binding and laminating machines for document finishing.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Fax Machines -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../images/fax-machines.png" 
+                                 alt="Fax Machines" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Fax Machines</h4>
+                            <p class="text-gray-600">Traditional and digital fax machines for business communication.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Toner Cartridges & Ink -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../images/OIP-1957250288.jpeg" 
+                                 alt="Toner Cartridges & Ink" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Toner & Ink Cartridges</h4>
+                            <p class="text-gray-600">Genuine and compatible toner cartridges and ink for all printer models.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mineral Drinking Water (Local Images) -->
+            <div class="mb-20 fade-in">
+                <h3 class="text-2xl font-bold green-heading mb-8 text-center">Mineral Drinking Water</h3>
+                <p class="text-gray-700 mb-8 text-center max-w-3xl mx-auto text-lg">We supply purified and distilled drinking water in various quantities with optional branding.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- 500ml Bottled Water -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../images/OIP-2240121636.jpeg" 
+                                 alt="500ml Bottled Water" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">500ml Bottled Water</h4>
+                            <p class="text-gray-600">Convenient 500ml bottled water for individual consumption.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 1L Bottled Water -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../images/OIP-1083206453.jpeg" 
+                                 alt="1L Bottled Water" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">1L Bottled Water</h4>
+                            <p class="text-gray-600">1-liter bottled water for longer hydration needs.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 3L, 5L and 10L Bottles -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1603400521630-9f2de124b33b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                                 alt="3L, 5L and 10L Bottles" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">3L, 5L & 10L Bottles</h4>
+                            <p class="text-gray-600">Larger water bottles for family and office use.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 20L refillable Bottles -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../images/20L_refillable.png" 
+                                 alt="20L refillable Bottles" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">20L Refillable Bottles</h4>
+                            <p class="text-gray-600">Large 20-liter refillable water bottles with dispensers.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Custom Branding Available -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../images/custom_branding.png" 
+                                 alt="Custom Branding Available" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Custom Branding</h4>
+                            <p class="text-gray-600">Custom branding options for corporate clients and events.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Bulk Orders Welcome -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../images/ordering.png" 
+                                 alt="Bulk Orders Welcome" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Bulk Orders</h4>
+                            <p class="text-gray-600">Special pricing and delivery for bulk water orders.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Airtime (Local Images) -->
+            <div class="mb-20 fade-in">
+                <h3 class="text-2xl font-bold green-heading mb-8 text-center">Mobile Airtime</h3>
+                <p class="text-gray-700 mb-8 text-center max-w-3xl mx-auto text-lg">We provide calling scratch cards and airtime from all network providers in Kenya.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Safaricom Airtime -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../images/safaricom.jpeg" 
+                                 alt="Safaricom Airtime" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Safaricom Airtime</h4>
+                            <p class="text-gray-600">Airtime and data bundles for Safaricom network users.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Airtel Calling Airtime -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                                 alt="Airtel Calling Airtime" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Airtel Airtime</h4>
+                            <p class="text-gray-600">Airtime and data bundles for Airtel network users.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Telkom Calling Airtimes -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../images/TELKOM-AIRTIME-2958710044.png" 
+                                 alt="Telkom Calling Airtimes" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Telkom Airtime</h4>
+                            <p class="text-gray-600">Airtime and data bundles for Telkom network users.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Bulk Airtime Solutions -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../images/airtime.jpeg" 
+                                 alt="Bulk Airtime Solutions" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Bulk Airtime Solutions</h4>
+                            <p class="text-gray-600">Custom airtime solutions for corporate clients and bulk purchases.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Corporate Airtime Packages -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../images/Tradelance-CorporateAirtimeData-1-780164834.png" 
+                                 alt="Corporate Airtime Packages" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Corporate Airtime Packages</h4>
+                            <p class="text-gray-600">Tailored airtime packages for businesses and organizations.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Keep you connected everywhere -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                                 alt="Keep you connected everywhere" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Stay Connected</h4>
+                            <p class="text-gray-600">Reliable airtime solutions to keep you connected anywhere, anytime.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Audio Visual Equipment (Local Images) -->
+            <div class="mb-20 fade-in">
+                <h3 class="text-2xl font-bold green-heading mb-8 text-center">Audio Visual Equipment</h3>
+                <p class="text-gray-700 mb-8 text-center max-w-3xl mx-auto text-lg">Professional audio and visual equipment for events, conferences and exhibitions.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Professional Audio Systems -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../images/DJ-Sound-System-PNG-Free-Download-3596712388.png" 
+                                 alt="Professional Audio Systems" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Professional Audio Systems</h4>
+                            <p class="text-gray-600">High-quality sound systems for events, conferences, and performances.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Lighting Equipment -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../images/Professional lighting solutions.jpg" 
+                                 alt="Lighting Equipment" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Lighting Equipment</h4>
+                            <p class="text-gray-600">Professional lighting solutions to enhance any event or performance.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Visual Display Solutions -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                                 alt="Visual Display Solutions" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Visual Display Solutions</h4>
+                            <p class="text-gray-600">Large screens, projectors, and display walls for impactful presentations.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Event Rigging Services -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                                 alt="Event Rigging Services" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Event Rigging Services</h4>
+                            <p class="text-gray-600">Professional rigging services for safe installation of audio-visual equipment.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Graphics & Design Services -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                                 alt="Graphics & Design Services" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Graphics & Design Services</h4>
+                            <p class="text-gray-600">Custom graphics and design services for events and presentations.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Equipment Rentals -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                                 alt="Equipment Rentals" 
+                                 class="w-full h-full object-cover product-image">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Equipment Rentals</h4>
+                            <p class="text-gray-600">Flexible rental options for all audio-visual equipment needs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-padding bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-secondary mb-4">OUR SERVICES</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 - Audio Visual Services -->
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg card-hover">
+                    <div class="flex flex-col items-center mb-6">
+                        <div class="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-4 service-icon overflow-hidden">
+                            <img src="../images/OIP-678291997.jpeg" 
+                                 alt="Audio Visual Services" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-2xl font-semibold green-heading text-center">Audio Visual Services</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4 leading-relaxed">We provide professional audio production services to ensure crisp, clear audio for all your events.</p>
+                    <ul class="text-gray-600 list-disc pl-5 space-y-2">
+                        <li>Rigging & Truss Services</li>
+                        <li>Event Design and Planning</li>
+                        <li>Graphics and Visuals</li>
+                        <li>Equipment Rentals</li>
+                        <li>Professional Lighting</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 2 - Simultaneous Interpretation -->
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg card-hover">
+                    <div class="flex flex-col items-center mb-6">
+                        <div class="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-4 service-icon overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                                 alt="Simultaneous Interpretation" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-2xl font-semibold green-heading text-center">Simultaneous Interpretation</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4 leading-relaxed">We are specialist providers of simultaneous interpretation equipment for conferences and meetings.</p>
+                    <ul class="text-gray-600 list-disc pl-5 space-y-2">
+                        <li>Turnkey Solutions</li>
+                        <li>Seamless Venue Liaison</li>
+                        <li>Professional Equipment</li>
+                        <li>Detailed Project Management</li>
+                        <li>Multilingual Support</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 3 - Conferences & Exhibitions -->
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg card-hover">
+                    <div class="flex flex-col items-center mb-6">
+                        <div class="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-4 service-icon overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                                 alt="Conferences & Exhibitions" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-2xl font-semibold green-heading text-center">Conferences & Exhibitions</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4 leading-relaxed">We make event planning easier with our comprehensive exhibition and conference management services.</p>
+                    <ul class="text-gray-600 list-disc pl-5 space-y-2">
+                        <li>Exhibition Wall Hire</li>
+                        <li>Display Solutions</li>
+                        <li>Audio Systems</li>
+                        <li>Equipment Rentals</li>
+                        <li>Wireless Internet Solutions</li>
+                        <li>Event Staffing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agricultural Services Section -->
+    <section id="agricultural" class="agri-hero-bg pt-32 pb-40 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-slide-up">INTEGRATED AGRICULTURAL SERVICES</h1>
+                <h2 class="text-2xl md:text-3xl font-bold mb-6">COMPANY PROFILE AND CATALOGUE</h2>
+                <h3 class="text-xl md:text-2xl font-bold mb-8">SANAI INTEGRATED SERVICES</h3>
+                <p class="text-xl mb-8 max-w-2xl mx-auto animate-fade-in">Transforming farms and livelihoods through provision of timely, accessible and affordable information, services and technologies.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in">
+                    <a href="#contact" class="btn-agri btn-ripple text-white px-8 py-4 rounded-lg font-medium mobile-touch-target">Contact Us</a>
+                    <a href="#agri-services" class="bg-white text-agri-green px-8 py-4 rounded-lg font-medium transition duration-300 hover:bg-gray-100 mobile-touch-target">Our Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agricultural About Section -->
+    <section id="agri-about" class="section-padding bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-secondary mb-4">WHO WE ARE</h2>
+                <div class="w-20 h-1 bg-agri-green mx-auto"></div>
+            </div>
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-semibold green-heading mb-6">Our Mission</h3>
+                    <p class="text-gray-700 mb-6 leading-relaxed">We are an Agricultural Consultancy and Technology firm with key strengths in Irrigation, Water and Greenhouse technologies.</p>
+                    <p class="text-gray-700 mb-6 leading-relaxed">Our mission is transforming farms and livelihoods through provision of timely, accessible and affordable information, services and technologies.</p>
+                    
+                    <div class="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-lg border-l-4 border-agri-green shadow-sm mb-8">
+                        <h4 class="text-lg font-semibold text-secondary mb-3">YOUTH AND WOMEN AGENDA</h4>
+                        <p class="text-gray-700 leading-relaxed mb-3">We are committed to training and supporting the youth to become astute agribusiness investors, farm management and support staff, greenhouse technicians and irrigation technicians.</p>
+                        <p class="text-gray-700 leading-relaxed">We actively support equal participation of women in agribusiness through targeted programs and initiatives.</p>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
+                        <h3 class="text-2xl font-semibold green-heading mb-6">Our Value Proposition</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="w-6 h-6 bg-agri-green rounded-full flex items-center justify-center mr-3 mt-1">
+                                    <i class="fas fa-check text-white text-xs"></i>
+                                </div>
+                                <p class="text-gray-700">Systematic and holistic approach to delivering farm establishment and management solutions.</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-6 h-6 bg-agri-green rounded-full flex items-center justify-center mr-3 mt-1">
+                                    <i class="fas fa-check text-white text-xs"></i>
+                                </div>
+                                <p class="text-gray-700">Creative and out of the box approaches to promoting sustainable and profitable agribusinesses.</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-6 h-6 bg-agri-green rounded-full flex items-center justify-center mr-3 mt-1">
+                                    <i class="fas fa-check text-white text-xs"></i>
+                                </div>
+                                <p class="text-gray-700">Technical Support and Market Linkages for our clients.</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-6 h-6 bg-agri-green rounded-full flex items-center justify-center mr-3 mt-1">
+                                    <i class="fas fa-check text-white text-xs"></i>
+                                </div>
+                                <p class="text-gray-700">Agricultural Information dissemination and coaching through various platforms.</p>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Services Summary -->
+                    <div class="mt-8 bg-white p-6 rounded-xl shadow-lg card-hover">
+                        <h4 class="text-xl font-semibold green-heading mb-4">Our Services</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-agri-green rounded-full flex items-center justify-center mr-3 mt-1">
+                                    <i class="fas fa-seedling text-white text-sm"></i>
+                                </div>
+                                <p class="text-gray-700">Greenhouse Construction</p>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-agri-green rounded-full flex items-center justify-center mr-3 mt-1">
+                                    <i class="fas fa-tint text-white text-sm"></i>
+                                </div>
+                                <p class="text-gray-700">Irrigation Systems</p>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-agri-green rounded-full flex items-center justify-center mr-3 mt-1">
+                                    <i class="fas fa-tractor text-white text-sm"></i>
+                                </div>
+                                <p class="text-gray-700">Agricultural Advisory</p>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-agri-green rounded-full flex items-center justify-center mr-3 mt-1">
+                                    <i class="fas fa-water text-white text-sm"></i>
+                                </div>
+                                <p class="text-gray-700">Borehole Services</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agricultural Services Section -->
+    <section id="agri-services" class="section-padding bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-secondary mb-4">OUR AGRICULTURAL SERVICES</h2>
+                <div class="w-20 h-1 bg-agri-green mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 - Greenhouse Construction -->
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg card-hover">
+                    <div class="flex flex-col items-center mb-6">
+                        <div class="w-16 h-16 bg-agri-green rounded-xl flex items-center justify-center mb-4 service-icon">
+                            <i class="fas fa-seedling text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold green-heading text-center">Greenhouse Construction</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4 leading-relaxed">We construct greenhouses for horticultural purposes and other uses like fish farming and grain drying.</p>
+                    <ul class="text-gray-600 list-disc pl-5 space-y-2">
+                        <li>Low cost low tech projects</li>
+                        <li>Large scale complex projects</li>
+                        <li>Integrated management services</li>
+                        <li>Market linkage service</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 2 - Irrigation Systems -->
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg card-hover">
+                    <div class="flex flex-col items-center mb-6">
+                        <div class="w-16 h-16 bg-agri-green rounded-xl flex items-center justify-center mb-4 service-icon">
+                            <i class="fas fa-tint text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold green-heading text-center">Irrigation Systems</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4 leading-relaxed">We design, supply and install irrigation systems and fittings for crop production and lawn maintenance.</p>
+                    <ul class="text-gray-600 list-disc pl-5 space-y-2">
+                        <li>Overhead and surface irrigation</li>
+                        <li>Drip irrigation systems</li>
+                        <li>Pumps, pipes and fittings</li>
+                        <li>Integrated management services</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 3 - Agricultural Advisory -->
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg card-hover">
+                    <div class="flex flex-col items-center mb-6">
+                        <div class="w-16 h-16 bg-agri-green rounded-xl flex items-center justify-center mb-4 service-icon">
+                            <i class="fas fa-tractor text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold green-heading text-center">Agricultural Advisory</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4 leading-relaxed">We support agribusiness investors in formulating farm set up, management & growth strategies.</p>
+                    <ul class="text-gray-600 list-disc pl-5 space-y-2">
+                        <li>Farm set up strategies</li>
+                        <li>Management & growth planning</li>
+                        <li>Production infrastructure</li>
+                        <li>Commercial viability focus</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 4 - Borehole Services -->
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg card-hover">
+                    <div class="flex flex-col items-center mb-6">
+                        <div class="w-16 h-16 bg-agri-green rounded-xl flex items-center justify-center mb-4 service-icon">
+                            <i class="fas fa-water text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold green-heading text-center">Borehole Services</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4 leading-relaxed">Our borehole services include hydro geological survey, drilling, test pumping and borehole equipping.</p>
+                    <ul class="text-gray-600 list-disc pl-5 space-y-2">
+                        <li>Hydro geological survey</li>
+                        <li>Drilling and extraction</li>
+                        <li>Permit acquisition</li>
+                        <li>Test pumping & equipping</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 5 - Farm Infrastructure -->
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg card-hover">
+                    <div class="flex flex-col items-center mb-6">
+                        <div class="w-16 h-16 bg-agri-green rounded-xl flex items-center justify-center mb-4 service-icon">
+                            <i class="fas fa-tools text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold green-heading text-center">Farm Infrastructure</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4 leading-relaxed">We construct various farm infrastructure including water towers, charcoal coolers, stores, and fencing.</p>
+                    <ul class="text-gray-600 list-disc pl-5 space-y-2">
+                        <li>Water towers</li>
+                        <li>Charcoal coolers</li>
+                        <li>Produce stores</li>
+                        <li>Farm houses & fencing</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 6 - Water Harvesting -->
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg card-hover">
+                    <div class="flex flex-col items-center mb-6">
+                        <div class="w-16 h-16 bg-agri-green rounded-xl flex items-center justify-center mb-4 service-icon">
+                            <i class="fas fa-cloud-rain text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold green-heading text-center">Water Harvesting</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4 leading-relaxed">Our greenhouses are designed with gutters for water harvesting. We also provide dam liners for water harvesting dams.</p>
+                    <ul class="text-gray-600 list-disc pl-5 space-y-2">
+                        <li>Greenhouse gutters</li>
+                        <li>Dam liners</li>
+                        <li>Water collection systems</li>
+                        <li>Storage solutions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Greenhouse Services Section -->
+    <section id="greenhouse" class="section-padding bg-gradient-to-br from-gray-50 to-green-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-secondary mb-4">GREENHOUSE CONSTRUCTION AND MANAGEMENT SERVICES</h2>
+                <div class="w-20 h-1 bg-agri-green mx-auto"></div>
+            </div>
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <p class="text-gray-700 mb-6 leading-relaxed">We construct greenhouses for horticultural purposes and other uses like fish farming and grain drying.</p>
+                    <p class="text-gray-700 mb-6 leading-relaxed">We also offer integrated management services to ensure successful production of quality and safe products from the greenhouses. Our market linkage service ensures that our farmers turn their products into profits. We undertake both low cost low tech projects and large scale complex projects.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h4 class="text-lg font-semibold text-agri-green mb-3">Ace Greenhouse Tunnel Model</h4>
+                            <div class="h-48 overflow-hidden bg-gradient-to-br from-green-100 to-blue-100 rounded-lg flex items-center justify-center">
+                                <img src="../images/genhouse-tunnel-modelre.jpg" 
+                                     alt="Ace Greenhouse Tunnel Model" 
+                                     class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h4 class="text-lg font-semibold text-agri-green mb-3">Large Scale Roof Ventilated Greenhouse</h4>
+                            <div class="h-48 overflow-hidden bg-gradient-to-br from-green-100 to-blue-100 rounded-lg flex items-center justify-center">
+                                <img src="../images/roof-ventilated-greenhouse.jpg" 
+                                     alt="Large Scale Roof Ventilated Greenhouse" 
+                                     class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h4 class="text-lg font-semibold text-agri-green mb-3">Sanai Kadogo Model for Kitchen Gardening</h4>
+                            <div class="h-48 overflow-hidden bg-gradient-to-br from-green-100 to-blue-100 rounded-lg flex items-center justify-center">
+                                <img src="../images/kadogo-kitchen-gardening.jpg" 
+                                     alt="Sanai Kadogo Model for Kitchen Gardening" 
+                                     class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h4 class="text-lg font-semibold text-agri-green mb-3">Greenhouse Farming - Capsicum</h4>
+                            <div class="h-48 overflow-hidden bg-gradient-to-br from-green-100 to-blue-100 rounded-lg flex items-center justify-center">
+                                <img src="../images/greenhouse-capsicum.jpg" 
+                                     alt="Greenhouse Farming - Capsicum" 
+                                     class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
+                        <h3 class="text-2xl font-semibold green-heading mb-6">AGRICULTURAL ADVISORY AND MANAGEMENT SERVICES</h3>
+                        <p class="text-gray-700 mb-6 leading-relaxed">We support agribusiness investors in formulating farm set up, management & growth strategies.</p>
+                        <p class="text-gray-700 mb-6 leading-relaxed">We also facilitate the set up of the requisite production and operational infrastructure and support in managing the enterprises. We pay close attention to commercial viability and sustainability of the projects. We also focus on risk reduction, environmental impact and social acceptability of the projects.</p>
+                        
+                        <div class="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-lg border-l-4 border-agri-green shadow-sm">
+                            <h4 class="text-lg font-semibold text-secondary mb-3">ADVISORY AND TRAINING</h4>
+                            <p class="text-gray-700 leading-relaxed">Our comprehensive advisory and training programs ensure that our clients have the knowledge and skills needed for successful agricultural ventures.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Irrigation Section -->
+    <section id="irrigation" class="section-padding bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-secondary mb-4">IRRIGATION, DRILLING AND WATER HARVESTING</h2>
+                <div class="w-20 h-1 bg-agri-green mx-auto"></div>
+            </div>
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <p class="text-gray-700 mb-6 leading-relaxed">Irrigation is the artificial application of controlled amounts of water to agricultural crops and landscapes. We design, supply and install irrigation systems and fittings for crop production and lawn maintenance. We design and install both overhead and surface irrigation and also supply pumps, pipes and fittings for low cost surface irrigation through canals or basins. Our integrated management and market linkage services also extend to open field produced crops.</p>
+                    <p class="text-gray-700 mb-6 leading-relaxed">Water is the life sustaining component of any agricultural production venture. We therefore endeavor to ensure that our farmers have access to sufficient, good quality water for crop and animal production. Our greenhouses are designed to have gutters for water harvesting. We also provide dam liners for lining water harvesting dams. Our borehole services include hydro geological survey, drilling and extraction permit acquisition, drilling, test pumping and borehole equipping.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h4 class="text-lg font-semibold text-agri-green mb-3">Intensive Onion Production Under Drip Irrigation</h4>
+                            <div class="h-48 overflow-hidden bg-gradient-to-br from-green-100 to-blue-100 rounded-lg flex items-center justify-center">
+                                <img src="../images/onion-drip-irrigation.jpg" 
+                                     alt="Intensive Onion Production Under Drip Irrigation" 
+                                     class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h4 class="text-lg font-semibold text-agri-green mb-3">Pop Up Sprinklers for Lawn Irrigation</h4>
+                            <div class="h-48 overflow-hidden bg-gradient-to-br from-green-100 to-blue-100 rounded-lg flex items-center justify-center">
+                                <img src="../images/pop-up-sprinklers.jpg" 
+                                     alt="Pop Up Sprinklers for Lawn Irrigation" 
+                                     class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h4 class="text-lg font-semibold text-agri-green mb-3">Dam for Water Collection</h4>
+                            <div class="h-48 overflow-hidden bg-gradient-to-br from-green-100 to-blue-100 rounded-lg flex items-center justify-center">
+                                <img src="../images/water-collection-dam.jpg" 
+                                     alt="Dam for Water Collection" 
+                                     class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h4 class="text-lg font-semibold text-agri-green mb-3">Borehole Water Drilling</h4>
+                            <div class="h-48 overflow-hidden bg-gradient-to-br from-green-100 to-blue-100 rounded-lg flex items-center justify-center">
+                                <img src="../images/borehole-drilling.jpg" 
+                                     alt="Borehole Water Drilling" 
+                                     class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
+                        <h3 class="text-2xl font-semibold green-heading mb-6">Our Water Solutions</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="w-6 h-6 bg-agri-green rounded-full flex items-center justify-center mr-3 mt-1">
+                                    <i class="fas fa-check text-white text-xs"></i>
+                                </div>
+                                <p class="text-gray-700">Complete irrigation system design and installation</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-6 h-6 bg-agri-green rounded-full flex items-center justify-center mr-3 mt-1">
+                                    <i class="fas fa-check text-white text-xs"></i>
+                                </div>
+                                <p class="text-gray-700">Borehole drilling and equipping services</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-6 h-6 bg-agri-green rounded-full flex items-center justify-center mr-3 mt-1">
+                                    <i class="fas fa-check text-white text-xs"></i>
+                                </div>
+                                <p class="text-gray-700">Water harvesting solutions including dam liners</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-6 h-6 bg-agri-green rounded-full flex items-center justify-center mr-3 mt-1">
+                                    <i class="fas fa-check text-white text-xs"></i>
+                                </div>
+                                <p class="text-gray-700">Hydro-geological surveys and permit acquisition</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agricultural Products Section -->
+    <section id="agri-products" class="section-padding bg-gradient-to-br from-gray-50 to-green-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-secondary mb-4">OUR AGRICULTURAL PRODUCTS</h2>
+                <div class="w-20 h-1 bg-agri-green mx-auto"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto mt-4 text-lg">We supply a wide range of agricultural products to support your farming operations.</p>
+            </div>
+
+            <!-- Irrigation Products -->
+            <div class="mb-20 fade-in">
+                <h3 class="text-2xl font-bold green-heading mb-8 text-center">Irrigation Products</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Drip Irrigation Components -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
+                            <i class="fas fa-tint text-agri-green text-6xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Drip Irrigation Components</h4>
+                            <p class="text-gray-600">Complete range of drip irrigation components including connectors, valves, and emitters.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- PVC & HDPE Pipes -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
+                            <i class="fas fa-pipe text-agri-green text-6xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">PVC & HDPE Pipes</h4>
+                            <p class="text-gray-600">High-quality pipes in various sizes for all your irrigation and water supply needs.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Irrigation Fittings & Filters -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
+                            <i class="fas fa-filter text-agri-green text-6xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Fittings & Filters</h4>
+                            <p class="text-gray-600">Comprehensive range of irrigation fittings, filters, and accessories.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Greenhouse Materials -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
+                            <i class="fas fa-seedling text-agri-green text-6xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Greenhouse Materials</h4>
+                            <p class="text-gray-600">All materials needed for greenhouse construction and maintenance.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Mulching Paper -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
+                            <i class="fas fa-layer-group text-agri-green text-6xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Mulching Paper</h4>
+                            <p class="text-gray-600">Quality mulching paper for weed control and moisture retention.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Agricultural Nets -->
+                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                        <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
+                            <i class="fas fa-network-wired text-agri-green text-6xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Agricultural Nets</h4>
+                            <p class="text-gray-600">Various agricultural nets for shade, bird protection, and other applications.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Irrigation Components Section -->
+    <section id="irrigation-components" class="section-padding bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-secondary mb-4">IRRIGATION COMPONENTS</h2>
+                <div class="w-20 h-1 bg-agri-green mx-auto"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto mt-4 text-lg">High-quality irrigation components for efficient water management in your farm.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <!-- Component 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                    <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
+                        <img src="../images/pepsi-lateral-valve.jpg" 
+                             alt="Pepsi Lateral Valve" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-semibold text-secondary mb-2">Pepsi Lateral Valve</h4>
+                        <p class="text-gray-600 mb-3">High-quality lateral valve for irrigation systems</p>
+                        <p class="text-agri-green font-bold text-xl">KES 35</p>
+                    </div>
+                </div>
+
+                <!-- Component 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                    <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
+                        <img src="../images/pe-pvc-pipes.jpg" 
+                             alt="Polyethylene (PE) & PVC Pipes" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-semibold text-secondary mb-2">Polyethylene (PE) & PVC Pipes</h4>
+                        <p class="text-gray-600 mb-3">Various sizes available for all irrigation needs</p>
+                        <p class="text-agri-green font-bold text-xl">Various Prices</p>
+                    </div>
+                </div>
+
+                <!-- Component 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                    <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
+                        <img src="../images/start-connector.jpg" 
+                             alt="Start Connector without Ring" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-semibold text-secondary mb-2">Start Connector without Ring</h4>
+                        <p class="text-gray-600 mb-3">Reliable start connector for drip systems</p>
+                        <p class="text-agri-green font-bold text-xl">KES 25</p>
+                    </div>
+                </div>
+
+                <!-- Component 4 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                    <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
+                        <img src="../images/pepsi-take-off.jpg" 
+                             alt="Pepsi Take Off (Start Swivel Connector)" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-semibold text-secondary mb-2">Pepsi Take Off (Start Swivel Connector)</h4>
+                        <p class="text-gray-600 mb-3">Swivel connector for easy installation</p>
+                        <p class="text-agri-green font-bold text-xl">KES 25</p>
+                    </div>
+                </div>
+
+                <!-- Component 5 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                    <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
+                        <img src="../images/pepsi-end-cap.jpg" 
+                             alt="Pepsi End Cap" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-semibold text-secondary mb-2">Pepsi End Cap</h4>
+                        <p class="text-gray-600 mb-3">End cap for closing irrigation lines</p>
+                        <p class="text-agri-green font-bold text-xl">KES 25</p>
+                    </div>
+                </div>
+
+                <!-- Component 6 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                    <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
+                        <img src="../images/pe-to-drip-connector.jpg" 
+                             alt="PE to Drip Connector" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-semibold text-secondary mb-2">PE to Drip Connector</h4>
+                        <p class="text-gray-600 mb-3">Connector for PE pipe to drip line</p>
+                        <p class="text-agri-green font-bold text-xl">KES 25</p>
+                    </div>
+                </div>
+
+                <!-- Component 7 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                    <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
+                        <img src="../images/lateral-valve-barb.jpg" 
+                             alt="Lateral Valve, barb x barb" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-semibold text-secondary mb-2">Lateral Valve, barb x barb</h4>
+                        <p class="text-gray-600 mb-3">Barbed lateral valve for connections</p>
+                        <p class="text-agri-green font-bold text-xl">KES 60</p>
+                    </div>
+                </div>
+
+                <!-- Component 8 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                    <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
+                        <img src="../images/pepsi-joiner.jpg" 
+                             alt="Pepsi Joiner (Drip to Drip Connector)" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-semibold text-secondary mb-2">Pepsi Joiner (Drip to Drip Connector)</h4>
+                        <p class="text-gray-600 mb-3">Joiner for connecting drip lines</p>
+                        <p class="text-agri-green font-bold text-xl">KES 25</p>
+                    </div>
+                </div>
+
+                <!-- Component 9 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                    <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
+                        <img src="../images/online-emitter.jpg" 
+                             alt="Online Emitter (Button Dripper)" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-semibold text-secondary mb-2">Online Emitter (Button Dripper)</h4>
+                        <p class="text-gray-600 mb-3">Button dripper for precise watering</p>
+                        <p class="text-agri-green font-bold text-xl">KES 25</p>
+                    </div>
+                </div>
+
+                <!-- Component 10 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                    <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
+                        <img src="../images/16mm-drip-tape.jpg" 
+                             alt="16mm Drip Tape" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-semibold text-secondary mb-2">16mm Drip Tape</h4>
+                        <p class="text-gray-600 mb-3">1,000m, 0.4mm thickness</p>
+                        <p class="text-agri-green font-bold text-xl">KES 9,500</p>
+                    </div>
+                </div>
+
+                <!-- Component 11 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                    <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
+                        <img src="../images/16mm-pe-pipe.jpg" 
+                             alt="16mm PE Pipe" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-semibold text-secondary mb-2">16mm PE Pipe</h4>
+                        <p class="text-gray-600 mb-3">500m roll for irrigation systems</p>
+                        <p class="text-agri-green font-bold text-xl">KES 9,500</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <div class="bg-agri-green text-white p-6 rounded-xl inline-block">
+                    <h3 class="text-2xl font-bold mb-2">Sanai Integrated Services</h3>
+                    <p class="text-lg">Call: 0722 648580, Email: sanaiholdings@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="section-padding bg-gradient-to-br from-gray-50 to-green-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-secondary mb-4">PRICE CATALOGUE</h2>
+                <div class="w-20 h-1 bg-agri-green mx-auto"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto mt-4 text-lg">Indicative prices for our products and services are subject to confirmation at the time of order.</p>
+            </div>
+
+            <!-- Greenhouse Costs -->
+            <div class="mb-16 fade-in">
+                <h3 class="text-2xl font-bold green-heading mb-8 text-center">Greenhouse Costs</h3>
+                
+                <div class="overflow-x-auto bg-white rounded-xl shadow-lg p-6">
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th>Size</th>
+                                <th>SQM</th>
+                                <th>Structure</th>
+                                <th>Irrigation with 1,000L tank</th>
+                                <th>Crop Support structure</th>
+                                <th>Installation</th>
+                                <th>Total (KES)</th>
+                                <th>Cost in USD/Sqm</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>08m x 15m</td>
+                                <td>120</td>
+                                <td>140,000</td>
+                                <td>21,000</td>
+                                <td>18,000</td>
+                                <td>12,000</td>
+                                <td>191,000</td>
+                                <td>15.91</td>
+                            </tr>
+                            <tr>
+                                <td>16m x 15m</td>
+                                <td>240</td>
+                                <td>235,000</td>
+                                <td>31,000</td>
+                                <td>28,000</td>
+                                <td>16,000</td>
+                                <td>310,000</td>
+                                <td>12.91</td>
+                            </tr>
+                            <tr>
+                                <td>08m x 24m</td>
+                                <td>192</td>
+                                <td>210,000</td>
+                                <td>23,000</td>
+                                <td>20,000</td>
+                                <td>12,000</td>
+                                <td>265,000</td>
+                                <td>13.80</td>
+                            </tr>
+                            <tr>
+                                <td>16m x 24m</td>
+                                <td>384</td>
+                                <td>300,000</td>
+                                <td>35,000</td>
+                                <td>35,000</td>
+                                <td>20,000</td>
+                                <td>390,000</td>
+                                <td>10.16</td>
+                            </tr>
+                            <tr>
+                                <td>08m x 30m</td>
+                                <td>240</td>
+                                <td>215,000</td>
+                                <td>25,000</td>
+                                <td>24,000</td>
+                                <td>15,000</td>
+                                <td>279,000</td>
+                                <td>11.63</td>
+                            </tr>
+                            <tr>
+                                <td>16m x 30m</td>
+                                <td>480</td>
+                                <td>370,000</td>
+                                <td>37,000</td>
+                                <td>50,000</td>
+                                <td>25,000</td>
+                                <td>482,000</td>
+                                <td>10.04</td>
+                            </tr>
+                            <tr>
+                                <td>24m x 30m</td>
+                                <td>720</td>
+                                <td>545,000</td>
+                                <td>50,000</td>
+                                <td>80,000</td>
+                                <td>45,000</td>
+                                <td>720,000</td>
+                                <td>10.00</td>
+                            </tr>
+                            <tr>
+                                <td>32m x 30m</td>
+                                <td>960</td>
+                                <td>750,000</td>
+                                <td>60,000</td>
+                                <td>105,000</td>
+                                <td>50,000</td>
+                                <td>965,000</td>
+                                <td>10.05</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="mt-6 text-center">
+                    <p class="text-gray-700"><strong>Optional additions:</strong> Roof ventilation, gutters for water harvesting, entry porch and roll up system for climate control are additional features that can be added to the greenhouse at additional costs.</p>
+                </div>
+            </div>
+
+            <!-- Drip Irrigation Pricing -->
+            <div class="fade-in">
+                <h3 class="text-2xl font-bold green-heading mb-8 text-center">Drip Irrigation Installation</h3>
+                
+                <div class="overflow-x-auto bg-white rounded-xl shadow-lg p-6">
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th>Acreage</th>
+                                <th>Quarter Acre with 1,500m of drip</th>
+                                <th>Half Acre with 3,000m of drip</th>
+                                <th>One Acre with 6,000m of drip</th>
+                                <th>Two Acres with 12,000m of drip</th>
+                                <th>Five Acres with 31,000m of drip</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Price (KES)</td>
+                                <td>60,000</td>
+                                <td>110,000</td>
+                                <td>190,000</td>
+                                <td>340,000</td>
+                                <td>932,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quotation Section -->
+    <section id="quotation" class="section-padding bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-secondary mb-4">SAMPLE QUOTATION</h2>
+                <div class="w-20 h-1 bg-agri-green mx-auto"></div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-agri-green mb-4">Sanai Holdings Ltd</h3>
+                    <p class="text-gray-700">P.O Box 564-30400, Kabarnet, Kenya</p>
+                    <p class="text-gray-700">Supermarket. TEL: 0722 648580,</p>
+                    <p class="text-gray-700">Email: sanaiholdings@gmail.com</p>
+                </div>
+                
+                <div class="mb-8">
+                    <p class="text-gray-700"><strong>Date:</strong> October 30, 2020</p>
+                    <p class="text-gray-700"><strong>Client:</strong> Esther & Beat</p>
+                    <p class="text-gray-700">P.o Box 61- Kitengela</p>
+                    <p class="text-gray-700">Nairobi Att: Daniel</p>
+                </div>
+                
+                <div class="mb-8">
+                    <h4 class="text-xl font-semibold text-secondary mb-2">Dear Daniel,</h4>
+                    <h4 class="text-xl font-semibold text-agri-green mb-4">Re: Quotation for supply and installation of drip irrigation 140m x 72m</h4>
+                    <p class="text-gray-700 mb-4">We refer to your RfQ regarding the above, and now have the pleasure of sending to your attention this quotation, terms and conditions as detailed hereunder: -</p>
+                </div>
+                
+                <div class="overflow-x-auto mb-8">
+                    <table class="quotation-table">
+                        <thead>
+                            <tr>
+                                <th>ITEM</th>
+                                <th>QNTY</th>
+                                <th>UNITS</th>
+                                <th>PRICE</th>
+                                <th>AMOUNT</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Main pipe 63mm</td>
+                                <td>(55-21) = 34</td>
+                                <td>Pcs</td>
+                                <td>950</td>
+                                <td>46,750.00</td>
+                            </tr>
+                            <tr>
+                                <td>Sub main 50mm</td>
+                                <td>300</td>
+                                <td>Mtrs</td>
+                                <td>140</td>
+                                <td>36,000.00</td>
+                            </tr>
+                            <tr>
+                                <td>Complete connectors</td>
+                                <td>500</td>
+                                <td>Pcs</td>
+                                <td>105</td>
+                                <td>47,500.00</td>
+                            </tr>
+                            <tr>
+                                <td>Ball cork 50mm</td>
+                                <td>8</td>
+                                <td>Pcs</td>
+                                <td>1200</td>
+                                <td>9,600.00</td>
+                            </tr>
+                            <tr>
+                                <td>Saddle clamp 63x11/2"</td>
+                                <td>8</td>
+                                <td>Pcs</td>
+                                <td>850</td>
+                                <td>6,800.00</td>
+                            </tr>
+                            <tr>
+                                <td>Pvc valve socket 50mm</td>
+                                <td>20</td>
+                                <td>Pcs</td>
+                                <td>190</td>
+                                <td>3,600.00</td>
+                            </tr>
+                            <tr>
+                                <td>Pvc elbow 50mm</td>
+                                <td>35</td>
+                                <td>Pcs</td>
+                                <td>190</td>
+                                <td>6,300.00</td>
+                            </tr>
+                            <tr>
+                                <td>P.e end cap 50mm</td>
+                                <td>8</td>
+                                <td>Pcs</td>
+                                <td>550</td>
+                                <td>4,400.00</td>
+                            </tr>
+                            <tr>
+                                <td>P.e elbow 50mm</td>
+                                <td>8</td>
+                                <td>Pcs</td>
+                                <td>650</td>
+                                <td>5,200.00</td>
+                            </tr>
+                            <tr>
+                                <td>Drip line 16mm</td>
+                                <td>17000</td>
+                                <td>Mtrs</td>
+                                <td>10</td>
+                                <td>136,000.00</td>
+                            </tr>
+                            <tr>
+                                <td>Main pipe fittings</td>
+                                <td>1</td>
+                                <td>Lamp sum</td>
+                                <td>9850</td>
+                                <td>9,850.00</td>
+                            </tr>
+                            <tr>
+                                <td>Other fittings & consumables</td>
+                                <td>1</td>
+                                <td>Lamp sum</td>
+                                <td>14500</td>
+                                <td>14,500.00</td>
+                            </tr>
+                            <tr class="font-bold bg-gray-50">
+                                <td colspan="4" class="text-right">Total Amount</td>
+                                <td>357,600.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="text-lg font-semibold text-secondary mb-3">Notes:</h4>
+                    <p class="text-gray-700 mb-3">NB. It is assumed separate arrangements are being made to fetch the water from the river to the tanks, and that the client has made also arrangements to hoist the tanks to atleast 5 meters above ground. The quotation excludes:</p>
+                    <ul class="list-disc pl-5 text-gray-700 mb-4">
+                        <li>Transport of the materials and trenching</li>
+                        <li>Casual labour 30,000 (installation)</li>
+                        <li>Engineer's supervision fee 20,000</li>
+                    </ul>
+                    <p class="text-gray-700">NB. I strongly recommend use of diesel powered water pump for use. This can be sourced, sammy the banana guy has a new 16 HP pump at his shop and sure he can give at a friendly price. The solar pump may not be 100% reliable and may not guarantee results. We dont want to risk.</p>
+                </div>
+                
+                <div class="text-center mt-8">
+                    <p class="text-gray-700 italic">Thank you for considering Sanai Integrated Services for your irrigation needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="section-padding bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-secondary mb-4">TOP MANAGEMENT TEAM</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                <!-- Team Member 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 card-hover">
+                    <div class="h-64 bg-gray-200 flex items-center justify-center overflow-hidden">
+                        <img src="../images/OIP-2238126385.jpeg" 
+                             alt="Mr. Alex Tum" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-secondary mb-2">Mr. ALEX TUM</h3>
+                        <p class="text-primary font-medium mb-4">Director Operations</p>
+                        <p class="text-gray-700 mb-4">Responsible for representing the business to major customers and professional associations.</p>
+                        <div class="mt-4">
+                            <p class="text-gray-600"><i class="fas fa-phone-alt mr-2 text-primary"></i>+254 703 567493</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 card-hover">
+                    <div class="h-64 bg-gray-200 flex items-center justify-center overflow-hidden">
+                        <img src="../images/OIP-3540598379.jpeg" 
+                             alt="Eng. Kenneth Kipkemoi" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-secondary mb-2">Eng. Kenneth Kipkemoi</h3>
+                        <p class="text-primary font-medium mb-4">Director ICT</p>
+                        <p class="text-gray-700 mb-4">Responsible for formulating and successfully implementing business policy and directing strategy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-secondary mb-4">OUR CONTACTS</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold green-heading mb-6">Get In Touch</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start bg-white p-4 rounded-lg shadow-sm">
+                            <div class="w-10 h-10 bg-success rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-medium text-secondary">Address</h4>
+                                <p class="text-gray-700">KOINANGE STREET, KENYA HOUSE COMPLEX<br>P.O BOX 41262 G.P.O NAIROBI</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start bg-white p-4 rounded-lg shadow-sm">
+                            <div class="w-10 h-10 bg-success rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-medium text-secondary">Email</h4>
+                                <p class="text-gray-700">sanaiholdings@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start bg-white p-4 rounded-lg shadow-sm">
+                            <div class="w-10 h-10 bg-success rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-phone-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-medium text-secondary">Phone</h4>
+                                <p class="text-gray-700">+254 703 567493<br>+254 722 648580</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start bg-white p-4 rounded-lg shadow-sm">
+                            <div class="w-10 h-10 bg-success rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-user text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-medium text-secondary">Contact Person</h4>
+                                <p class="text-gray-700">ALEX TUM - DIRECTOR OPERATIONS<br>CELL: 0703 56 74 93</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold green-heading mb-6">Send Us a Message</h3>
+                    <form class="space-y-4" id="contact-form">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-2 font-medium">Your Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none form-input" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-2 font-medium">Your Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none form-input" required>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-gray-700 mb-2 font-medium">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none form-input" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 mb-2 font-medium">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none form-input" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary btn-ripple text-white px-8 py-4 rounded-lg font-medium w-full mobile-touch-target">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Footer -->
+    <footer class="bg-gradient-to-r from-secondary to-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="../images/logo.png" alt="Sanai Holdings Logo" class="h-8 mr-3 object-contain">
+                        <h3 class="text-xl font-bold">SANAI HOLDINGS</h3>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed">Your trusted partner for general merchandise supplies and communications solutions since 2014.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-300 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-white transition duration-300">About Us</a></li>
+                        <li><a href="#services" class="text-gray-300 hover:text-white transition duration-300">Services</a></li>
+                        <li><a href="#products" class="text-gray-300 hover:text-white transition duration-300">Products</a></li>
+                        <li><a href="#agricultural" class="text-gray-300 hover:text-white transition duration-300">Agricultural</a></li>
+                        <li><a href="#team" class="text-gray-300 hover:text-white transition duration-300">Our Team</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Connect With Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-blue-700 transition duration-300 mobile-touch-target">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-blue-700 transition duration-300 mobile-touch-target">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-blue-700 transition duration-300 mobile-touch-target">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 SANAI HOLDINGS. All rights reserved.</p>
+                <p class="mt-2">
+                    <a href="https://www.linkedin.com/in/abayo-brian-a6658b263/" 
+                       target="_blank" 
+                       class="text-green-400 hover:text-gray-400 transition duration-300">
+                        Developed by Brian Abayo - Machine Learning Engineer.
+                    </a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 opacity-0 invisible hover:bg-primary-dark mobile-touch-target" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+        // Loading Bar Animation
+        window.addEventListener('load', function() {
+            const loadingBar = document.getElementById('loadingBar');
+            loadingBar.style.width = '100%';
+            setTimeout(() => {
+                loadingBar.style.opacity = '0';
+                setTimeout(() => {
+                    loadingBar.style.display = 'none';
+                }, 300);
+            }, 500);
+        });
+
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('open');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuButton = document.getElementById('mobile-menu-button');
+            
+            if (!mobileMenu.contains(event.target) && !menuButton.contains(event.target)) {
+                mobileMenu.classList.remove('open');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.remove('open');
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-lg', 'bg-white', 'py-2');
+            } else {
+                header.classList.remove('shadow-lg', 'bg-white', 'py-2');
+            }
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', fadeInOnScroll);
+        // Initial check
+        fadeInOnScroll();
+
+        // Enhanced form submission with better mobile feedback
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Show loading state on submit button
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+            submitButton.disabled = true;
+            
+            // Simulate processing delay for better UX
+            setTimeout(() => {
+                // Create mailto link
+                const mailtoLink = `mailto:sanaiholdings@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+                    `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+                )}`;
+                
+                // Reset button state
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
+                
+                // Open email client
+                window.location.href = mailtoLink;
+                
+                // Show success message
+                alert('Thank you for your message! Your email client will open to send the message to sanaiholdings@gmail.com.');
+                this.reset();
+            }, 1000);
+        });
+
+        // Enhanced mobile button interactions
+        document.querySelectorAll('.btn-primary, .btn-agri, .btn-success').forEach(button => {
+            // Add touch feedback
+            button.addEventListener('touchstart', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 5px 10px rgba(0,0,0,0.2)';
+            });
+            
+            button.addEventListener('touchend', function() {
+                this.style.transform = '';
+                this.style.boxShadow = '';
+            });
+        });
+
+        // Performance optimization: Lazy load images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.classList.remove('lazy');
+                        }
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Prevent background scrolling when mobile menu is open
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.body.style.overflow = document.body.style.overflow === 'hidden' ? '' : 'hidden';
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+    </script>
+</body>
+</html>
