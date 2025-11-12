@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SANAI - Building Resilient Livelihoods</title>
+    <meta name="description" content="SANAI promotes health among vulnerable populations and addresses socio-economic determinants of health in Africa.">
+    
+    <!-- Performance Optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af',
+                        'primary-dark': '#1e3a8a',
+                        secondary: '#0f172a',
+                        accent: '#3b82f6',
+                        success: '#059669',
+                        'green-dark': '#047857',
+                        'green-light': '#10b981',
+                        'charity-green': '#16a34a',
+                        'charity-dark': '#15803d',
+                        'charity-light': '#22c55e'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'pulse-slow': 'pulse 3s infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        :root {
+            --primary: #1e40af;
+            --primary-dark: #1e3a8a;
+            --secondary: #0f172a;
+            --accent: #3b82f6;
+            --success: #059669;
+            --charity-green: #16a34a;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            overflow-x: hidden;
+        }
+        
+        /* Hero Backgrounds */
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(22, 163, 74, 0.85) 0%, rgba(15, 23, 42, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .mango-hero-bg {
+            background: linear-gradient(135deg, rgba(22, 163, 74, 0.85) 0%, rgba(15, 23, 42, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1550675897-2d9d5d18a69c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        /* Section Spacing */
+        .section-padding {
+            padding: 5rem 0;
+        }
+        
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Card Hover Effects */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        /* Button Styles */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(30, 64, 175, 0.3);
+        }
+        
+        .btn-charity {
+            background: linear-gradient(135deg, var(--charity-green) 0%, var(--charity-light) 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-charity:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(22, 163, 74, 0.3);
+        }
+        
+        .btn-black {
+            background: #1f2937;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-black:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(31, 41, 55, 0.3);
+            background: #374151;
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, var(--success) 0%, var(--green-light) 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(5, 150, 105, 0.3);
+        }
+        
+        /* Gradient Backgrounds */
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+        }
+        
+        .charity-gradient-bg {
+            background: linear-gradient(135deg, var(--charity-green) 0%, var(--charity-light) 100%);
+        }
+        
+        /* Custom Elements */
+        .green-heading {
+            color: var(--success);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .green-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--green-light);
+            border-radius: 2px;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Loading Animation */
+        .loading-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            width: 0%;
+            z-index: 1000;
+            transition: width 0.4s ease;
+        }
+        
+        /* Image Optimization */
+        img {
+            transition: transform 0.3s ease;
+        }
+        
+        .project-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Mobile Menu Animation */
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        /* Performance Optimizations */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body class="font-inter bg-gray-50">
+    <!-- Loading Bar -->
+    <div class="loading-bar" id="loadingBar"></div>
+    
+    <!-- Header & Navigation -->
+    <header class="fixed w-full bg-white shadow-lg z-50 transition-all duration-300" id="header">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <!-- Original Logo -->
+                <img src="../images/logom.png" alt="Sanai Holdings Logo" class="h-14 mr-4 object-contain">
+                <h1 class="text-2xl font-bold text-primary">SANAI Ltd</h1>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex space-x-8">
+            <a href="index.html" class="nav-link text-secondary hover:text-primary font-medium transition duration-300">Homepage</a>
+               
+                <a href="#home" class="nav-link text-secondary hover:text-primary font-medium transition duration-300">Home</a>
+                <a href="#about" class="nav-link text-secondary hover:text-primary font-medium transition duration-300">About</a>
+                <a href="#vision" class="nav-link text-secondary hover:text-primary font-medium transition duration-300">Vision & Mission</a>
+                <a href="#programs" class="nav-link text-secondary hover:text-primary font-medium transition duration-300">Programs</a>
+                <a href="#mango" class="nav-link text-secondary hover:text-primary font-medium transition duration-300">Mango Project</a>
+                <a href="#visual-materials" class="nav-link text-secondary hover:text-primary font-medium transition duration-300">Gallery</a>
+                <a href="#partners" class="nav-link text-secondary hover:text-primary font-medium transition duration-300">Partners</a>
+                <a href="#contact" class="nav-link text-secondary hover:text-primary font-medium transition duration-300">Contact</a>
+            </nav>
+            
+            <!-- CTA Button -->
+            <div class="hidden lg:block">
+                <a href="#contact" class="btn-black px-6 py-2 rounded-lg font-medium">Get Involved</a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="lg:hidden text-secondary p-2" id="mobile-menu-button">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu lg:hidden absolute top-16 left-0 w-full bg-white p-6 shadow-lg">
+            <nav class="flex flex-col space-y-4">
+                <a href="#home" class="text-secondary hover:text-primary font-medium transition duration-300 py-2 border-b border-gray-100">Home</a>
+                <a href="#about" class="text-secondary hover:text-primary font-medium transition duration-300 py-2 border-b border-gray-100">About Us</a>
+                <a href="#vision" class="text-secondary hover:text-primary font-medium transition duration-300 py-2 border-b border-gray-100">Vision & Mission</a>
+                <a href="#programs" class="text-secondary hover:text-primary font-medium transition duration-300 py-2 border-b border-gray-100">Our Programs</a>
+                <a href="#mango" class="text-secondary hover:text-primary font-medium transition duration-300 py-2 border-b border-gray-100">Mango Project</a>
+                <a href="#visual-materials" class="text-secondary hover:text-primary font-medium transition duration-300 py-2 border-b border-gray-100">Gallery</a>
+                <a href="#partners" class="text-secondary hover:text-primary font-medium transition duration-300 py-2 border-b border-gray-100">Partners</a>
+                <a href="index.html" class="text-secondary hover:text-primary font-medium transition duration-300 py-2 border-b border-gray-100">Homepage</a>
+                <a href="#contact" class="btn-black px-6 py-3 rounded-lg font-medium text-center mt-4">Get Involved</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg pt-32 pb-40 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-slide-up">BUILDING RESILIENT LIVELIHOODS</h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto animate-fade-in">Promoting health among vulnerable populations and addressing socio-economic determinants of health in Africa.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in">
+                    <a href="#contact" class="btn-charity text-white px-8 py-4 rounded-lg font-medium">Contact Us</a>
+                    <a href="#programs" class="bg-white text-charity-green px-8 py-4 rounded-lg font-medium transition duration-300 hover:bg-gray-100">Our Programs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-12 bg-white shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="fade-in">
+                    <div class="text-3xl md:text-4xl font-bold text-charity-green mb-2">80+</div>
+                    <div class="text-gray-600">Farmers Supported</div>
+                </div>
+                <div class="fade-in">
+                    <div class="text-3xl md:text-4xl font-bold text-charity-green mb-2">2,560+</div>
+                    <div class="text-gray-600">Mango Trees Planted</div>
+                </div>
+                <div class="fade-in">
+                    <div class="text-3xl md:text-4xl font-bold text-charity-green mb-2">10+</div>
+                    <div class="text-gray-600">Schools Supported</div>
+                </div>
+                <div class="fade-in">
+                    <div class="text-3xl md:text-4xl font-bold text-charity-green mb-2">3</div>
+                    <div class="text-gray-600">Communities United</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-secondary mb-4">OUR PROFILE</h2>
+                <div class="w-20 h-1 bg-charity-green mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-semibold green-heading mb-6">Who We Are</h3>
+                    <p class="text-gray-700 mb-4 leading-relaxed">SANAI is a community-focused organization dedicated to empowering vulnerable populations and addressing socio-economic determinants of health in Africa.</p>
+                    <p class="text-gray-700 mb-4 leading-relaxed">Our work focuses on building resilient livelihoods through integrated development programs that create wealth and promote health in Baringo County and beyond.</p>
+                    <p class="text-gray-700 mb-4 leading-relaxed">We believe in holistic community development that addresses the interconnected challenges of poverty, health, education, and environmental sustainability.</p>
+                    
+                    <div class="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-lg border-l-4 border-charity-green shadow-sm mt-8">
+                        <h4 class="text-lg font-semibold text-secondary mb-3">OUR APPROACH</h4>
+                        <p class="text-gray-700 leading-relaxed">We work with communities to identify their needs and develop sustainable solutions that build local capacity and promote self-reliance. Our programs are designed to create lasting change by addressing root causes rather than symptoms.</p>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
+                        <h3 class="text-2xl font-semibold green-heading mb-6">Our Impact</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-charity-green rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-seedling text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-secondary mb-1">Agricultural Development</h4>
+                                    <p class="text-gray-700">Promoting sustainable farming practices and mango cultivation to improve food security and generate income.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-charity-green rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-female text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-secondary mb-1">Women & Youth Empowerment</h4>
+                                    <p class="text-gray-700">Creating opportunities for women and youth through skills training and economic initiatives.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-charity-green rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-graduation-cap text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-secondary mb-1">Education Support</h4>
+                                    <p class="text-gray-700">Providing learning materials and sanitary pads to keep girls in school and improve educational outcomes.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-charity-green rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-handshake text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-secondary mb-1">Peace Building</h4>
+                                    <p class="text-gray-700">Uniting Pokot, Marakwet, and Tugen communities through shared agricultural projects.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Mission Section -->
+    <section id="vision" class="py-16 bg-gradient-to-br from-green-50 to-blue-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-secondary mb-4">OUR VISION & MISSION</h2>
+                <div class="w-20 h-1 bg-charity-green mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-charity-green rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-eye text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-charity-green mb-4 text-center">Our Vision</h3>
+                    <p class="text-gray-700 text-center leading-relaxed">"To socially and economically empower and transform communities for healthy populations. Poor and marginalized populations are socio-economically empowered, transformed and are free from disease and poverty."</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-charity-green rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-bullseye text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-charity-green mb-4 text-center">Our Mission</h3>
+                    <p class="text-gray-700 text-center leading-relaxed">"Promote health among the vulnerable and poor populations and address various socio-economic determinants of health and health inequalities in Africa."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="section-padding bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-secondary mb-4">OUR PROGRAMS</h2>
+                <div class="w-20 h-1 bg-charity-green mx-auto"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto mt-4 text-lg">We implement integrated development programs that address the interconnected challenges facing communities in Baringo County.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Program 1 -->
+                <div class="program-card bg-white p-8 rounded-xl shadow-lg card-hover">
+                    <div class="flex flex-col items-center mb-6">
+                        <div class="w-16 h-16 bg-charity-green rounded-xl flex items-center justify-center mb-4">
+                            <img src="../images/livelihood.png" alt="Improved Livelihood" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-semibold green-heading text-center">Improved Livelihood & Resilience</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4 leading-relaxed">Training communities in sustainable agriculture, resource conservation, and diversified income generation strategies.</p>
+                    <ul class="text-gray-600 list-disc pl-5 space-y-2">
+                        <li>Low-cost resource conservation techniques</li>
+                        <li>Savings and credit groups</li>
+                        <li>Seed and grain storage banks</li>
+                        <li>Small enterprise development</li>
+                    </ul>
+                </div>
+                
+                <!-- Program 2 -->
+                <div class="program-card bg-white p-8 rounded-xl shadow-lg card-hover">
+                    <div class="flex flex-col items-center mb-6">
+                        <div class="w-16 h-16 bg-charity-green rounded-xl flex items-center justify-center mb-4">
+                            <img src="../images/education.png" alt="Quality Education" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-semibold green-heading text-center">Quality Education</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4 leading-relaxed">Supporting education through provision of learning materials and addressing barriers to school attendance.</p>
+                    <ul class="text-gray-600 list-disc pl-5 space-y-2">
+                        <li>Sanitary pads distribution to girls</li>
+                        <li>Assorted learning materials</li>
+                        <li>Child rights awareness</li>
+                        <li>Career guidance</li>
+                    </ul>
+                </div>
+                
+                <!-- Program 3 -->
+                <div class="program-card bg-white p-8 rounded-xl shadow-lg card-hover">
+                    <div class="flex flex-col items-center mb-6">
+                        <div class="w-16 h-16 bg-charity-green rounded-xl flex items-center justify-center mb-4">
+                            <img src="../images/gender-equality.png" alt="Gender Equality" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-semibold green-heading text-center">Gender Equality</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4 leading-relaxed">Empowering women through economic initiatives and addressing gender-based barriers to development.</p>
+                    <ul class="text-gray-600 list-disc pl-5 space-y-2">
+                        <li>Women's savings and credit groups</li>
+                        <li>Economic empowerment programs</li>
+                        <li>Leadership training</li>
+                        <li>Equal participation initiatives</li>
+                    </ul>
+                </div>
+                
+                <!-- Program 4 -->
+                <div class="program-card bg-white p-8 rounded-xl shadow-lg card-hover">
+                    <div class="flex flex-col items-center mb-6">
+                        <div class="w-16 h-16 bg-charity-green rounded-xl flex items-center justify-center mb-4">
+                            <img src="../images/health-nutrition.png" alt="Health & Nutrition" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-semibold green-heading text-center">Health & Nutrition</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4 leading-relaxed">Improving health outcomes through awareness, nutrition support, and access to clean water.</p>
+                    <ul class="text-gray-600 list-disc pl-5 space-y-2">
+                        <li>Nutrition education</li>
+                        <li>Waterborne disease prevention</li>
+                        <li>Maternal and child health</li>
+                        <li>Food security initiatives</li>
+                    </ul>
+                </div>
+                
+                <!-- Program 5 -->
+                <div class="program-card bg-white p-8 rounded-xl shadow-lg card-hover">
+                    <div class="flex flex-col items-center mb-6">
+                        <div class="w-16 h-16 bg-charity-green rounded-xl flex items-center justify-center mb-4">
+                            <img src="../images/environment.png" alt="Environmental Conservation" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-semibold green-heading text-center">Environmental Conservation</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4 leading-relaxed">Promoting sustainable natural resource management and climate resilience.</p>
+                    <ul class="text-gray-600 list-disc pl-5 space-y-2">
+                        <li>Tree planting initiatives</li>
+                        <li>Water harvesting</li>
+                        <li>Sustainable agriculture</li>
+                        <li>Spring protection</li>
+                    </ul>
+                </div>
+                
+                <!-- Program 6 -->
+                <div class="program-card bg-white p-8 rounded-xl shadow-lg card-hover">
+                    <div class="flex flex-col items-center mb-6">
+                        <div class="w-16 h-16 bg-charity-green rounded-xl flex items-center justify-center mb-4">
+                            <img src="../images/peace-building.png" alt="Peace Building" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-semibold green-heading text-center">Peace Building</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4 leading-relaxed">Uniting communities through shared economic activities and dialogue.</p>
+                    <ul class="text-gray-600 list-disc pl-5 space-y-2">
+                        <li>Inter-community projects</li>
+                        <li>Conflict resolution</li>
+                        <li>Shared resource management</li>
+                        <li>Cultural exchange</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mango Project Section -->
+    <section id="mango" class="mango-hero-bg pt-32 pb-40 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-slide-up">BARINGO MANGO GROWERS UNITY PROJECT</h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto animate-fade-in">Uniting communities through sustainable mango farming for peace and prosperity.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in">
+                    <a href="#mango-details" class="btn-charity text-white px-8 py-4 rounded-lg font-medium">Learn More</a>
+                    <a href="#contact" class="bg-white text-charity-green px-8 py-4 rounded-lg font-medium transition duration-300 hover:bg-gray-100">Support Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mango Project Details -->
+    <section id="mango-details" class="section-padding bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-secondary mb-4">MANGO PROJECT DETAILS</h2>
+                <div class="w-20 h-1 bg-charity-green mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-semibold green-heading mb-6">Project Background</h3>
+                    <p class="text-gray-700 mb-6 leading-relaxed">Barwessa, a semi-arid region in Baringo County, has long faced challenges including land degradation, inter-community conflict, and economic instability. The Pokot, Marakwet, and Tugen communities have historically experienced tensions, primarily over pasture and water resources.</p>
+                    <p class="text-gray-700 mb-6 leading-relaxed">The Baringo Mango Growers Unity Project was formed to unite these communities through a peaceful and productive approach: mango farming. Mango trees provide shade, restore soil fertility, offer annual cash flow, and promote long-term sustainability and food security.</p>
+                    
+                    <div class="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-lg border-l-4 border-charity-green shadow-sm">
+                        <h4 class="text-lg font-semibold text-secondary mb-3">PROJECT GOALS</h4>
+                        <ul class="text-gray-700 list-disc pl-5 space-y-2">
+                            <li>Promote peaceful coexistence between Pokot, Marakwet, and Tugen communities</li>
+                            <li>Establish mango farming as a reliable source of annual household income</li>
+                            <li>Rehabilitate degraded, dry land with tree cover</li>
+                            <li>Empower women and youth with agribusiness skills</li>
+                            <li>Enhance food security and resilience to climate change</li>
+                            <li>Lay the foundation for future mango value addition and processing</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
+                        <h3 class="text-2xl font-semibold green-heading mb-6">Project Achievements</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-charity-green rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-check text-white text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-secondary mb-1">80 Farmers Supported</h4>
+                                    <p class="text-gray-700">10 Marakwet, 20 Pokot, and 50 Tugen members trained and supported</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-charity-green rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-check text-white text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-secondary mb-1">2,560 Mango Trees Planted</h4>
+                                    <p class="text-gray-700">Each farmer growing 32 mango trees for sustainable income</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-charity-green rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-check text-white text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-secondary mb-1">Community Unity</h4>
+                                    <p class="text-gray-700">Historic tensions reduced through shared agricultural goals</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-charity-green rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-check text-white text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-secondary mb-1">Environmental Restoration</h4>
+                                    <p class="text-gray-700">Degraded land rehabilitated with tree cover improving soil fertility</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Current Needs -->
+                    <div class="mt-8 bg-white p-6 rounded-xl shadow-lg card-hover">
+                        <h4 class="text-xl font-semibold green-heading mb-4">Current Needs</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center mr-3 mt-1">
+                                    <i class="fas fa-exclamation text-white text-sm"></i>
+                                </div>
+                                <p class="text-gray-700"><strong>Fencing:</strong> Protective fencing needed for 80 farmers at $1,500 per farmer ($120,000 total) to protect young mango seedlings from livestock.</p>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center mr-3 mt-1">
+                                    <i class="fas fa-exclamation text-white text-sm"></i>
+                                </div>
+                                <p class="text-gray-700"><strong>Expansion:</strong> Resources needed to onboard 300 more farmers across the three communities.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mango Project Gallery -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-secondary mb-4">PROJECT GALLERY</h2>
+                <div class="w-20 h-1 bg-charity-green mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Gallery Item 1 -->
+                <div class="project-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                    <div class="h-64 overflow-hidden">
+                        <img src="../images/community-members.png" alt="Community Members" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-semibold text-secondary mb-2">Community Members</h4>
+                        <p class="text-gray-600">Farmers from different communities working together on mango farming projects.</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 2 -->
+                <div class="project-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                    <div class="h-64 overflow-hidden">
+                        <img src="../images/mango-seedlings.png" alt="Mango Seedlings" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-semibold text-secondary mb-2">Mango Seedlings</h4>
+                        <p class="text-gray-600">Young mango trees being planted to restore degraded land and provide income.</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 3 -->
+                <div class="project-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                    <div class="h-64 overflow-hidden">
+                        <img src="../images/water-harvesting.png" alt="Water Harvesting" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-semibold text-secondary mb-2">Water Harvesting</h4>
+                        <p class="text-gray-600">Experimental water pans for irrigation during dry seasons.</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 4 -->
+                <div class="project-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                    <div class="h-64 overflow-hidden">
+                        <img src="../images/farm-fencing.png" alt="Farm Fencing" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-semibold text-secondary mb-2">Farm Fencing</h4>
+                        <p class="text-gray-600">Protective fencing to safeguard young mango trees from livestock.</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 5 -->
+                <div class="project-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                    <div class="h-64 overflow-hidden">
+                        <img src="../images/peace-building-gallery.png" alt="Peace Building" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-semibold text-secondary mb-2">Peace Building</h4>
+                        <p class="text-gray-600">Community members from different ethnic groups working together.</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 6 -->
+                <div class="project-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
+                    <div class="h-64 overflow-hidden">
+                        <img src="../images/progress-monitoring.png" alt="Progress Monitoring" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-semibold text-secondary mb-2">Progress Monitoring</h4>
+                        <p class="text-gray-600">Regular assessment of project growth and community impact.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual and Documentary Materials Section -->
+    <section id="visual-materials" class="section-padding bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-secondary mb-4">DOCUMENTARY</h2>
+                <div class="w-20 h-1 bg-charity-green mx-auto"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto mt-4 text-lg">Documenting our journey in transforming communities through mango farming in Baringo County.</p>
+            </div>
+
+            <!-- Map Section -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold green-heading mb-8 text-center">Map Showing Barwessa in Baringo County</h3>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <img src="../images/barwessa-map.png" alt="Barwessa Map in Baringo County" class="w-full h-96 object-cover">
+                </div>
+            </div>
+
+            <!-- Photographs Section -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold green-heading mb-8 text-center">Project Photographs</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Photo 1 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-64 overflow-hidden">
+                            <img src="../images/pokot-farmer-planting.png" alt="Pokot farmer planting mango seedlings" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Pokot Farmer Planting</h4>
+                            <p class="text-gray-600">A Pokot community member planting mango seedlings for sustainable income.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Photo 2 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-64 overflow-hidden">
+                            <img src="../images/marakwet-members-planting.png" alt="10 Marakwet members at planting site" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Marakwet Members</h4>
+                            <p class="text-gray-600">10 Marakwet community members working together at the planting site.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Photo 3 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-64 overflow-hidden">
+                            <img src="../images/dry-land-before-planting.png" alt="Dry land before planting" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Dry Land Before Planting</h4>
+                            <p class="text-gray-600">Degraded land in Barwessa before mango tree planting initiative.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Photo 4 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-64 overflow-hidden">
+                            <img src="../images/young-mango-after-year.png" alt="A young mango after a year" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Young Mango After One Year</h4>
+                            <p class="text-gray-600">Healthy mango tree growth after one year of proper care and maintenance.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Photo 5 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-64 overflow-hidden">
+                            <img src="../images/degraded-land-barwessa.png" alt="Degraded land in Barwessa" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Degraded Land in Barwessa</h4>
+                            <p class="text-gray-600">Example of the environmental challenges faced in the region.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Photo 6 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-64 overflow-hidden">
+                            <img src="../images/field-day-members.png" alt="Members on field day" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-secondary mb-2">Field Day Gathering</h4>
+                            <p class="text-gray-600">Community members gathering for a field day to share knowledge and experiences.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonials Section -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold green-heading mb-8 text-center">Community Testimonials</h3>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                        <div class="flex flex-col lg:flex-row gap-6">
+                            <div class="lg:w-1/2">
+                                <img src="../images/field-day-testimonial.png" alt="Members on field day" class="w-full h-64 object-cover rounded-lg">
+                            </div>
+                            <div class="lg:w-1/2">
+                                <h4 class="text-xl font-semibold text-secondary mb-4">Field Day Success</h4>
+                                <p class="text-gray-700 mb-4 leading-relaxed">"The picture beside is of members on a field day. Mango farming is preferable to growers since it's suitable with the climate and it produces when there's little or enough rainfall annually."</p>
+                                <div class="bg-gradient-to-r from-green-50 to-blue-50 p-4 rounded-lg">
+                                    <p class="text-charity-green font-medium">Community Member</p>
+                                    <p class="text-gray-600 text-sm">Barwessa Mango Grower</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                        <div class="flex flex-col lg:flex-row gap-6">
+                            <div class="lg:w-1/2">
+                                <img src="../images/water-pan-kipnai.png" alt="Water pan at Kipnai" class="w-full h-64 object-cover rounded-lg">
+                            </div>
+                            <div class="lg:w-1/2">
+                                <h4 class="text-xl font-semibold text-secondary mb-4">Water Harvesting Solution</h4>
+                                <p class="text-gray-700 mb-4 leading-relaxed">"Beside is a water pan at Kipnai for a mango farmer harvesting run off water. This innovative solution helps us maintain our mango trees during dry seasons."</p>
+                                <div class="bg-gradient-to-r from-green-50 to-blue-50 p-4 rounded-lg">
+                                    <p class="text-charity-green font-medium">Local Farmer</p>
+                                    <p class="text-gray-600 text-sm">Kipnai Water Project</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                        <div class="flex flex-col lg:flex-row gap-6">
+                            <div class="lg:w-1/2">
+                                <img src="../images/farmer-with-harvest.png" alt="Farmer with harvested mangoes" class="w-full h-64 object-cover rounded-lg">
+                            </div>
+                            <div class="lg:w-1/2">
+                                <h4 class="text-xl font-semibold text-secondary mb-4">Market Success</h4>
+                                <p class="text-gray-700 mb-4 leading-relaxed">"Beside is a farmer with his harvested mangoes, selling to VEGPRO Ltd, a Company based in Nairobi. This provides us with reliable market access and fair prices for our produce."</p>
+                                <div class="bg-gradient-to-r from-green-50 to-blue-50 p-4 rounded-lg">
+                                    <p class="text-charity-green font-medium">Successful Grower</p>
+                                    <p class="text-gray-600 text-sm">VEGPRO Supplier</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 4 -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                        <div class="flex flex-col lg:flex-row gap-6">
+                            <div class="lg:w-1/2">
+                                <img src="../images/community-unity.png" alt="Community unity" class="w-full h-64 object-cover rounded-lg">
+                            </div>
+                            <div class="lg:w-1/2">
+                                <h4 class="text-xl font-semibold text-secondary mb-4">Peace Through Farming</h4>
+                                <p class="text-gray-700 mb-4 leading-relaxed">"This project has brought together Pokot, Marakwet, and Tugen communities. We now work together as neighbors and business partners, leaving behind our historical conflicts."</p>
+                                <div class="bg-gradient-to-r from-green-50 to-blue-50 p-4 rounded-lg">
+                                    <p class="text-charity-green font-medium">Community Leader</p>
+                                    <p class="text-gray-600 text-sm">Unity Project Participant</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section id="partners" class="section-padding bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-secondary mb-4">OUR PARTNERS</h2>
+                <div class="w-20 h-1 bg-charity-green mx-auto"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto mt-4 text-lg">We collaborate with various organizations to maximize our impact and reach more communities.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Partner 1 -->
+                <div class="partner-card bg-gray-50 p-6 rounded-xl shadow-md text-center card-hover">
+                    <div class="w-16 h-16 bg-charity-green rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-book text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-secondary mb-2">KUZA AFRICA</h3>
+                    <p class="text-gray-600">Book donations and educational support</p>
+                </div>
+                
+                <!-- Partner 2 -->
+                <div class="partner-card bg-gray-50 p-6 rounded-xl shadow-md text-center card-hover">
+                    <div class="w-16 h-16 bg-charity-green rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-female text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-secondary mb-2">SPEAK UP AFRICA</h3>
+                    <p class="text-gray-600">Girl child empowerment programs</p>
+                </div>
+                
+                <!-- Partner 3 -->
+                <div class="partner-card bg-gray-50 p-6 rounded-xl shadow-md text-center card-hover">
+                    <div class="w-16 h-16 bg-charity-green rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-broadcast-tower text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-secondary mb-2">ALPHA RADIO</h3>
+                    <p class="text-gray-600">Media and publicity support</p>
+                </div>
+                
+                <!-- Partner 4 -->
+                <div class="partner-card bg-gray-50 p-6 rounded-xl shadow-md text-center card-hover">
+                    <div class="w-16 h-16 bg-charity-green rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-seedling text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-secondary mb-2">BIDEP</h3>
+                    <p class="text-gray-600">Animal health and food security</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-secondary mb-4">CONTACT US</h2>
+                <div class="w-20 h-1 bg-charity-green mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold green-heading mb-6">Get In Touch</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start bg-white p-4 rounded-lg shadow-sm">
+                            <div class="w-10 h-10 bg-charity-green rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-medium text-secondary">Email</h4>
+                                <p class="text-gray-700">info@sanai.org</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start bg-white p-4 rounded-lg shadow-sm">
+                            <div class="w-10 h-10 bg-charity-green rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-phone-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-medium text-secondary">Phone</h4>
+                                <p class="text-gray-700">0713-539318</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start bg-white p-4 rounded-lg shadow-sm">
+                            <div class="w-10 h-10 bg-charity-green rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-medium text-secondary">Address</h4>
+                                <p class="text-gray-700">P. O. Box 333– 30400<br>KABARNET – KENYA</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start bg-white p-4 rounded-lg shadow-sm">
+                            <div class="w-10 h-10 bg-charity-green rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-user text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-medium text-secondary">Contact Person</h4>
+                                <p class="text-gray-700">NANCY JELAGAT KIPKEMOI</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold green-heading mb-6">Send Us a Message</h3>
+                    <form class="space-y-4" id="contact-form">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-2 font-medium">Your Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-charity-green focus:border-transparent transition duration-300" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-2 font-medium">Your Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-charity-green focus:border-transparent transition duration-300" required>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-gray-700 mb-2 font-medium">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-charity-green focus:border-transparent transition duration-300" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 mb-2 font-medium">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-charity-green focus:border-transparent transition duration-300" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary text-white w-full px-8 py-4 rounded-lg font-medium">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-secondary to-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="../images/logom.png" alt="Sanai Holdings Logo" class="h-8 mr-3 object-contain">
+                        <h3 class="text-xl font-bold">SANAI HOLDINGS</h3>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed">Building resilient livelihoods and promoting health among vulnerable populations in Africa.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-300 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-white transition duration-300">About Us</a></li>
+                        <li><a href="#vision" class="text-gray-300 hover:text-white transition duration-300">Vision & Mission</a></li>
+                        <li><a href="#programs" class="text-gray-300 hover:text-white transition duration-300">Our Programs</a></li>
+                        <li><a href="#mango" class="text-gray-300 hover:text-white transition duration-300">Mango Project</a></li>
+                        <li><a href="#visual-materials" class="text-gray-300 hover:text-white transition duration-300">Gallery</a></li>
+                        <li><a href="#partners" class="text-gray-300 hover:text-white transition duration-300">Partners</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Connect With Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-charity-green rounded-full flex items-center justify-center hover:bg-green-700 transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-charity-green rounded-full flex items-center justify-center hover:bg-green-700 transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-charity-green rounded-full flex items-center justify-center hover:bg-green-700 transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 SANAI. All rights reserved. | Building resilient livelihoods in Africa</p>
+                <p class="mt-2">
+                    <a href="https://www.linkedin.com/in/abayo-brian-a6658b263/" 
+                       target="_blank" 
+                       class="text-green-400 hover:text-gray-400 transition duration-300">
+                        Developed by Brian Abayo - Machine Learning Engineer.
+                    </a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-charity-green text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 opacity-0 invisible hover:bg-green-700">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+        // Loading Bar Animation
+        window.addEventListener('load', function() {
+            const loadingBar = document.getElementById('loadingBar');
+            loadingBar.style.width = '100%';
+            setTimeout(() => {
+                loadingBar.style.opacity = '0';
+                setTimeout(() => {
+                    loadingBar.style.display = 'none';
+                }, 300);
+            }, 500);
+        });
+
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('open');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuButton = document.getElementById('mobile-menu-button');
+            
+            if (!mobileMenu.contains(event.target) && !menuButton.contains(event.target)) {
+                mobileMenu.classList.remove('open');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.remove('open');
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-lg', 'bg-white', 'py-2');
+            } else {
+                header.classList.remove('shadow-lg', 'bg-white', 'py-2');
+            }
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', fadeInOnScroll);
+        // Initial check
+        fadeInOnScroll();
+
+        // Form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Create mailto link
+            const mailtoLink = `mailto:info@sanai.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+                `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+            )}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            alert('Thank you for your message! Your email client will open to send the message to info@sanai.org.');
+            this.reset();
+        });
+
+        // Performance optimization: Lazy load images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+    </script>
+</body>
+</html>
