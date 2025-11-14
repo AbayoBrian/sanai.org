@@ -3,18 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sanaiholdings</title>
+    <title>Sanai Holdings - Your Trusted Business Partner</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #1a5276;
+            --secondary: #f39c12;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+            --accent: #e74c3c;
+        }
         
         body {
             font-family: 'Inter', sans-serif;
         }
         
         .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');
+            background: linear-gradient(rgba(26, 82, 118, 0.85), rgba(26, 82, 118, 0.9)), url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -47,6 +55,7 @@
         
         .service-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid var(--secondary);
         }
         
         .service-card:hover {
@@ -55,21 +64,49 @@
         }
         
         .btn-primary {
-            background: linear-gradient(to right, #2563eb, #1d4ed8);
+            background-color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: #154360;
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #e67e22;
         }
         
         .btn-agri {
-            background: linear-gradient(to right, #16a34a, #15803d);
+            background-color: #27ae60;
+        }
+        
+        .btn-agri:hover {
+            background-color: #219653;
         }
         
         .btn-success {
-            background: linear-gradient(to right, #059669, #047857);
+            background-color: #2980b9;
+        }
+        
+        .btn-success:hover {
+            background-color: #2471a3;
+        }
+        
+        .btn-accommodation {
+            background-color: #8e44ad;
+        }
+        
+        .btn-accommodation:hover {
+            background-color: #7d3c98;
         }
         
         .loading-bar {
             height: 3px;
             width: 0%;
-            background: linear-gradient(to right, #2563eb, #16a34a);
+            background: linear-gradient(to right, var(--primary), var(--secondary));
             position: fixed;
             top: 0;
             left: 0;
@@ -82,6 +119,225 @@
             width: 40px;
             height: 40px;
             object-fit: contain;
+            border-radius: 6px;
+        }
+        
+        /* Header Styles - Consistent with building page */
+        header {
+            background-color: rgba(26, 82, 118, 0.95);
+            color: white;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Stats section */
+        .stats-section {
+            background: linear-gradient(135deg, var(--primary) 0%, #2980b9 100%);
+        }
+        
+        /* Get Quote section */
+        .quote-section {
+            background: linear-gradient(135deg, var(--primary) 0%, #2980b9 100%);
+        }
+        
+        /* Footer - Consistent with building page */
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, #1a252f 100%);
+            color: white;
+            padding: 80px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-column h3 {
+            color: var(--secondary);
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links i {
+            margin-right: 10px;
+            color: var(--secondary);
+            width: 20px;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+        
+        .developer-link {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .developer-link:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+                padding: 10px 0;
+            }
         }
     </style>
 </head>
@@ -89,54 +345,28 @@
     <!-- Loading Bar -->
     <div id="loadingBar" class="loading-bar"></div>
 
-    <!-- Header -->
-    <header id="header" class="fixed w-full z-50 transition-all duration-300 py-4">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center">
-                <!-- Logo -->
-                <div class="flex items-center">
-                    <img src="../images/logo.png" alt="Sanai Holdings Logo" class="logo-img mr-3">
-                    <span class="text-xl font-bold text-gray-800">SANAI HOLDINGS</span>
-                </div>
-
-                <!-- Desktop Navigation -->
-                <nav class="hidden md:flex space-x-8">
-                <a href="index.html#home" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300">Homepage</a>
-                    <a href="agr_com.html#home" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300">Home</a>
-                    <a href="agr_com.html#about" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300">About</a>
-                    <a href="agr_com.html#services" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300">Services</a>
-                    <a href="agr_com.html#products" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300">Products</a>
-                    <a href="agr_com.html#agricultural" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300">Agricultural</a>
-                    <a href="agr_com.html#team" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300">Our Team</a>
-                    <a href="agr_com.html#contact" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300">Contact</a>
-                    <a href="#get-quote" class="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition duration-300">Get Quote</a>
-                </nav>
-
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="md:hidden text-gray-700 mobile-touch-target">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
+    <!-- Header - Consistent with building page -->
+    <header id="header">
+        <div class="container mx-auto px-4 header-container">
+            <a href="#" class="logo">
+                <img src="../images/logo.png" alt="Sanai Holdings Logo" class="logo-img">
+                SANAI <span>HOLDINGS</span>
+            </a>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
             </div>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden fixed top-0 left-0 w-64 h-full bg-white shadow-lg p-6">
-            <div class="flex justify-between items-center mb-8">
-                <img src="../images/logo.png" alt="Sanai Holdings Logo" class="logo-img mr-3">
-                <span class="text-lg font-bold text-gray-800">SANAI HOLDINGS</span>
-                <button id="close-menu" class="text-gray-700 mobile-touch-target">
-                    <i class="fas fa-times text-xl"></i>
-                </button>
-            </div>
-            <nav class="flex flex-col space-y-6">
-                <a href="index.html#home" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300">Home</a>
-                <a href="index.html#about" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300">About</a>
-                <a href="index.html#services" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300">Services</a>
-                <a href="index.html#products" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300">Products</a>
-                <a href="agr_com.html#agricultural" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300">Agricultural</a>
-                <a href="index.html#team" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300">Our Team</a>
-                <a href="index.html#contact" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300">Contact</a>
-                <a href="#get-quote" class="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition duration-300 text-center">Get Quote</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html#home" class="text-white hover:text-secondary">Homepage</a></li>
+                    <li><a href="home.html#home" class="text-white hover:text-secondary">Home</a></li>
+                    <li><a href="home.html#about" class="text-white hover:text-secondary">About</a></li>
+                    <li><a href="home.html#services" class="text-white hover:text-secondary">Services</a></li>
+                    <li><a href="agr_com.html#products" class="text-white hover:text-secondary">Products</a></li>
+                    <li><a href="agr_com.html#agricultural" class="text-white hover:text-secondary">Agricultural</a></li>
+                    <li><a href="agr_com.html#team" class="text-white hover:text-secondary">Our Team</a></li>
+                    <li><a href="home.html#contact" class="text-white hover:text-secondary">Contact</a></li>
+                    <li><a href="#get-quote" class="bg-secondary text-white px-4 py-2 rounded-lg font-medium hover:bg-yellow-600 transition duration-300">Get Quote</a></li>
+                </ul>
             </nav>
         </div>
     </header>
@@ -146,12 +376,12 @@
         <div class="container mx-auto px-4">
             <div class="max-w-2xl fade-in">
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">YOUR TRUSTED BUSINESS PARTNER</h1>
-                <p class="text-xl text-gray-200 mb-8 leading-relaxed">Providing quality communications services, agricultural solutions, and building & construction with professionalism, integrity, and passion since 2014.</p>
+                <p class="text-xl text-gray-200 mb-8 leading-relaxed">Providing quality communications services, agricultural solutions, building & construction, and premium accommodation with professionalism, integrity, and passion since 2014.</p>
                 <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="index.html#contact" class="btn-primary text-white px-6 py-3 rounded-lg font-medium text-center hover:shadow-lg transition duration-300 mobile-touch-target">
+                    <a href="home.html#contact" class="btn-primary text-white px-6 py-3 rounded-lg font-medium text-center hover:shadow-lg transition duration-300 mobile-touch-target">
                         Contact Us
                     </a>
-                    <a href="#services" class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-lg font-medium text-center hover:bg-white hover:text-gray-800 transition duration-300 mobile-touch-target">
+                    <a href="#services" class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-lg font-medium text-center hover:bg-white hover:text-dark transition duration-300 mobile-touch-target">
                         Our Services
                     </a>
                 </div>
@@ -163,43 +393,55 @@
     <section id="services" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12 fade-in">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Services</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-dark section-title">Our Services</h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">We offer comprehensive solutions across multiple industries to meet your business needs.</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Agricultural Services -->
-                <div class="service-card bg-white rounded-xl shadow-md p-6 fade-in">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                <div class="service-card bg-white rounded-lg shadow-md p-6 fade-in">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4 mx-auto">
                         <i class="fas fa-seedling text-green-600 text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Agricultural Services</h3>
+                    <h3 class="text-xl font-bold text-dark mb-3 text-center">Agricultural Services</h3>
                     <p class="text-gray-600 mb-4">Comprehensive agricultural solutions including crop management, irrigation systems, and sustainable farming practices.</p>
-                    <a href="agr_com.html#agricultural" class="btn-agri text-white px-4 py-2 rounded-lg font-medium inline-block hover:shadow-lg transition duration-300 mobile-touch-target">
+                    <a href="agr_com.html#agricultural" class="btn-agri text-white px-4 py-2 rounded-lg font-medium inline-block hover:shadow-lg transition duration-300 mobile-touch-target text-center w-full">
                         Learn More
                     </a>
                 </div>
                 
                 <!-- Civil Engineering & Construction -->
-                <div class="service-card bg-white rounded-xl shadow-md p-6 fade-in">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                <div class="service-card bg-white rounded-lg shadow-md p-6 fade-in">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4 mx-auto">
                         <i class="fas fa-hard-hat text-blue-600 text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Civil Engineering & Construction</h3>
+                    <h3 class="text-xl font-bold text-dark mb-3 text-center">Civil Engineering & Construction</h3>
                     <p class="text-gray-600 mb-4">Expert civil engineering and construction services for residential, commercial, and infrastructure projects.</p>
-                    <a href="construction.html" class="btn-primary text-white px-4 py-2 rounded-lg font-medium inline-block hover:shadow-lg transition duration-300 mobile-touch-target">
+                    <a href="construction.html" class="btn-primary text-white px-4 py-2 rounded-lg font-medium inline-block hover:shadow-lg transition duration-300 mobile-touch-target text-center w-full">
                         Learn More
                     </a>
                 </div>
                 
                 <!-- Communication Services -->
-                <div class="service-card bg-white rounded-xl shadow-md p-6 fade-in">
-                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                <div class="service-card bg-white rounded-lg shadow-md p-6 fade-in">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4 mx-auto">
                         <i class="fas fa-broadcast-tower text-purple-600 text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Communication Services</h3>
+                    <h3 class="text-xl font-bold text-dark mb-3 text-center">Communication Services</h3>
                     <p class="text-gray-600 mb-4">Advanced communication solutions including network infrastructure, telecommunications, and IT services.</p>
-                    <a href="agr_com.html#home" class="btn-success text-white px-4 py-2 rounded-lg font-medium inline-block hover:shadow-lg transition duration-300 mobile-touch-target">
+                    <a href="agr_com.html#home" class="btn-success text-white px-4 py-2 rounded-lg font-medium inline-block hover:shadow-lg transition duration-300 mobile-touch-target text-center w-full">
+                        Learn More
+                    </a>
+                </div>
+                
+                <!-- Accommodation Services -->
+                <div class="service-card bg-white rounded-lg shadow-md p-6 fade-in">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-hotel text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3 text-center">Accommodation Services</h3>
+                    <p class="text-gray-600 mb-4">Premium accommodation solutions including hotels, apartments, and short-term rentals with exceptional hospitality services.</p>
+                    <a href="bnb.html" class="btn-accommodation text-white px-4 py-2 rounded-lg font-medium inline-block hover:shadow-lg transition duration-300 mobile-touch-target text-center w-full">
                         Learn More
                     </a>
                 </div>
@@ -208,16 +450,16 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 bg-gray-100">
+    <section id="about" class="py-16 bg-light">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="fade-in">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">About Sanai Holdings</h2>
-                    <p class="text-gray-600 mb-4">Since our establishment in 2014, Sanai Holdings has been a trusted partner for businesses seeking reliable solutions in communications, agriculture, and construction.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark mb-6">About Sanai Holdings</h2>
+                    <p class="text-gray-600 mb-4">Since our establishment in 2014, Sanai Holdings has been a trusted partner for businesses seeking reliable solutions in communications, agriculture, construction, and accommodation services.</p>
                     <p class="text-gray-600 mb-6">Our commitment to professionalism, integrity, and passion has enabled us to build lasting relationships with clients across various industries.</p>
                     <div class="flex space-x-4">
                         <div class="text-center">
-                            <div class="text-3xl font-bold text-blue-600">9+</div>
+                            <div class="text-3xl font-bold text-primary">9+</div>
                             <div class="text-gray-600">Years Experience</div>
                         </div>
                         <div class="text-center">
@@ -225,7 +467,7 @@
                             <div class="text-gray-600">Projects Completed</div>
                         </div>
                         <div class="text-center">
-                            <div class="text-3xl font-bold text-purple-600">100%</div>
+                            <div class="text-3xl font-bold text-secondary">100%</div>
                             <div class="text-gray-600">Client Satisfaction</div>
                         </div>
                     </div>
@@ -237,11 +479,35 @@
         </div>
     </section>
 
+    <!-- Stats Section -->
+    <section class="stats-section py-16 text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center fade-in">
+                    <div class="text-4xl md:text-5xl font-bold mb-2">9+</div>
+                    <div class="text-xl">Years of Service</div>
+                </div>
+                <div class="text-center fade-in">
+                    <div class="text-4xl md:text-5xl font-bold mb-2">180+</div>
+                    <div class="text-xl">Projects Completed</div>
+                </div>
+                <div class="text-center fade-in">
+                    <div class="text-4xl md:text-5xl font-bold mb-2">80+</div>
+                    <div class="text-xl">Expert Team Members</div>
+                </div>
+                <div class="text-center fade-in">
+                    <div class="text-4xl md:text-5xl font-bold mb-2">18+</div>
+                    <div class="text-xl">Counties Impacted</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12 fade-in">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Get In Touch</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-dark section-title">Get In Touch</h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">Have a project in mind or need more information about our services? Contact us today.</p>
             </div>
             
@@ -249,20 +515,20 @@
                 <div class="fade-in">
                     <form id="contact-form" class="space-y-6">
                         <div>
-                            <label for="name" class="block text-gray-700 mb-2">Full Name</label>
-                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            <label for="name" class="block text-dark mb-2 font-medium">Full Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
                         </div>
                         <div>
-                            <label for="email" class="block text-gray-700 mb-2">Email Address</label>
-                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            <label for="email" class="block text-dark mb-2 font-medium">Email Address</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
                         </div>
                         <div>
-                            <label for="subject" class="block text-gray-700 mb-2">Subject</label>
-                            <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            <label for="subject" class="block text-dark mb-2 font-medium">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
                         </div>
                         <div>
-                            <label for="message" class="block text-gray-700 mb-2">Message</label>
-                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                            <label for="message" class="block text-dark mb-2 font-medium">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required></textarea>
                         </div>
                         <button type="submit" class="btn-primary text-white px-6 py-3 rounded-lg font-medium w-full hover:shadow-lg transition duration-300 mobile-touch-target">
                             Send Message
@@ -271,15 +537,15 @@
                 </div>
                 
                 <div class="fade-in">
-                    <div class="bg-gray-50 p-8 rounded-lg">
-                        <h3 class="text-xl font-bold text-gray-800 mb-6">Contact Information</h3>
+                    <div class="bg-light p-8 rounded-lg">
+                        <h3 class="text-xl font-bold text-dark mb-6">Contact Information</h3>
                         <div class="space-y-4">
                             <div class="flex items-start">
                                 <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                                    <i class="fas fa-map-marker-alt text-blue-600"></i>
+                                    <i class="fas fa-map-marker-alt text-primary"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-medium text-gray-800">Address</h4>
+                                    <h4 class="font-medium text-dark">Address</h4>
                                     <p class="text-gray-600">P. O. Box 333 – 30400 Kabarnet</p>
                                 </div>
                             </div>
@@ -288,7 +554,7 @@
                                     <i class="fas fa-phone text-green-600"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-medium text-gray-800">Phone</h4>
+                                    <h4 class="font-medium text-dark">Phone</h4>
                                     <p class="text-gray-600">+254 718 359 318</p>
                                 </div>
                             </div>
@@ -297,16 +563,16 @@
                                     <i class="fas fa-envelope text-purple-600"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-medium text-gray-800">Email</h4>
+                                    <h4 class="font-medium text-dark">Email</h4>
                                     <p class="text-gray-600">info@sanaiholdings.com</p>
                                 </div>
                             </div>
                             <div class="flex items-start">
                                 <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center mr-4">
-                                    <i class="fas fa-clock text-yellow-600"></i>
+                                    <i class="fas fa-clock text-secondary"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-medium text-gray-800">Business Hours</h4>
+                                    <h4 class="font-medium text-dark">Business Hours</h4>
                                     <p class="text-gray-600">Mon - Fri: 9:00 AM - 6:00 PM</p>
                                 </div>
                             </div>
@@ -318,61 +584,58 @@
     </section>
 
     <!-- Get Quote Section -->
-    <section id="get-quote" class="py-16 bg-gradient-to-r from-blue-600 to-purple-700 text-white">
+    <section id="get-quote" class="quote-section py-16 text-white">
         <div class="container mx-auto px-4 text-center fade-in">
             <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Get Started?</h2>
             <p class="text-xl mb-8 max-w-2xl mx-auto">Request a free quote for our services and discover how Sanai Holdings can help your business grow.</p>
-            <a href="index.html#contact" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-medium text-lg hover:bg-gray-100 transition duration-300 mobile-touch-target inline-block">
+            <a href="home.html#contact" class="bg-secondary text-white px-8 py-3 rounded-lg font-medium text-lg hover:bg-yellow-600 transition duration-300 mobile-touch-target inline-block">
                 Get Your Free Quote
             </a>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-12">
+    <!-- Footer - Consistent with building page -->
+    <footer>
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                    <div class="flex items-center mb-4">
-                        <img src="../images/logo.png" alt="Sanai Holdings Logo" class="logo-img mr-3">
-                        <h3 class="text-xl font-bold">SANAI HOLDINGS</h3>
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Sanai Holdings Limited</h3>
+                    <p>Building Kenya's future with quality construction, civil engineering, and accommodation services since 2014.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
-                    <p class="text-gray-300 leading-relaxed">Your trusted partner for general merchandise supplies and communications solutions since 2014.</p>
                 </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="index.html#home" class="text-gray-300 hover:text-white transition duration-300">Home</a></li>
-                        <li><a href="index.html#about" class="text-gray-300 hover:text-white transition duration-300">About Us</a></li>
-                        <li><a href="index.html#services" class="text-gray-300 hover:text-white transition duration-300">Services</a></li>
-                        <li><a href="index.html#products" class="text-gray-300 hover:text-white transition duration-300">Products</a></li>
-                        <li><a href="index.html#agricultural" class="text-gray-300 hover:text-white transition duration-300">Agricultural</a></li>
-                        <li><a href="index.html#team" class="text-gray-300 hover:text-white transition duration-300">Our Team</a></li>
-                        <li><a href="index.html#contact" class="text-gray-300 hover:text-white transition duration-300">Contact</a></li>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#stats">Impact</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Connect With Us</h3>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition duration-300 mobile-touch-target">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center hover:bg-blue-500 transition duration-300 mobile-touch-target">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-900 transition duration-300 mobile-touch-target">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Benin Plaza, Benin</li>
+                        <li><i class="fas fa-envelope"></i> sanaiholdings@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> (+254) 718 359 318</li>
+                        <li><i class="fas fa-building"></i> P. O. Box 333 – 30400 Kabarnet</li>
+                    </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 Sanai Holdings Limited. All rights reserved.</p>
-                <p class="mt-2">
+            <div class="copyright">
+                <p>&copy; 2025 Sanai Holdings Limited. All Rights Reserved.</p>
+                <p>
+                    Developed by 
                     <a href="https://www.linkedin.com/in/abayo-brian-a6658b263/" 
                        target="_blank" 
-                       class="text-green-400 hover:text-gray-400 transition duration-300">
-                        Developed by Brian Abayo - Machine Learning Engineer.
+                       class="developer-link">
+                        Brian Abayo - Machine Learning Engineer
                     </a>
                 </p>
             </div>
@@ -380,7 +643,7 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-blue-600 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 opacity-0 invisible hover:bg-blue-700 mobile-touch-target" aria-label="Back to top">
+    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 opacity-0 invisible hover:bg-blue-800 mobile-touch-target" aria-label="Back to top">
         <i class="fas fa-chevron-up"></i>
     </button>
 
@@ -398,60 +661,24 @@
         });
 
         // Mobile Menu Toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('open');
-            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
         });
-
-        // Close mobile menu when clicking the close button
-        document.getElementById('close-menu').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.remove('open');
-            document.body.style.overflow = '';
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const mobileMenu = document.getElementById('mobile-menu');
-            const menuButton = document.getElementById('mobile-menu-button');
-            
-            if (!mobileMenu.contains(event.target) && !menuButton.contains(event.target) && mobileMenu.classList.contains('open')) {
-                mobileMenu.classList.remove('open');
-                document.body.style.overflow = '';
-            }
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    // Close mobile menu if open
-                    document.getElementById('mobile-menu').classList.remove('open');
-                    document.body.style.overflow = '';
-                }
-            });
-        });
-
+        
         // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.getElementById('header');
-            if (window.scrollY > 100) {
-                header.classList.add('shadow-lg', 'bg-white', 'py-2');
+            if (window.pageYOffset > 50) {
+                header.classList.add('scrolled');
             } else {
-                header.classList.remove('shadow-lg', 'bg-white', 'py-2');
+                header.classList.remove('scrolled');
             }
         });
-
-        // Back to top button
+        
+        // Back to Top Button
         const backToTopButton = document.getElementById('backToTop');
         
+        // Show/hide button based on scroll position
         window.addEventListener('scroll', function() {
             if (window.scrollY > 300) {
                 backToTopButton.classList.remove('opacity-0', 'invisible');
@@ -466,6 +693,22 @@
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.querySelector('nav ul').classList.remove('show');
+                }
             });
         });
 
@@ -524,7 +767,7 @@
         });
 
         // Enhanced mobile button interactions
-        document.querySelectorAll('.btn-primary, .btn-agri, .btn-success').forEach(button => {
+        document.querySelectorAll('.btn-primary, .btn-secondary, .btn-agri, .btn-success, .btn-accommodation').forEach(button => {
             // Add touch feedback
             button.addEventListener('touchstart', function() {
                 this.style.transform = 'translateY(0)';
