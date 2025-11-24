@@ -42,6 +42,8 @@
                         'fade-in': 'fadeIn 0.5s ease-in-out',
                         'slide-up': 'slideUp 0.5s ease-out',
                         'pulse-slow': 'pulse 3s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        '3d-rotate': 'rotate3d 20s infinite linear',
                     },
                     keyframes: {
                         fadeIn: {
@@ -51,6 +53,14 @@
                         slideUp: {
                             '0%': { transform: 'translateY(20px)', opacity: '0' },
                             '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        rotate3d: {
+                            '0%': { transform: 'perspective(1000px) rotateY(0deg)' },
+                            '100%': { transform: 'perspective(1000px) rotateY(360deg)' },
                         }
                     }
                 }
@@ -348,79 +358,100 @@
             border-color: var(--primary);
         }
         
-        /* Image Gallery Styles */
-        .gallery-container {
+        /* Enhanced 3D Gallery Styles */
+        .gallery-3d-container {
             position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        .gallery-track {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        
-        .gallery-slide {
-            min-width: 100%;
-            position: relative;
-        }
-        
-        .gallery-image {
             width: 100%;
-            height: 400px;
-            object-fit: cover;
-            display: block;
+            height: 600px;
+            perspective: 1200px;
+            margin: 0 auto;
         }
         
-        .gallery-caption {
+        .gallery-3d-carousel {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1s ease-in-out;
+        }
+        
+        .gallery-3d-slide {
+            position: absolute;
+            width: 300px;
+            height: 400px;
+            left: 50%;
+            top: 50%;
+            margin-left: -150px;
+            margin-top: -200px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            cursor: pointer;
+        }
+        
+        .gallery-3d-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .gallery-3d-caption {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
             color: white;
             padding: 20px;
-            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
         }
         
-        .gallery-nav {
+        .gallery-3d-slide:hover .gallery-3d-caption {
+            transform: translateY(0);
+        }
+        
+        .gallery-3d-nav {
             display: flex;
             justify-content: center;
-            margin-top: 20px;
-            gap: 10px;
+            margin-top: 30px;
+            gap: 15px;
         }
         
-        .gallery-dot {
-            width: 12px;
-            height: 12px;
+        .gallery-3d-dot {
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
             background: #cbd5e1;
             cursor: pointer;
             transition: all 0.3s ease;
+            border: 3px solid transparent;
         }
         
-        .gallery-dot.active {
+        .gallery-3d-dot.active {
             background: var(--agri-green);
-            transform: scale(1.2);
+            transform: scale(1.3);
+            border-color: rgba(22, 163, 74, 0.3);
         }
         
-        .gallery-controls {
+        .gallery-3d-controls {
             position: absolute;
             top: 50%;
             width: 100%;
             display: flex;
             justify-content: space-between;
             transform: translateY(-50%);
-            padding: 0 20px;
+            padding: 0 30px;
             pointer-events: none;
+            z-index: 10;
         }
         
-        .gallery-btn {
-            background: rgba(255,255,255,0.8);
+        .gallery-3d-btn {
+            background: rgba(255,255,255,0.9);
             border: none;
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -428,12 +459,30 @@
             cursor: pointer;
             pointer-events: all;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            font-size: 1.2rem;
         }
         
-        .gallery-btn:hover {
+        .gallery-3d-btn:hover {
             background: white;
-            transform: scale(1.1);
+            transform: scale(1.1) translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        
+        /* 3D Animation Elements */
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-element-delay {
+            animation: float 6s ease-in-out infinite 2s;
+        }
+        
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
         
         /* Mobile-specific improvements */
@@ -468,17 +517,25 @@
                 min-width: 44px;
             }
             
-            /* Gallery adjustments for mobile */
-            .gallery-image {
+            /* 3D Gallery adjustments for mobile */
+            .gallery-3d-container {
+                height: 400px;
+                perspective: 800px;
+            }
+            
+            .gallery-3d-slide {
+                width: 200px;
                 height: 300px;
+                margin-left: -100px;
+                margin-top: -150px;
             }
             
-            .gallery-btn {
-                width: 40px;
-                height: 40px;
+            .gallery-3d-btn {
+                width: 45px;
+                height: 45px;
             }
             
-            .gallery-caption {
+            .gallery-3d-caption {
                 padding: 15px;
                 font-size: 14px;
             }
@@ -1537,95 +1594,167 @@
         </div>
     </section>
 
-    <!-- Agricultural Gallery Section -->
+    <!-- Enhanced 3D Agricultural Gallery Section -->
     <section id="agri-gallery" class="section-padding bg-gradient-to-br from-green-50 to-blue-50">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-dark mb-4">OUR AGRICULTURAL PROJECTS</h2>
+                <h2 class="text-3xl font-bold text-dark mb-4">OUR AGRICULTURAL PROJECTS GALLERY</h2>
                 <div class="w-20 h-1 bg-agri-green mx-auto"></div>
-                <p class="text-gray-600 max-w-3xl mx-auto mt-4 text-lg">Explore our successful agricultural projects and see how we're transforming farming across the region.</p>
+                <p class="text-gray-600 max-w-3xl mx-auto mt-4 text-lg">Experience our agricultural innovations through our immersive 3D gallery showcasing successful projects across the region.</p>
             </div>
 
-            <!-- Image Gallery -->
-            <div class="gallery-container">
-                <div class="gallery-track" id="galleryTrack">
+            <!-- 3D Image Gallery -->
+            <div class="gallery-3d-container">
+                <div class="gallery-3d-carousel" id="gallery3dCarousel">
                     <!-- Slide 1 -->
-                    <div class="gallery-slide">
-                        <img src="../images/greenhouse-capsicum.jpg" alt="Greenhouse Capsicum Farming" class="gallery-image">
-                        <div class="gallery-caption">
+                    <div class="gallery-3d-slide" data-index="0">
+                        <img src="../images/greenhouse-capsicum.jpg" alt="Greenhouse Capsicum Farming" class="w-full h-full object-cover">
+                        <div class="gallery-3d-caption">
                             <h3 class="text-xl font-bold mb-2">Greenhouse Capsicum Farming</h3>
                             <p>High-quality capsicum production in our advanced greenhouse facilities</p>
                         </div>
                     </div>
                     
                     <!-- Slide 2 -->
-                    <div class="gallery-slide">
-                        <img src="../images/onion-drip-irrigation.jpg" alt="Onion Drip Irrigation System" class="gallery-image">
-                        <div class="gallery-caption">
+                    <div class="gallery-3d-slide" data-index="1">
+                        <img src="../images/onion-drip-irrigation.jpg" alt="Onion Drip Irrigation System" class="w-full h-full object-cover">
+                        <div class="gallery-3d-caption">
                             <h3 class="text-xl font-bold mb-2">Onion Drip Irrigation</h3>
                             <p>Efficient drip irrigation system for onion farming with water conservation</p>
                         </div>
                     </div>
                     
                     <!-- Slide 3 -->
-                    <div class="gallery-slide">
-                        <img src="../images/borehole-drilling.jpg" alt="Borehole Drilling Operation" class="gallery-image">
-                        <div class="gallery-caption">
+                    <div class="gallery-3d-slide" data-index="2">
+                        <img src="../images/borehole-drilling.jpg" alt="Borehole Drilling Operation" class="w-full h-full object-cover">
+                        <div class="gallery-3d-caption">
                             <h3 class="text-xl font-bold mb-2">Borehole Drilling</h3>
                             <p>Professional borehole drilling services for reliable water supply</p>
                         </div>
                     </div>
                     
                     <!-- Slide 4 -->
-                    <div class="gallery-slide">
-                        <img src="../images/water-collection-dam.jpg" alt="Water Collection Dam" class="gallery-image">
-                        <div class="gallery-caption">
+                    <div class="gallery-3d-slide" data-index="3">
+                        <img src="../images/water-collection-dam.jpg" alt="Water Collection Dam" class="w-full h-full object-cover">
+                        <div class="gallery-3d-caption">
                             <h3 class="text-xl font-bold mb-2">Water Collection Dam</h3>
                             <p>Large-scale water harvesting dam for agricultural irrigation</p>
                         </div>
                     </div>
                     
                     <!-- Slide 5 -->
-                    <div class="gallery-slide">
-                        <img src="../images/pop-up-sprinklers.jpg" alt="Pop-up Sprinkler System" class="gallery-image">
-                        <div class="gallery-caption">
+                    <div class="gallery-3d-slide" data-index="4">
+                        <img src="../images/pop-up-sprinklers.jpg" alt="Pop-up Sprinkler System" class="w-full h-full object-cover">
+                        <div class="gallery-3d-caption">
                             <h3 class="text-xl font-bold mb-2">Pop-up Sprinkler System</h3>
                             <p>Advanced sprinkler irrigation for lawn and crop watering</p>
                         </div>
                     </div>
                     
                     <!-- Slide 6 -->
-                    <div class="gallery-slide">
-                        <img src="../images/genhouse-tunnel-modelre.jpg" alt="Greenhouse Tunnel Model" class="gallery-image">
-                        <div class="gallery-caption">
+                    <div class="gallery-3d-slide" data-index="5">
+                        <img src="../images/genhouse-tunnel-modelre.jpg" alt="Greenhouse Tunnel Model" class="w-full h-full object-cover">
+                        <div class="gallery-3d-caption">
                             <h3 class="text-xl font-bold mb-2">Greenhouse Tunnel Model</h3>
                             <p>Cost-effective tunnel greenhouse for small-scale farmers</p>
                         </div>
                     </div>
                     
                     <!-- Slide 7 -->
-                    <div class="gallery-slide">
-                        <img src="../images/kadogo-kitchen-gardening.jpg" alt="Kitchen Gardening Project" class="gallery-image">
-                        <div class="gallery-caption">
+                    <div class="gallery-3d-slide" data-index="6">
+                        <img src="../images/kadogo-kitchen-gardening.jpg" alt="Kitchen Gardening Project" class="w-full h-full object-cover">
+                        <div class="gallery-3d-caption">
                             <h3 class="text-xl font-bold mb-2">Kitchen Gardening</h3>
                             <p>Sanai Kadogo model for sustainable kitchen gardening</p>
+                        </div>
+                    </div>
+
+                    <!-- NEW IMAGES ADDED BELOW -->
+                    
+                    <!-- Slide 8 - Avocado -->
+                    <div class="gallery-3d-slide" data-index="7">
+                        <img src="../images/avocado.jpeg" alt="Premium Avocado Cultivation" class="w-full h-full object-cover">
+                        <div class="gallery-3d-caption">
+                            <h3 class="text-xl font-bold mb-2">Premium Avocado Cultivation</h3>
+                            <p>Growing export-quality avocados with sustainable farming practices</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 9 - Cabbage -->
+                    <div class="gallery-3d-slide" data-index="8">
+                        <img src="../images/cabbage.jpeg" alt="Organic Cabbage Farming" class="w-full h-full object-cover">
+                        <div class="gallery-3d-caption">
+                            <h3 class="text-xl font-bold mb-2">Organic Cabbage Farming</h3>
+                            <p>Fresh, pesticide-free cabbage grown using natural farming methods</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 10 - Cassava -->
+                    <div class="gallery-3d-slide" data-index="9">
+                        <img src="../images/cassava.jpeg" alt="Cassava Value Chain Development" class="w-full h-full object-cover">
+                        <div class="gallery-3d-caption">
+                            <h3 class="text-xl font-bold mb-2">Cassava Value Chain Development</h3>
+                            <p>Transforming cassava farming into profitable agribusiness ventures</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 11 - Jiko -->
+                    <div class="gallery-3d-slide" data-index="10">
+                        <img src="../images/jiko.jpeg" alt="Energy-Efficient Jiko Project" class="w-full h-full object-cover">
+                        <div class="gallery-3d-caption">
+                            <h3 class="text-xl font-bold mb-2">Energy-Efficient Jiko Project</h3>
+                            <p>Promoting sustainable cooking solutions for rural communities</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 12 - Mango Seedling -->
+                    <div class="gallery-3d-slide" data-index="11">
+                        <img src="../images/mangoseedling.jpeg" alt="Mango Seedling Nursery" class="w-full h-full object-cover">
+                        <div class="gallery-3d-caption">
+                            <h3 class="text-xl font-bold mb-2">Mango Seedling Nursery</h3>
+                            <p>High-quality grafted mango seedlings for commercial orchards</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 13 - Tomatoes -->
+                    <div class="gallery-3d-slide" data-index="12">
+                        <img src="../images/tomatoes.jpeg" alt="Tomato Greenhouse Production" class="w-full h-full object-cover">
+                        <div class="gallery-3d-caption">
+                            <h3 class="text-xl font-bold mb-2">Tomato Greenhouse Production</h3>
+                            <p>Year-round tomato cultivation in climate-controlled greenhouses</p>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Navigation Controls -->
-                <div class="gallery-controls">
-                    <button class="gallery-btn" id="prevBtn" aria-label="Previous image">
+                <div class="gallery-3d-controls">
+                    <button class="gallery-3d-btn" id="prev3dBtn" aria-label="Previous image">
                         <i class="fas fa-chevron-left text-agri-green"></i>
                     </button>
-                    <button class="gallery-btn" id="nextBtn" aria-label="Next image">
+                    <button class="gallery-3d-btn" id="next3dBtn" aria-label="Next image">
                         <i class="fas fa-chevron-right text-agri-green"></i>
                     </button>
                 </div>
                 
                 <!-- Navigation Dots -->
-                <div class="gallery-nav" id="galleryDots">
+                <div class="gallery-3d-nav" id="gallery3dDots">
                     <!-- Dots will be generated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Gallery Stats -->
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="floating-element bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-3xl font-bold text-agri-green mb-2">13+</div>
+                    <div class="text-gray-600">Agricultural Projects</div>
+                </div>
+                <div class="floating-element-delay bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-3xl font-bold text-agri-green mb-2">500+</div>
+                    <div class="text-gray-600">Farmers Supported</div>
+                </div>
+                <div class="floating-element bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-3xl font-bold text-agri-green mb-2">1000+</div>
+                    <div class="text-gray-600">Acres Transformed</div>
                 </div>
             </div>
         </div>
@@ -2687,75 +2816,113 @@
             });
         });
 
-        // Image Gallery Functionality
+        // Enhanced 3D Gallery Functionality
         document.addEventListener('DOMContentLoaded', function() {
-            const galleryTrack = document.getElementById('galleryTrack');
-            const galleryDots = document.getElementById('galleryDots');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
+            const galleryCarousel = document.getElementById('gallery3dCarousel');
+            const galleryDots = document.getElementById('gallery3dDots');
+            const prevBtn = document.getElementById('prev3dBtn');
+            const nextBtn = document.getElementById('next3dBtn');
             
             let currentIndex = 0;
-            const totalSlides = 7; // 7 images as requested
+            const totalSlides = 13; // 13 images including new ones
+            let autoRotateInterval;
             
             // Create navigation dots
             for (let i = 0; i < totalSlides; i++) {
                 const dot = document.createElement('div');
-                dot.classList.add('gallery-dot');
+                dot.classList.add('gallery-3d-dot');
                 if (i === 0) dot.classList.add('active');
                 dot.addEventListener('click', () => goToSlide(i));
                 galleryDots.appendChild(dot);
             }
             
+            // Function to position slides in 3D space
+            function positionSlides() {
+                const slides = document.querySelectorAll('.gallery-3d-slide');
+                const angle = 360 / totalSlides;
+                
+                slides.forEach((slide, index) => {
+                    const rotateY = angle * index;
+                    const translateZ = 400; // Distance from center
+                    
+                    slide.style.transform = `rotateY(${rotateY}deg) translateZ(${translateZ}px)`;
+                    slide.style.opacity = '1';
+                });
+            }
+            
+            // Function to rotate carousel
+            function rotateCarousel() {
+                const angle = 360 / totalSlides;
+                galleryCarousel.style.transform = `rotateY(${-currentIndex * angle}deg)`;
+                
+                // Update active dot
+                document.querySelectorAll('.gallery-3d-dot').forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentIndex);
+                });
+            }
+            
             // Function to go to specific slide
             function goToSlide(index) {
                 currentIndex = index;
-                galleryTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
-                
-                // Update active dot
-                document.querySelectorAll('.gallery-dot').forEach((dot, i) => {
-                    dot.classList.toggle('active', i === currentIndex);
-                });
+                rotateCarousel();
+                resetAutoRotate();
             }
             
             // Next slide function
             function nextSlide() {
                 currentIndex = (currentIndex + 1) % totalSlides;
-                goToSlide(currentIndex);
+                rotateCarousel();
+                resetAutoRotate();
             }
             
             // Previous slide function
             function prevSlide() {
                 currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-                goToSlide(currentIndex);
+                rotateCarousel();
+                resetAutoRotate();
+            }
+            
+            // Auto-rotate functionality
+            function startAutoRotate() {
+                autoRotateInterval = setInterval(nextSlide, 4000);
+            }
+            
+            function resetAutoRotate() {
+                clearInterval(autoRotateInterval);
+                startAutoRotate();
             }
             
             // Event listeners for buttons
             prevBtn.addEventListener('click', prevSlide);
             nextBtn.addEventListener('click', nextSlide);
             
-            // Auto-advance slides every 5 seconds
-            let slideInterval = setInterval(nextSlide, 5000);
+            // Initialize 3D positioning
+            positionSlides();
+            rotateCarousel();
+            startAutoRotate();
             
-            // Pause auto-advance on hover
-            galleryTrack.addEventListener('mouseenter', () => {
-                clearInterval(slideInterval);
+            // Pause auto-rotate on hover
+            galleryCarousel.addEventListener('mouseenter', () => {
+                clearInterval(autoRotateInterval);
             });
             
-            galleryTrack.addEventListener('mouseleave', () => {
-                slideInterval = setInterval(nextSlide, 5000);
+            galleryCarousel.addEventListener('mouseleave', () => {
+                startAutoRotate();
             });
             
             // Touch swipe support for mobile
             let startX = 0;
             let endX = 0;
             
-            galleryTrack.addEventListener('touchstart', (e) => {
+            galleryCarousel.addEventListener('touchstart', (e) => {
                 startX = e.touches[0].clientX;
+                clearInterval(autoRotateInterval);
             });
             
-            galleryTrack.addEventListener('touchend', (e) => {
+            galleryCarousel.addEventListener('touchend', (e) => {
                 endX = e.changedTouches[0].clientX;
                 handleSwipe();
+                startAutoRotate();
             });
             
             function handleSwipe() {
@@ -2770,6 +2937,22 @@
                     }
                 }
             }
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                } else if (e.key === 'ArrowRight') {
+                    nextSlide();
+                }
+            });
+            
+            // Click on slide to center it
+            document.querySelectorAll('.gallery-3d-slide').forEach((slide, index) => {
+                slide.addEventListener('click', () => {
+                    goToSlide(index);
+                });
+            });
         });
     </script>
 </body>
