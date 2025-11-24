@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sanaiholdings</title>
+    <title>Sanai Holdings - Construction Gallery</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Base Styles */
@@ -212,7 +212,7 @@
             flex: 1;
             min-width: 300px;
             height: 400px;
-            background: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            background: url('../images/wing-image2.jpeg') no-repeat center center/cover;
             border-radius: 8px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
@@ -282,6 +282,70 @@
         .stat-text {
             font-size: 1.2rem;
             opacity: 0.9;
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            background-color: white;
+            padding: 80px 0;
+        }
+        
+        .gallery-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            height: 250px;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 20px;
+        }
+        
+        .gallery-title {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .gallery-description {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .gallery-cta {
+            text-align: center;
+            margin-top: 30px;
         }
         
         /* Contact Section */
@@ -634,6 +698,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#stats">Impact</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="#company-profile">Company Profile</a></li>
@@ -698,6 +763,157 @@
                         <p>Natural gravel or Graded crushed stone bases, Fibre Reinforced Concrete and RCC hardstanding areas, Paving block surface (Cabro), Asphaltic concrete surface.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2>Construction Projects</h2>
+            <div class="gallery-intro">
+                <p>Explore our portfolio of successfully completed construction projects across Kenya. Each project showcases our commitment to quality, safety.</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item">
+                    <img src="../images/1.jpeg" alt="Classroom Roofing" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Roofing</h3>
+                        <p class="gallery-description">Durable roofing installation for long-term protection</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item">
+                    <img src="../images/2.jpeg" alt="Wall Construction" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wall Construction</h3>
+                        <p class="gallery-description">Solid wall structures for safe learning environments</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item">
+                    <img src="../images/5.jpeg" alt="Interior Painting" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Interior Painting</h3>
+                        <p class="gallery-description">Bright, welcoming classroom interiors</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item">
+                    <img src="../images/7.jpeg" alt="School Building Exterior" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Building Exterior</h3>
+                        <p class="gallery-description">Complete construction</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item">
+                    <img src="../images/12.jpeg" alt="Flooring Installation" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Flooring Installation</h3>
+                        <p class="gallery-description">Durable and safe flooring solutions</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item">
+                    <img src="../images/13.jpeg" alt="Structural Framework" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Structural Framework</h3>
+                        <p class="gallery-description">Strong structural framework for safety</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 7 -->
+                <div class="gallery-item">
+                    <img src="../images/4.jpeg" alt="Electrical Installation" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Electrical Installation</h3>
+                        <p class="gallery-description">Safe electrical systems for modern classrooms</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 8 -->
+                <div class="gallery-item">
+                    <img src="../images/9.jpeg" alt="Plumbing Systems" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Plumbing Systems</h3>
+                        <p class="gallery-description">Efficient water and sanitation systems</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 9 -->
+                <div class="gallery-item">
+                    <img src="../images/11.jpeg" alt="Window Installation" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Window Installation</h3>
+                        <p class="gallery-description">Energy-efficient window systems</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 10 -->
+                <div class="gallery-item">
+                    <img src="../images/4.jpeg" alt="Ceiling Work" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Ceiling Work</h3>
+                        <p class="gallery-description">Acoustic ceiling installations</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 11 -->
+                <div class="gallery-item">
+                    <img src="../images/9.jpeg" alt="Doors and Fittings" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Doors and Fittings</h3>
+                        <p class="gallery-description">Quality doors and hardware installation</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 12 -->
+                <div class="gallery-item">
+                    <img src="../images/13.jpeg" alt="Exterior Finishing" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Exterior Finishing</h3>
+                        <p class="gallery-description">Weather-resistant exterior finishes</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 13 -->
+                <div class="gallery-item">
+                    <img src="../images/15.jpeg" alt="Landscaping" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Landscaping</h3>
+                        <p class="gallery-description">School grounds and outdoor spaces</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 14 -->
+                <div class="gallery-item">
+                    <img src="../images/8.jpeg" alt="Playground Construction" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Door Installation</h3>
+                        <p class="gallery-description">Quality doors installation</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 15 -->
+                <div class="gallery-item">
+                    <img src="../images/3.jpeg" alt="Completed Classroom" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Completed Classroom</h3>
+                        <p class="gallery-description">Fully furnished and ready-to-use classroom</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-cta">
+                <a href="#contact" class="btn btn-primary">Start Your Project With Us</a>
             </div>
         </div>
     </section>
@@ -926,6 +1142,7 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
                         <li><a href="#stats">Impact</a></li>
                         <li><a href="#contact">Contact</a></li>
                         <li><a href="#company-profile">Company Profile</a></li>
