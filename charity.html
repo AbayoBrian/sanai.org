@@ -3,18 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sanaiholdings</title>
+    <title>SANAI Holdings - Building Resilient Livelihoods in Africa</title>
+    
+    <!-- Meta Tags & SEO Optimization -->
     <meta name="description" content="SANAI promotes health among vulnerable populations and addresses socio-economic determinants of health in Africa.">
+    <meta name="keywords" content="SANAI, Africa health, community development, Baringo, mango farming, Kenya charity, sustainable development">
+    <meta name="author" content="SANAI Holdings">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="SANAI Holdings - Building Resilient Livelihoods in Africa">
+    <meta property="og:description" content="Promoting health among vulnerable populations in Africa through sustainable development programs">
+    <meta property="og:image" content="../images/og-image.jpg">
+    <meta property="og:url" content="https://sanaiholdings.org">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SANAI Holdings - Building Resilient Livelihoods">
+    <meta name="twitter:description" content="Promoting health among vulnerable populations in Africa">
+    <meta name="twitter:image" content="../images/og-image.jpg">
     
     <!-- Performance Optimizations -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preload" href="../images/logo.png" as="image">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    
+    <!-- PWA -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="SANAI Holdings">
+    <meta name="theme-color" content="#1a5276">
     
     <!-- CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "SANAI Holdings",
+      "description": "Promoting health among vulnerable populations and addressing socio-economic determinants of health in Africa",
+      "url": "https://sanaiholdings.org",
+      "logo": "../images/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "P. O. Box 333– 30400",
+        "addressLocality": "Kabarnet",
+        "addressCountry": "Kenya"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+254-713-539318",
+        "email": "info@sanai.org",
+        "contactType": "Customer service"
+      },
+      "sameAs": [
+        "https://facebook.com/sanaiholdings",
+        "https://twitter.com/sanaiholdings"
+      ]
+    }
+    </script>
     
     <script>
         tailwind.config = {
@@ -78,6 +135,12 @@
         
         body {
             overflow-x: hidden;
+        }
+        
+        /* Focus styles for accessibility */
+        *:focus {
+            outline: 2px solid var(--secondary);
+            outline-offset: 2px;
         }
         
         /* Hero Backgrounds */
@@ -261,6 +324,82 @@
             transform: translateX(0);
         }
         
+        /* Notification Styles */
+        .notification {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .notification.success {
+            background-color: #10b981;
+            color: white;
+        }
+        
+        .notification.error {
+            background-color: #ef4444;
+            color: white;
+        }
+        
+        .notification.info {
+            background-color: #3b82f6;
+            color: white;
+        }
+        
+        /* Print Styles */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            
+            body {
+                font-size: 12pt;
+                line-height: 1.4;
+                color: black;
+            }
+            
+            .hero-bg, .mango-hero-bg {
+                background: white !important;
+                color: black !important;
+            }
+            
+            a {
+                color: black;
+                text-decoration: underline;
+            }
+        }
+        
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            :root {
+                --primary: #000080;
+                --secondary: #ff8c00;
+            }
+        }
+        
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            html {
+                scroll-behavior: auto;
+            }
+        }
+        
         /* Performance Optimizations */
         @media (prefers-reduced-motion: reduce) {
             * {
@@ -275,55 +414,58 @@
     <!-- Loading Bar -->
     <div class="loading-bar" id="loadingBar"></div>
     
-    <!-- Header & Navigation -->
-    <!-- Header & Navigation -->
-<header class="fixed w-full bg-primary shadow-lg z-50 transition-all duration-300" id="header">
-    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-        <div class="flex items-center">
-            <!-- Logo with styling from the provided code -->
-            <a href="#" class="flex items-center">
-                <img src="../images/logo.png" alt="Sanai Holdings Logo" class="h-10 w-10 mr-3 object-contain rounded-lg">
-                <h1 class="text-2xl font-bold text-white">SANAI <span class="text-secondary">HOLDINGS</span></h1>
-            </a>
-        </div>
-        
-        <!-- Desktop Navigation -->
-        <nav class="hidden lg:flex space-x-8">
-            <a href="index.html" class="nav-link text-white hover:text-secondary font-medium transition duration-300">Homepage</a>
-            <a href="#home" class="nav-link text-white hover:text-secondary font-medium transition duration-300">Home</a>
-            <a href="#about" class="nav-link text-white hover:text-secondary font-medium transition duration-300">About</a>
-            <a href="#vision" class="nav-link text-white hover:text-secondary font-medium transition duration-300">Vision & Mission</a>
-            <a href="#programs" class="nav-link text-white hover:text-secondary font-medium transition duration-300">Programs</a>
-            <a href="#visual-materials" class="nav-link text-white hover:text-secondary font-medium transition duration-300">Gallery</a>
-            <a href="#partners" class="nav-link text-white hover:text-secondary font-medium transition duration-300">Partners</a>
-            <a href="#contact" class="nav-link text-white hover:text-secondary font-medium transition duration-300">Contact</a>
-        </nav>
-        
-        <!-- CTA Button -->
-        <div class="hidden lg:block">
-            <a href="#contact" class="btn-secondary px-6 py-2 rounded-lg font-medium">Get Involved</a>
-        </div>
-        
-        <!-- Mobile Menu Button -->
-        <button class="lg:hidden text-white p-2" id="mobile-menu-button">
-            <i class="fas fa-bars text-xl"></i>
-        </button>
-    </div>
+    <!-- Notification Container -->
+    <div id="notificationContainer"></div>
     
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="mobile-menu lg:hidden absolute top-16 left-0 w-full bg-white p-6 shadow-lg">
-        <nav class="flex flex-col space-y-4">
-            <a href="#home" class="text-dark hover:text-primary font-medium transition duration-300 py-2 border-b border-gray-100">Home</a>
-            <a href="#about" class="text-dark hover:text-primary font-medium transition duration-300 py-2 border-b border-gray-100">About Us</a>
-            <a href="#vision" class="text-dark hover:text-primary font-medium transition duration-300 py-2 border-b border-gray-100">Vision & Mission</a>
-            <a href="#programs" class="text-dark hover:text-primary font-medium transition duration-300 py-2 border-b border-gray-100">Our Programs</a>
-            <a href="#visual-materials" class="text-dark hover:text-primary font-medium transition duration-300 py-2 border-b border-gray-100">Gallery</a>
-            <a href="#partners" class="text-dark hover:text-primary font-medium transition duration-300 py-2 border-b border-gray-100">Partners</a>
-            <a href="index.html" class="text-dark hover:text-primary font-medium transition duration-300 py-2 border-b border-gray-100">Homepage</a>
-            <a href="#contact" class="btn-secondary px-6 py-3 rounded-lg font-medium text-center mt-4">Get Involved</a>
-        </nav>
-    </div>
-</header>
+    <!-- Header & Navigation -->
+    <header class="fixed w-full bg-primary shadow-lg z-50 transition-all duration-300" id="header">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <!-- Logo with styling from the provided code -->
+                <a href="#" class="flex items-center">
+                    <img src="../images/logo.png" alt="Sanai Holdings Logo" class="h-10 w-10 mr-3 object-contain rounded-lg">
+                    <h1 class="text-2xl font-bold text-white">SANAI <span class="text-secondary">HOLDINGS</span></h1>
+                </a>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex space-x-8">
+                <a href="index.html" class="nav-link text-white hover:text-secondary font-medium transition duration-300">Homepage</a>
+                <a href="#home" class="nav-link text-white hover:text-secondary font-medium transition duration-300">Home</a>
+                <a href="#about" class="nav-link text-white hover:text-secondary font-medium transition duration-300">About</a>
+                <a href="#vision" class="nav-link text-white hover:text-secondary font-medium transition duration-300">Vision & Mission</a>
+                <a href="#programs" class="nav-link text-white hover:text-secondary font-medium transition duration-300">Programs</a>
+                <a href="#visual-materials" class="nav-link text-white hover:text-secondary font-medium transition duration-300">Gallery</a>
+                <a href="#partners" class="nav-link text-white hover:text-secondary font-medium transition duration-300">Partners</a>
+                <a href="#contact" class="nav-link text-white hover:text-secondary font-medium transition duration-300">Contact</a>
+            </nav>
+            
+            <!-- CTA Button -->
+            <div class="hidden lg:block">
+                <a href="#contact" class="btn-secondary px-6 py-2 rounded-lg font-medium">Get Involved</a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="lg:hidden text-white p-2" id="mobile-menu-button" aria-label="Toggle mobile menu">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu lg:hidden absolute top-16 left-0 w-full bg-white p-6 shadow-lg">
+            <nav class="flex flex-col space-y-4">
+                <a href="#home" class="text-dark hover:text-primary font-medium transition duration-300 py-2 border-b border-gray-100">Home</a>
+                <a href="#about" class="text-dark hover:text-primary font-medium transition duration-300 py-2 border-b border-gray-100">About Us</a>
+                <a href="#vision" class="text-dark hover:text-primary font-medium transition duration-300 py-2 border-b border-gray-100">Vision & Mission</a>
+                <a href="#programs" class="text-dark hover:text-primary font-medium transition duration-300 py-2 border-b border-gray-100">Our Programs</a>
+                <a href="#visual-materials" class="text-dark hover:text-primary font-medium transition duration-300 py-2 border-b border-gray-100">Gallery</a>
+                <a href="#partners" class="text-dark hover:text-primary font-medium transition duration-300 py-2 border-b border-gray-100">Partners</a>
+                <a href="index.html" class="text-dark hover:text-primary font-medium transition duration-300 py-2 border-b border-gray-100">Homepage</a>
+                <a href="#contact" class="btn-secondary px-6 py-3 rounded-lg font-medium text-center mt-4">Get Involved</a>
+            </nav>
+        </div>
+    </header>
+
     <!-- Hero Section -->
     <section id="home" class="hero-bg pt-32 pb-40 text-white">
         <div class="container mx-auto px-4 text-center">
@@ -1061,7 +1203,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
                     <div class="flex items-center mb-4">
-                        <img src="../images/logom.png" alt="Sanai Holdings Logo" class="h-8 mr-3 object-contain">
+                        <img src="../images/logo.png" alt="Sanai Holdings Logo" class="h-8 mr-3 object-contain">
                         <h3 class="text-xl font-bold">SANAI HOLDINGS</h3>
                     </div>
                     <p class="text-gray-300 leading-relaxed">Building resilient livelihoods and promoting health among vulnerable populations in Africa.</p>
@@ -1107,7 +1249,7 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 opacity-0 invisible hover:bg-primary-dark">
+    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 opacity-0 invisible hover:bg-primary-dark no-print">
         <i class="fas fa-chevron-up"></i>
     </button>
 
@@ -1156,7 +1298,6 @@
             });
         });
 
-        
         // Back to top button
         const backToTopButton = document.getElementById('backToTop');
         
@@ -1195,9 +1336,68 @@
         // Initial check
         fadeInOnScroll();
 
+        // Notification system
+        function showNotification(message, type = 'info') {
+            const notificationContainer = document.getElementById('notificationContainer');
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+            
+            notificationContainer.appendChild(notification);
+            
+            // Show notification
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 100);
+            
+            // Remove notification after 5 seconds
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 5000);
+        }
+
+        // Form validation
+        function validateForm(form) {
+            const email = form.querySelector('#email');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (email && !emailRegex.test(email.value)) {
+                showNotification('Please enter a valid email address', 'error');
+                email.focus();
+                return false;
+            }
+            
+            // Check required fields
+            const requiredFields = form.querySelectorAll('[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.classList.add('border-red-500');
+                } else {
+                    field.classList.remove('border-red-500');
+                }
+            });
+            
+            if (!isValid) {
+                showNotification('Please fill in all required fields', 'error');
+                return false;
+            }
+            
+            return true;
+        }
+
         // Form submission
         document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            if (!validateForm(this)) {
+                return;
+            }
             
             // Get form data
             const name = document.getElementById('name').value;
@@ -1214,27 +1414,79 @@
             window.location.href = mailtoLink;
             
             // Show success message
-            alert('Thank you for your message! Your email client will open to send the message to info@sanai.org.');
+            showNotification('Thank you for your message! Your email client will open to send the message to info@sanai.org.', 'success');
             this.reset();
         });
 
-        // Performance optimization: Lazy load images
-        if ('IntersectionObserver' in window) {
+        // Image lazy loading with error handling
+        function initLazyLoading() {
+            const images = document.querySelectorAll('img[data-src]');
+            
             const imageObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const img = entry.target;
                         img.src = img.dataset.src;
-                        img.classList.remove('lazy');
+                        
+                        img.onload = () => {
+                            img.classList.remove('lazy');
+                            img.classList.add('fade-in');
+                        };
+                        
+                        img.onerror = () => {
+                            img.src = '../images/placeholder.jpg';
+                            img.alt = 'Image not available';
+                        };
+                        
                         imageObserver.unobserve(img);
                     }
                 });
             });
 
-            document.querySelectorAll('img[data-src]').forEach(img => {
-                imageObserver.observe(img);
+            images.forEach(img => imageObserver.observe(img));
+        }
+
+        // Network status monitoring
+        window.addEventListener('online', function() {
+            showNotification('Connection restored', 'success');
+        });
+
+        window.addEventListener('offline', function() {
+            showNotification('You are currently offline', 'error');
+        });
+
+        // Performance monitoring
+        if ('performance' in window) {
+            window.addEventListener('load', function() {
+                const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+                console.log(`Page load time: ${loadTime}ms`);
+                
+                if (loadTime > 3000) {
+                    console.warn('Page load time is above 3 seconds. Consider optimizing performance.');
+                }
             });
         }
+
+        // Global error handling
+        window.addEventListener('error', function(e) {
+            console.error('Global error:', e.error);
+        });
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initLazyLoading();
+            
+            // Performance: Log largest contentful paint
+            if ('PerformanceObserver' in window) {
+                const observer = new PerformanceObserver((list) => {
+                    const entries = list.getEntries();
+                    const lastEntry = entries[entries.length - 1];
+                    console.log('Largest Contentful Paint:', lastEntry.renderTime || lastEntry.loadTime);
+                });
+                
+                observer.observe({entryTypes: ['largest-contentful-paint']});
+            }
+        });
     </script>
 </body>
 </html>
