@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sanaiholdings</title>
+    <title>Sanai Holdings - Your Trusted Communications Partner</title>
     <meta name="description" content="SANAI HOLDINGS provides quality goods, services, and agricultural solutions with professionalism, integrity, and passion since 2014.">
     
     <!-- Performance Optimizations -->
@@ -21,9 +21,9 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#1a5276', // Updated to match building page
+                        primary: '#1a5276',
                         'primary-dark': '#154360',
-                        secondary: '#f39c12', // Updated to match building page
+                        secondary: '#f39c12',
                         'secondary-dark': '#e67e22',
                         accent: '#e74c3c',
                         success: '#059669',
@@ -32,8 +32,8 @@
                         'agri-green': '#16a34a',
                         'agri-dark': '#15803d',
                         'agri-light': '#22c55e',
-                        'dark': '#2c3e50', // Added for consistency
-                        'light': '#ecf0f1' // Added for consistency
+                        'dark': '#2c3e50',
+                        'light': '#ecf0f1'
                     },
                     fontFamily: {
                         'inter': ['Inter', 'sans-serif'],
@@ -43,7 +43,8 @@
                         'slide-up': 'slideUp 0.5s ease-out',
                         'pulse-slow': 'pulse 3s infinite',
                         'float': 'float 6s ease-in-out infinite',
-                        '3d-rotate': 'rotate3d 20s infinite linear',
+                        'zoom-in': 'zoomIn 0.8s ease-out',
+                        'slide-in-right': 'slideInRight 0.8s ease-out',
                     },
                     keyframes: {
                         fadeIn: {
@@ -58,9 +59,13 @@
                             '0%, 100%': { transform: 'translateY(0px)' },
                             '50%': { transform: 'translateY(-20px)' },
                         },
-                        rotate3d: {
-                            '0%': { transform: 'perspective(1000px) rotateY(0deg)' },
-                            '100%': { transform: 'perspective(1000px) rotateY(360deg)' },
+                        zoomIn: {
+                            '0%': { transform: 'scale(0.9)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
+                        },
+                        slideInRight: {
+                            '0%': { transform: 'translateX(30px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
                         }
                     }
                 }
@@ -133,7 +138,7 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
         
-        /* Button Styles - Enhanced for Mobile */
+        /* Button Styles */
         .btn-primary {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             transition: all 0.3s ease;
@@ -146,7 +151,6 @@
             box-shadow: 0 10px 20px rgba(26, 82, 118, 0.3);
         }
         
-        /* Enhanced mobile button interaction */
         .btn-primary:active {
             transform: translateY(0);
             box-shadow: 0 5px 10px rgba(26, 82, 118, 0.3);
@@ -358,68 +362,90 @@
             border-color: var(--primary);
         }
         
-        /* Enhanced 3D Gallery Styles */
-        .gallery-3d-container {
+        /* Enhanced Single Image Gallery Styles */
+        .gallery-single-container {
             position: relative;
             width: 100%;
+            max-width: 900px;
             height: 600px;
-            perspective: 1200px;
             margin: 0 auto;
-        }
-        
-        .gallery-3d-carousel {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            transform-style: preserve-3d;
-            transition: transform 1s ease-in-out;
-        }
-        
-        .gallery-3d-slide {
-            position: absolute;
-            width: 300px;
-            height: 400px;
-            left: 50%;
-            top: 50%;
-            margin-left: -150px;
-            margin-top: -200px;
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-            transition: transform 0.5s ease, opacity 0.5s ease;
-            cursor: pointer;
         }
         
-        .gallery-3d-slide img {
+        .gallery-single-track {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        
+        .gallery-single-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: all 0.8s ease-in-out;
+            transform: scale(0.95);
+        }
+        
+        .gallery-single-slide.active {
+            opacity: 1;
+            transform: scale(1);
+            z-index: 2;
+        }
+        
+        .gallery-single-slide.prev {
+            opacity: 0;
+            transform: translateX(-100%);
+        }
+        
+        .gallery-single-slide.next {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+        
+        .gallery-single-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
         
-        .gallery-3d-caption {
+        .gallery-single-caption {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
             color: white;
-            padding: 20px;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-        
-        .gallery-3d-slide:hover .gallery-3d-caption {
+            padding: 30px;
             transform: translateY(0);
+            transition: all 0.5s ease;
         }
         
-        .gallery-3d-nav {
+        .gallery-single-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: white;
+        }
+        
+        .gallery-single-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+        
+        .gallery-single-nav {
             display: flex;
             justify-content: center;
             margin-top: 30px;
             gap: 15px;
         }
         
-        .gallery-3d-dot {
+        .gallery-single-dot {
             width: 16px;
             height: 16px;
             border-radius: 50%;
@@ -429,13 +455,13 @@
             border: 3px solid transparent;
         }
         
-        .gallery-3d-dot.active {
+        .gallery-single-dot.active {
             background: var(--agri-green);
             transform: scale(1.3);
             border-color: rgba(22, 163, 74, 0.3);
         }
         
-        .gallery-3d-controls {
+        .gallery-single-controls {
             position: absolute;
             top: 50%;
             width: 100%;
@@ -447,7 +473,7 @@
             z-index: 10;
         }
         
-        .gallery-3d-btn {
+        .gallery-single-btn {
             background: rgba(255,255,255,0.9);
             border: none;
             width: 60px;
@@ -463,26 +489,36 @@
             font-size: 1.2rem;
         }
         
-        .gallery-3d-btn:hover {
+        .gallery-single-btn:hover {
             background: white;
             transform: scale(1.1) translateY(-2px);
             box-shadow: 0 8px 25px rgba(0,0,0,0.3);
         }
         
-        /* 3D Animation Elements */
+        .gallery-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255,255,255,0.3);
+            z-index: 5;
+        }
+        
+        .gallery-progress-bar {
+            height: 100%;
+            background: var(--agri-green);
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+        
+        /* Animation Elements */
         .floating-element {
             animation: float 6s ease-in-out infinite;
         }
         
         .floating-element-delay {
             animation: float 6s ease-in-out infinite 2s;
-        }
-        
-        .parallax-bg {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
         }
         
         /* Mobile-specific improvements */
@@ -517,27 +553,27 @@
                 min-width: 44px;
             }
             
-            /* 3D Gallery adjustments for mobile */
-            .gallery-3d-container {
+            /* Single Gallery adjustments for mobile */
+            .gallery-single-container {
                 height: 400px;
-                perspective: 800px;
+                border-radius: 15px;
             }
             
-            .gallery-3d-slide {
-                width: 200px;
-                height: 300px;
-                margin-left: -100px;
-                margin-top: -150px;
-            }
-            
-            .gallery-3d-btn {
+            .gallery-single-btn {
                 width: 45px;
                 height: 45px;
             }
             
-            .gallery-3d-caption {
-                padding: 15px;
-                font-size: 14px;
+            .gallery-single-caption {
+                padding: 20px;
+            }
+            
+            .gallery-single-title {
+                font-size: 1.4rem;
+            }
+            
+            .gallery-single-description {
+                font-size: 1rem;
             }
         }
         
@@ -549,7 +585,8 @@
                 transition-duration: 0.01ms !important;
             }
         }
-        /* Logo styling - Add this to your existing CSS */
+        
+        /* Logo styling */
         .logo-img {
             width: 40px;
             height: 40px;
@@ -585,7 +622,7 @@
             
             <!-- Desktop Navigation -->
             <nav class="hidden lg:flex space-x-8">
-                <a href="home.html" class="nav-link text-white hover:text-secondary font-medium transition duration-300">Home</a>
+                <a href="#home" class="nav-link text-white hover:text-secondary font-medium transition duration-300">Home</a>
                 <a href="#about" class="nav-link text-white hover:text-secondary font-medium transition duration-300">About Us</a>
                 <a href="#services" class="nav-link text-white hover:text-secondary font-medium transition duration-300">Services</a>
                 <a href="#products" class="nav-link text-white hover:text-secondary font-medium transition duration-300">Products</a>
@@ -790,7 +827,7 @@
                 <p class="text-gray-600 max-w-3xl mx-auto mt-4 text-lg">We provide a comprehensive range of high-quality products to meet all your business needs. Each product is carefully selected to ensure reliability and performance.</p>
             </div>
 
-            <!-- Computers & Accessories (Local Images) -->
+            <!-- Computers & Accessories -->
             <div class="mb-20 fade-in">
                 <h3 class="text-2xl font-bold green-heading mb-8 text-center">Computers & Accessories</h3>
                 <p class="text-gray-700 mb-8 text-center max-w-3xl mx-auto text-lg">We supply computers and accessories, perform software installation, repair and maintenance of computer systems.</p>
@@ -798,10 +835,8 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Computer systems and Laptops -->
                     <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="../images/computer-systems-laptops.jpg" 
-                                 alt="Computer systems and Laptops" 
-                                 class="w-full h-full object-cover product-image">
+                        <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center">
+                            <i class="fas fa-laptop text-primary text-6xl"></i>
                         </div>
                         <div class="p-6">
                             <h4 class="text-lg font-semibold text-dark mb-2">Computer Systems & Laptops</h4>
@@ -811,10 +846,8 @@
                     
                     <!-- Mass Storage Devices -->
                     <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="../images/OIP-2224594983.jpeg" 
-                                 alt="Mass Storage Devices" 
-                                 class="w-full h-full object-cover product-image">
+                        <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center">
+                            <i class="fas fa-hdd text-primary text-6xl"></i>
                         </div>
                         <div class="p-6">
                             <h4 class="text-lg font-semibold text-dark mb-2">Mass Storage Devices</h4>
@@ -824,59 +857,18 @@
                     
                     <!-- Computer Desks -->
                     <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="../images/OIP-293642809.jpeg" 
-                                 alt="Computer Desks" 
-                                 class="w-full h-full object-cover product-image">
+                        <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center">
+                            <i class="fas fa-desktop text-primary text-6xl"></i>
                         </div>
                         <div class="p-6">
                             <h4 class="text-lg font-semibold text-dark mb-2">Computer Desks</h4>
                             <p class="text-gray-600">Ergonomic and functional computer desks for comfortable working environments.</p>
                         </div>
                     </div>
-                    
-                    <!-- Keyboards and Mouse -->
-                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="../images/keyboards-mouse.png" 
-                                 alt="Keyboards and Mouse" 
-                                 class="w-full h-full object-cover product-image">
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-semibold text-dark mb-2">Keyboards & Mouse</h4>
-                            <p class="text-gray-600">Wired and wireless keyboards and mice for efficient computer operation.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Software Installation & Support -->
-                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="../images/OIP-4005132209.jpeg" 
-                                 alt="Software Installation & Support" 
-                                 class="w-full h-full object-cover product-image">
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-semibold text-dark mb-2">Software Installation & Support</h4>
-                            <p class="text-gray-600">Professional software installation, configuration, and ongoing technical support.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Computer Repair & Maintenance -->
-                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="../images/OIP-3319165082.jpeg" 
-                                 alt="Computer Repair & Maintenance" 
-                                 class="w-full h-full object-cover product-image">
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-semibold text-dark mb-2">Computer Repair & Maintenance</h4>
-                            <p class="text-gray-600">Comprehensive computer repair services and regular maintenance to keep systems running smoothly.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
 
-            <!-- Office Furniture & Stationery (Local Images) -->
+            <!-- Office Furniture & Stationery -->
             <div class="mb-20 fade-in">
                 <h3 class="text-2xl font-bold green-heading mb-8 text-center">Office Furniture & Stationery</h3>
                 <p class="text-gray-700 mb-8 text-center max-w-3xl mx-auto text-lg">We cater for all your office needs including furniture, stationery and equipment.</p>
@@ -884,10 +876,8 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Leather Office Chairs -->
                     <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="../images/OIP-509147929.jpeg" 
-                                 alt="Leather Office Chairs" 
-                                 class="w-full h-full object-cover product-image">
+                        <div class="h-48 overflow-hidden bg-gradient-to-br from-green-50 to-blue-50 flex items-center justify-center">
+                            <i class="fas fa-chair text-primary text-6xl"></i>
                         </div>
                         <div class="p-6">
                             <h4 class="text-lg font-semibold text-dark mb-2">Leather Office Chairs</h4>
@@ -897,10 +887,8 @@
                     
                     <!-- Office Storage Cabinets -->
                     <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="../images/OIP-3831802369.jpeg" 
-                                 alt="Office Storage Cabinets" 
-                                 class="w-full h-full object-cover product-image">
+                        <div class="h-48 overflow-hidden bg-gradient-to-br from-green-50 to-blue-50 flex items-center justify-center">
+                            <i class="fas fa-archive text-primary text-6xl"></i>
                         </div>
                         <div class="p-6">
                             <h4 class="text-lg font-semibold text-dark mb-2">Office Storage Cabinets</h4>
@@ -910,59 +898,18 @@
                     
                     <!-- Office Reception Desks -->
                     <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="../images/OIP-3881611535.jpeg" 
-                                 alt="Office Reception Desks" 
-                                 class="w-full h-full object-cover product-image">
+                        <div class="h-48 overflow-hidden bg-gradient-to-br from-green-50 to-blue-50 flex items-center justify-center">
+                            <i class="fas fa-door-open text-primary text-6xl"></i>
                         </div>
                         <div class="p-6">
                             <h4 class="text-lg font-semibold text-dark mb-2">Office Reception Desks</h4>
                             <p class="text-gray-600">Impressive reception desks to create a welcoming first impression for visitors.</p>
                         </div>
                     </div>
-                    
-                    <!-- Office Box Files and Spring Files -->
-                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="../images/office-files.png" 
-                                 alt="Office Box Files and Spring Files" 
-                                 class="w-full h-full object-cover product-image">
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-semibold text-dark mb-2">Office Files</h4>
-                            <p class="text-gray-600">Box files and spring files for organized document management.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Staplers, Mark pens, Pencils, Rubbers -->
-                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="../images/office-stationery.png" 
-                                 alt="Office Stationery" 
-                                 class="w-full h-full object-cover product-image">
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-semibold text-dark mb-2">Office Stationery</h4>
-                            <p class="text-gray-600">Complete range of stationery including staplers, markers, pencils, and erasers.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Visitors Waiting Seats -->
-                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="../images/OIP-442439766.jpeg" 
-                                 alt="Visitors Waiting Seats" 
-                                 class="w-full h-full object-cover product-image">
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-semibold text-dark mb-2">Visitor Waiting Seats</h4>
-                            <p class="text-gray-600">Comfortable seating for visitors in reception and waiting areas.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
 
-            <!-- Printing Supplies (Local Images) -->
+            <!-- Printing Supplies -->
             <div class="mb-20 fade-in">
                 <h3 class="text-2xl font-bold green-heading mb-8 text-center">Printing Supplies</h3>
                 <p class="text-gray-700 mb-8 text-center max-w-3xl mx-auto text-lg">We supply printing papers, printers, toners and related equipment.</p>
@@ -970,10 +917,8 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Photocopying and Printing Papers -->
                     <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="../images/printing-papers.png" 
-                                 alt="Photocopying and Printing Papers" 
-                                 class="w-full h-full object-cover product-image">
+                        <div class="h-48 overflow-hidden bg-gradient-to-br from-yellow-50 to-orange-50 flex items-center justify-center">
+                            <i class="fas fa-print text-primary text-6xl"></i>
                         </div>
                         <div class="p-6">
                             <h4 class="text-lg font-semibold text-dark mb-2">Printing Papers</h4>
@@ -983,10 +928,8 @@
                     
                     <!-- Photocopying & Printing machines -->
                     <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="../images/OIP-2912883664.jpeg" 
-                                 alt="Photocopying & Printing machines" 
-                                 class="w-full h-full object-cover product-image">
+                        <div class="h-48 overflow-hidden bg-gradient-to-br from-yellow-50 to-orange-50 flex items-center justify-center">
+                            <i class="fas fa-copy text-primary text-6xl"></i>
                         </div>
                         <div class="p-6">
                             <h4 class="text-lg font-semibold text-dark mb-2">Photocopying Machines</h4>
@@ -996,59 +939,18 @@
                     
                     <!-- Printers -->
                     <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="../images/printers.png" 
-                                 alt="Printers" 
-                                 class="w-full h-full object-cover product-image">
+                        <div class="h-48 overflow-hidden bg-gradient-to-br from-yellow-50 to-orange-50 flex items-center justify-center">
+                            <i class="fas fa-scanner text-primary text-6xl"></i>
                         </div>
                         <div class="p-6">
                             <h4 class="text-lg font-semibold text-dark mb-2">Printers</h4>
                             <p class="text-gray-600">Inkjet and laser printers for all printing needs.</p>
                         </div>
                     </div>
-                    
-                    <!-- Binding and Laminating Machines -->
-                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="../images/binding-laminating.png" 
-                                 alt="Binding and Laminating Machines" 
-                                 class="w-full h-full object-cover product-image">
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-semibold text-dark mb-2">Binding & Laminating</h4>
-                            <p class="text-gray-600">Professional binding and laminating machines for document finishing.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Fax Machines -->
-                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="../images/fax-machines.png" 
-                                 alt="Fax Machines" 
-                                 class="w-full h-full object-cover product-image">
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-semibold text-dark mb-2">Fax Machines</h4>
-                            <p class="text-gray-600">Traditional and digital fax machines for business communication.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Toner Cartridges & Ink -->
-                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="../images/OIP-1957250288.jpeg" 
-                                 alt="Toner Cartridges & Ink" 
-                                 class="w-full h-full object-cover product-image">
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-semibold text-dark mb-2">Toner & Ink Cartridges</h4>
-                            <p class="text-gray-600">Genuine and compatible toner cartridges and ink for all printer models.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
 
-            <!-- Mineral Drinking Water (Local Images) -->
+            <!-- Mineral Drinking Water -->
             <div class="mb-20 fade-in">
                 <h3 class="text-2xl font-bold green-heading mb-8 text-center">Mineral Drinking Water</h3>
                 <p class="text-gray-700 mb-8 text-center max-w-3xl mx-auto text-lg">We supply purified and distilled drinking water in various quantities with optional branding.</p>
@@ -1056,10 +958,8 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- 500ml Bottled Water -->
                     <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="../images/OIP-2240121636.jpeg" 
-                                 alt="500ml Bottled Water" 
-                                 class="w-full h-full object-cover product-image">
+                        <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-cyan-50 flex items-center justify-center">
+                            <i class="fas fa-wine-bottle text-primary text-6xl"></i>
                         </div>
                         <div class="p-6">
                             <h4 class="text-lg font-semibold text-dark mb-2">500ml Bottled Water</h4>
@@ -1069,10 +969,8 @@
                     
                     <!-- 1L Bottled Water -->
                     <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="../images/OIP-1083206453.jpeg" 
-                                 alt="1L Bottled Water" 
-                                 class="w-full h-full object-cover product-image">
+                        <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-cyan-50 flex items-center justify-center">
+                            <i class="fas fa-wine-bottle text-primary text-6xl"></i>
                         </div>
                         <div class="p-6">
                             <h4 class="text-lg font-semibold text-dark mb-2">1L Bottled Water</h4>
@@ -1080,61 +978,20 @@
                         </div>
                     </div>
                     
-                    <!-- 3L, 5L and 10L Bottles -->
-                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1603400521630-9f2de124b33b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                                 alt="3L, 5L and 10L Bottles" 
-                                 class="w-full h-full object-cover product-image">
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-semibold text-dark mb-2">3L, 5L & 10L Bottles</h4>
-                            <p class="text-gray-600">Larger water bottles for family and office use.</p>
-                        </div>
-                    </div>
-                    
                     <!-- 20L refillable Bottles -->
                     <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="../images/20L_refillable.png" 
-                                 alt="20L refillable Bottles" 
-                                 class="w-full h-full object-cover product-image">
+                        <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-cyan-50 flex items-center justify-center">
+                            <i class="fas fa-tint text-primary text-6xl"></i>
                         </div>
                         <div class="p-6">
                             <h4 class="text-lg font-semibold text-dark mb-2">20L Refillable Bottles</h4>
                             <p class="text-gray-600">Large 20-liter refillable water bottles with dispensers.</p>
                         </div>
                     </div>
-                    
-                    <!-- Custom Branding Available -->
-                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="../images/custom_branding.png" 
-                                 alt="Custom Branding Available" 
-                                 class="w-full h-full object-cover product-image">
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-semibold text-dark mb-2">Custom Branding</h4>
-                            <p class="text-gray-600">Custom branding options for corporate clients and events.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Bulk Orders Welcome -->
-                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="../images/ordering.png" 
-                                 alt="Bulk Orders Welcome" 
-                                 class="w-full h-full object-cover product-image">
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-semibold text-dark mb-2">Bulk Orders</h4>
-                            <p class="text-gray-600">Special pricing and delivery for bulk water orders.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
 
-            <!-- Mobile Airtime (Local Images) -->
+            <!-- Mobile Airtime -->
             <div class="mb-20 fade-in">
                 <h3 class="text-2xl font-bold green-heading mb-8 text-center">Mobile Airtime</h3>
                 <p class="text-gray-700 mb-8 text-center max-w-3xl mx-auto text-lg">We provide calling scratch cards and airtime from all network providers in Kenya.</p>
@@ -1142,10 +999,8 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Safaricom Airtime -->
                     <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="../images/safaricom.jpeg" 
-                                 alt="Safaricom Airtime" 
-                                 class="w-full h-full object-cover product-image">
+                        <div class="h-48 overflow-hidden bg-gradient-to-br from-purple-50 to-pink-50 flex items-center justify-center">
+                            <i class="fas fa-sim-card text-primary text-6xl"></i>
                         </div>
                         <div class="p-6">
                             <h4 class="text-lg font-semibold text-dark mb-2">Safaricom Airtime</h4>
@@ -1155,10 +1010,8 @@
                     
                     <!-- Airtel Calling Airtime -->
                     <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                                 alt="Airtel Calling Airtime" 
-                                 class="w-full h-full object-cover product-image">
+                        <div class="h-48 overflow-hidden bg-gradient-to-br from-purple-50 to-pink-50 flex items-center justify-center">
+                            <i class="fas fa-sim-card text-primary text-6xl"></i>
                         </div>
                         <div class="p-6">
                             <h4 class="text-lg font-semibold text-dark mb-2">Airtel Airtime</h4>
@@ -1168,59 +1021,18 @@
                     
                     <!-- Telkom Calling Airtimes -->
                     <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="../images/TELKOM-AIRTIME-2958710044.png" 
-                                 alt="Telkom Calling Airtimes" 
-                                 class="w-full h-full object-cover product-image">
+                        <div class="h-48 overflow-hidden bg-gradient-to-br from-purple-50 to-pink-50 flex items-center justify-center">
+                            <i class="fas fa-sim-card text-primary text-6xl"></i>
                         </div>
                         <div class="p-6">
                             <h4 class="text-lg font-semibold text-dark mb-2">Telkom Airtime</h4>
                             <p class="text-gray-600">Airtime and data bundles for Telkom network users.</p>
                         </div>
                     </div>
-                    
-                    <!-- Bulk Airtime Solutions -->
-                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="../images/airtime.jpeg" 
-                                 alt="Bulk Airtime Solutions" 
-                                 class="w-full h-full object-cover product-image">
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-semibold text-dark mb-2">Bulk Airtime Solutions</h4>
-                            <p class="text-gray-600">Custom airtime solutions for corporate clients and bulk purchases.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Corporate Airtime Packages -->
-                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="../images/Tradelance-CorporateAirtimeData-1-780164834.png" 
-                                 alt="Corporate Airtime Packages" 
-                                 class="w-full h-full object-cover product-image">
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-semibold text-dark mb-2">Corporate Airtime Packages</h4>
-                            <p class="text-gray-600">Tailored airtime packages for businesses and organizations.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Keep you connected everywhere -->
-                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                                 alt="Keep you connected everywhere" 
-                                 class="w-full h-full object-cover product-image">
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-semibold text-dark mb-2">Stay Connected</h4>
-                            <p class="text-gray-600">Reliable airtime solutions to keep you connected anywhere, anytime.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
 
-            <!-- Audio Visual Equipment (Local Images) -->
+            <!-- Audio Visual Equipment -->
             <div class="mb-20 fade-in">
                 <h3 class="text-2xl font-bold green-heading mb-8 text-center">Audio Visual Equipment</h3>
                 <p class="text-gray-700 mb-8 text-center max-w-3xl mx-auto text-lg">Professional audio and visual equipment for events, conferences and exhibitions.</p>
@@ -1228,10 +1040,8 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Professional Audio Systems -->
                     <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="../images/DJ-Sound-System-PNG-Free-Download-3596712388.png" 
-                                 alt="Professional Audio Systems" 
-                                 class="w-full h-full object-cover product-image">
+                        <div class="h-48 overflow-hidden bg-gradient-to-br from-red-50 to-orange-50 flex items-center justify-center">
+                            <i class="fas fa-volume-up text-primary text-6xl"></i>
                         </div>
                         <div class="p-6">
                             <h4 class="text-lg font-semibold text-dark mb-2">Professional Audio Systems</h4>
@@ -1241,10 +1051,8 @@
                     
                     <!-- Lighting Equipment -->
                     <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="../images/Professional lighting solutions.jpg" 
-                                 alt="Lighting Equipment" 
-                                 class="w-full h-full object-cover product-image">
+                        <div class="h-48 overflow-hidden bg-gradient-to-br from-red-50 to-orange-50 flex items-center justify-center">
+                            <i class="fas fa-lightbulb text-primary text-6xl"></i>
                         </div>
                         <div class="p-6">
                             <h4 class="text-lg font-semibold text-dark mb-2">Lighting Equipment</h4>
@@ -1254,53 +1062,12 @@
                     
                     <!-- Visual Display Solutions -->
                     <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                                 alt="Visual Display Solutions" 
-                                 class="w-full h-full object-cover product-image">
+                        <div class="h-48 overflow-hidden bg-gradient-to-br from-red-50 to-orange-50 flex items-center justify-center">
+                            <i class="fas fa-tv text-primary text-6xl"></i>
                         </div>
                         <div class="p-6">
                             <h4 class="text-lg font-semibold text-dark mb-2">Visual Display Solutions</h4>
                             <p class="text-gray-600">Large screens, projectors, and display walls for impactful presentations.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Event Rigging Services -->
-                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                                 alt="Event Rigging Services" 
-                                 class="w-full h-full object-cover product-image">
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-semibold text-dark mb-2">Event Rigging Services</h4>
-                            <p class="text-gray-600">Professional rigging services for safe installation of audio-visual equipment.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Graphics & Design Services -->
-                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                                 alt="Graphics & Design Services" 
-                                 class="w-full h-full object-cover product-image">
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-semibold text-dark mb-2">Graphics & Design Services</h4>
-                            <p class="text-gray-600">Custom graphics and design services for events and presentations.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Equipment Rentals -->
-                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                                 alt="Equipment Rentals" 
-                                 class="w-full h-full object-cover product-image">
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-semibold text-dark mb-2">Equipment Rentals</h4>
-                            <p class="text-gray-600">Flexible rental options for all audio-visual equipment needs.</p>
                         </div>
                     </div>
                 </div>
@@ -1319,10 +1086,8 @@
                 <!-- Service 1 - Audio Visual Services -->
                 <div class="service-card bg-white p-8 rounded-xl shadow-lg card-hover">
                     <div class="flex flex-col items-center mb-6">
-                        <div class="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-4 service-icon overflow-hidden">
-                            <img src="../images/OIP-678291997.jpeg" 
-                                 alt="Audio Visual Services" 
-                                 class="w-full h-full object-cover">
+                        <div class="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-4 service-icon">
+                            <i class="fas fa-volume-up text-white text-2xl"></i>
                         </div>
                         <h3 class="text-2xl font-semibold green-heading text-center">Audio Visual Services</h3>
                     </div>
@@ -1339,10 +1104,8 @@
                 <!-- Service 2 - Simultaneous Interpretation -->
                 <div class="service-card bg-white p-8 rounded-xl shadow-lg card-hover">
                     <div class="flex flex-col items-center mb-6">
-                        <div class="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-4 service-icon overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Simultaneous Interpretation" 
-                                 class="w-full h-full object-cover">
+                        <div class="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-4 service-icon">
+                            <i class="fas fa-language text-white text-2xl"></i>
                         </div>
                         <h3 class="text-2xl font-semibold green-heading text-center">Simultaneous Interpretation</h3>
                     </div>
@@ -1359,10 +1122,8 @@
                 <!-- Service 3 - Conferences & Exhibitions -->
                 <div class="service-card bg-white p-8 rounded-xl shadow-lg card-hover">
                     <div class="flex flex-col items-center mb-6">
-                        <div class="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-4 service-icon overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Conferences & Exhibitions" 
-                                 class="w-full h-full object-cover">
+                        <div class="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-4 service-icon">
+                            <i class="fas fa-calendar-alt text-white text-2xl"></i>
                         </div>
                         <h3 class="text-2xl font-semibold green-heading text-center">Conferences & Exhibitions</h3>
                     </div>
@@ -1594,150 +1355,155 @@
         </div>
     </section>
 
-    <!-- Enhanced 3D Agricultural Gallery Section -->
+    <!-- Enhanced Single Image Agricultural Gallery Section -->
     <section id="agri-gallery" class="section-padding bg-gradient-to-br from-green-50 to-blue-50">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-bold text-dark mb-4">OUR AGRICULTURAL PROJECTS GALLERY</h2>
                 <div class="w-20 h-1 bg-agri-green mx-auto"></div>
-                <p class="text-gray-600 max-w-3xl mx-auto mt-4 text-lg">Experience our agricultural innovations through our immersive 3D gallery showcasing successful projects across the region.</p>
+                <p class="text-gray-600 max-w-3xl mx-auto mt-4 text-lg">Explore our agricultural innovations through our interactive gallery showcasing successful projects and sustainable farming practices.</p>
             </div>
 
-            <!-- 3D Image Gallery -->
-            <div class="gallery-3d-container">
-                <div class="gallery-3d-carousel" id="gallery3dCarousel">
+            <!-- Single Image Gallery -->
+            <div class="gallery-single-container">
+                <div class="gallery-single-track">
                     <!-- Slide 1 -->
-                    <div class="gallery-3d-slide" data-index="0">
-                        <img src="../images/greenhouse-capsicum.jpg" alt="Greenhouse Capsicum Farming" class="w-full h-full object-cover">
-                        <div class="gallery-3d-caption">
-                            <h3 class="text-xl font-bold mb-2">Greenhouse Capsicum Farming</h3>
-                            <p>High-quality capsicum production in our advanced greenhouse facilities</p>
+                    <div class="gallery-single-slide active" data-index="0">
+                        <img src="../images/greenhouse-capsicum.jpg" alt="Greenhouse Capsicum Farming" class="gallery-single-image">
+                        <div class="gallery-single-caption">
+                            <h3 class="gallery-single-title">Greenhouse Capsicum Farming</h3>
+                            <p class="gallery-single-description">Advanced greenhouse technology for year-round capsicum production with controlled environment and optimal growing conditions.</p>
                         </div>
                     </div>
                     
                     <!-- Slide 2 -->
-                    <div class="gallery-3d-slide" data-index="1">
-                        <img src="../images/onion-drip-irrigation.jpg" alt="Onion Drip Irrigation System" class="w-full h-full object-cover">
-                        <div class="gallery-3d-caption">
-                            <h3 class="text-xl font-bold mb-2">Onion Drip Irrigation</h3>
-                            <p>Efficient drip irrigation system for onion farming with water conservation</p>
+                    <div class="gallery-single-slide" data-index="1">
+                        <img src="../images/onion-drip-irrigation.jpg" alt="Onion Drip Irrigation System" class="gallery-single-image">
+                        <div class="gallery-single-caption">
+                            <h3 class="gallery-single-title">Onion Drip Irrigation</h3>
+                            <p class="gallery-single-description">Precision drip irrigation system delivering water directly to onion roots, reducing water usage by 60% while increasing yield.</p>
                         </div>
                     </div>
                     
                     <!-- Slide 3 -->
-                    <div class="gallery-3d-slide" data-index="2">
-                        <img src="../images/borehole-drilling.jpg" alt="Borehole Drilling Operation" class="w-full h-full object-cover">
-                        <div class="gallery-3d-caption">
-                            <h3 class="text-xl font-bold mb-2">Borehole Drilling</h3>
-                            <p>Professional borehole drilling services for reliable water supply</p>
+                    <div class="gallery-single-slide" data-index="2">
+                        <img src="../images/borehole-drilling.jpg" alt="Borehole Drilling Operation" class="gallery-single-image">
+                        <div class="gallery-single-caption">
+                            <h3 class="gallery-single-title">Borehole Drilling Services</h3>
+                            <p class="gallery-single-description">Professional borehole drilling providing reliable water sources for irrigation, ensuring consistent water supply for farming operations.</p>
                         </div>
                     </div>
                     
                     <!-- Slide 4 -->
-                    <div class="gallery-3d-slide" data-index="3">
-                        <img src="../images/water-collection-dam.jpg" alt="Water Collection Dam" class="w-full h-full object-cover">
-                        <div class="gallery-3d-caption">
-                            <h3 class="text-xl font-bold mb-2">Water Collection Dam</h3>
-                            <p>Large-scale water harvesting dam for agricultural irrigation</p>
+                    <div class="gallery-single-slide" data-index="3">
+                        <img src="../images/water-collection-dam.jpg" alt="Water Collection Dam" class="gallery-single-image">
+                        <div class="gallery-single-caption">
+                            <h3 class="gallery-single-title">Water Harvesting Dam</h3>
+                            <p class="gallery-single-description">Large-scale water collection dams for sustainable irrigation, capturing rainwater for dry season farming and livestock.</p>
                         </div>
                     </div>
                     
                     <!-- Slide 5 -->
-                    <div class="gallery-3d-slide" data-index="4">
-                        <img src="../images/pop-up-sprinklers.jpg" alt="Pop-up Sprinkler System" class="w-full h-full object-cover">
-                        <div class="gallery-3d-caption">
-                            <h3 class="text-xl font-bold mb-2">Pop-up Sprinkler System</h3>
-                            <p>Advanced sprinkler irrigation for lawn and crop watering</p>
+                    <div class="gallery-single-slide" data-index="4">
+                        <img src="../images/pop-up-sprinklers.jpg" alt="Pop-up Sprinkler System" class="gallery-single-image">
+                        <div class="gallery-single-caption">
+                            <h3 class="gallery-single-title">Pop-up Sprinkler System</h3>
+                            <p class="gallery-single-description">Automated sprinkler irrigation for lawns and crops, providing uniform water distribution and efficient coverage.</p>
                         </div>
                     </div>
                     
                     <!-- Slide 6 -->
-                    <div class="gallery-3d-slide" data-index="5">
-                        <img src="../images/genhouse-tunnel-modelre.jpg" alt="Greenhouse Tunnel Model" class="w-full h-full object-cover">
-                        <div class="gallery-3d-caption">
-                            <h3 class="text-xl font-bold mb-2">Greenhouse Tunnel Model</h3>
-                            <p>Cost-effective tunnel greenhouse for small-scale farmers</p>
+                    <div class="gallery-single-slide" data-index="5">
+                        <img src="../images/genhouse-tunnel-modelre.jpg" alt="Greenhouse Tunnel Model" class="gallery-single-image">
+                        <div class="gallery-single-caption">
+                            <h3 class="gallery-single-title">Greenhouse Tunnel Model</h3>
+                            <p class="gallery-single-description">Cost-effective tunnel greenhouses designed for small-scale farmers, providing climate control and pest protection.</p>
                         </div>
                     </div>
                     
                     <!-- Slide 7 -->
-                    <div class="gallery-3d-slide" data-index="6">
-                        <img src="../images/kadogo-kitchen-gardening.jpg" alt="Kitchen Gardening Project" class="w-full h-full object-cover">
-                        <div class="gallery-3d-caption">
-                            <h3 class="text-xl font-bold mb-2">Kitchen Gardening</h3>
-                            <p>Sanai Kadogo model for sustainable kitchen gardening</p>
+                    <div class="gallery-single-slide" data-index="6">
+                        <img src="../images/kadogo-kitchen-gardening.jpg" alt="Kitchen Gardening Project" class="gallery-single-image">
+                        <div class="gallery-single-caption">
+                            <h3 class="gallery-single-title">Sanai Kadogo Kitchen Gardening</h3>
+                            <p class="gallery-single-description">Compact gardening solutions for urban households, enabling families to grow fresh vegetables in limited spaces.</p>
                         </div>
                     </div>
 
                     <!-- NEW IMAGES ADDED BELOW -->
                     
                     <!-- Slide 8 - Avocado -->
-                    <div class="gallery-3d-slide" data-index="7">
-                        <img src="../images/avocado.jpeg" alt="Premium Avocado Cultivation" class="w-full h-full object-cover">
-                        <div class="gallery-3d-caption">
-                            <h3 class="text-xl font-bold mb-2">Premium Avocado Cultivation</h3>
-                            <p>Growing export-quality avocados with sustainable farming practices</p>
+                    <div class="gallery-single-slide" data-index="7">
+                        <img src="../images/avocado.jpeg" alt="Premium Avocado Cultivation" class="gallery-single-image">
+                        <div class="gallery-single-caption">
+                            <h3 class="gallery-single-title">Premium Avocado Cultivation</h3>
+                            <p class="gallery-single-description">Export-quality avocado farming using sustainable practices, focusing on soil health and organic fertilization methods.</p>
                         </div>
                     </div>
                     
                     <!-- Slide 9 - Cabbage -->
-                    <div class="gallery-3d-slide" data-index="8">
-                        <img src="../images/cabbage.jpeg" alt="Organic Cabbage Farming" class="w-full h-full object-cover">
-                        <div class="gallery-3d-caption">
-                            <h3 class="text-xl font-bold mb-2">Organic Cabbage Farming</h3>
-                            <p>Fresh, pesticide-free cabbage grown using natural farming methods</p>
+                    <div class="gallery-single-slide" data-index="8">
+                        <img src="../images/cabbage.jpeg" alt="Organic Cabbage Farming" class="gallery-single-image">
+                        <div class="gallery-single-caption">
+                            <h3 class="gallery-single-title">Organic Cabbage Farming</h3>
+                            <p class="gallery-single-description">Pesticide-free cabbage production using natural farming methods, ensuring food safety and environmental sustainability.</p>
                         </div>
                     </div>
                     
                     <!-- Slide 10 - Cassava -->
-                    <div class="gallery-3d-slide" data-index="9">
-                        <img src="../images/cassava.jpeg" alt="Cassava Value Chain Development" class="w-full h-full object-cover">
-                        <div class="gallery-3d-caption">
-                            <h3 class="text-xl font-bold mb-2">Cassava Value Chain Development</h3>
-                            <p>Transforming cassava farming into profitable agribusiness ventures</p>
+                    <div class="gallery-single-slide" data-index="9">
+                        <img src="../images/cassava.jpeg" alt="Cassava Value Chain Development" class="gallery-single-image">
+                        <div class="gallery-single-caption">
+                            <h3 class="gallery-single-title">Cassava Value Chain Development</h3>
+                            <p class="gallery-single-description">Transforming cassava farming into profitable agribusiness through improved varieties and market linkage programs.</p>
                         </div>
                     </div>
                     
                     <!-- Slide 11 - Jiko -->
-                    <div class="gallery-3d-slide" data-index="10">
-                        <img src="../images/jiko.jpeg" alt="Energy-Efficient Jiko Project" class="w-full h-full object-cover">
-                        <div class="gallery-3d-caption">
-                            <h3 class="text-xl font-bold mb-2">Energy-Efficient Jiko Project</h3>
-                            <p>Promoting sustainable cooking solutions for rural communities</p>
+                    <div class="gallery-single-slide" data-index="10">
+                        <img src="../images/jiko.jpeg" alt="Energy-Efficient Jiko Project" class="gallery-single-image">
+                        <div class="gallery-single-caption">
+                            <h3 class="gallery-single-title">Energy-Efficient Jiko Project</h3>
+                            <p class="gallery-single-description">Promoting clean cooking solutions in rural communities, reducing firewood consumption and indoor air pollution.</p>
                         </div>
                     </div>
                     
                     <!-- Slide 12 - Mango Seedling -->
-                    <div class="gallery-3d-slide" data-index="11">
-                        <img src="../images/mangoseedling.jpeg" alt="Mango Seedling Nursery" class="w-full h-full object-cover">
-                        <div class="gallery-3d-caption">
-                            <h3 class="text-xl font-bold mb-2">Mango Seedling Nursery</h3>
-                            <p>High-quality grafted mango seedlings for commercial orchards</p>
+                    <div class="gallery-single-slide" data-index="11">
+                        <img src="../images/mangoseedling.jpeg" alt="Mango Seedling Nursery" class="gallery-single-image">
+                        <div class="gallery-single-caption">
+                            <h3 class="gallery-single-title">Mango Seedling Nursery</h3>
+                            <p class="gallery-single-description">High-quality grafted mango seedlings for commercial orchards, providing disease-resistant and high-yielding varieties.</p>
                         </div>
                     </div>
                     
                     <!-- Slide 13 - Tomatoes -->
-                    <div class="gallery-3d-slide" data-index="12">
-                        <img src="../images/tomatoes.jpeg" alt="Tomato Greenhouse Production" class="w-full h-full object-cover">
-                        <div class="gallery-3d-caption">
-                            <h3 class="text-xl font-bold mb-2">Tomato Greenhouse Production</h3>
-                            <p>Year-round tomato cultivation in climate-controlled greenhouses</p>
+                    <div class="gallery-single-slide" data-index="12">
+                        <img src="../images/tomatoes.jpeg" alt="Tomato Greenhouse Production" class="gallery-single-image">
+                        <div class="gallery-single-caption">
+                            <h3 class="gallery-single-title">Tomato Greenhouse Production</h3>
+                            <p class="gallery-single-description">Year-round tomato cultivation in climate-controlled greenhouses, ensuring consistent supply and premium quality produce.</p>
                         </div>
                     </div>
                 </div>
                 
+                <!-- Progress Bar -->
+                <div class="gallery-progress">
+                    <div class="gallery-progress-bar" id="galleryProgress"></div>
+                </div>
+                
                 <!-- Navigation Controls -->
-                <div class="gallery-3d-controls">
-                    <button class="gallery-3d-btn" id="prev3dBtn" aria-label="Previous image">
+                <div class="gallery-single-controls">
+                    <button class="gallery-single-btn" id="prevSingleBtn" aria-label="Previous image">
                         <i class="fas fa-chevron-left text-agri-green"></i>
                     </button>
-                    <button class="gallery-3d-btn" id="next3dBtn" aria-label="Next image">
+                    <button class="gallery-single-btn" id="nextSingleBtn" aria-label="Next image">
                         <i class="fas fa-chevron-right text-agri-green"></i>
                     </button>
                 </div>
                 
                 <!-- Navigation Dots -->
-                <div class="gallery-3d-nav" id="gallery3dDots">
+                <div class="gallery-single-nav" id="gallerySingleDots">
                     <!-- Dots will be generated by JavaScript -->
                 </div>
             </div>
@@ -1776,33 +1542,13 @@
                         <div class="bg-white p-6 rounded-lg shadow-md">
                             <h4 class="text-lg font-semibold text-agri-green mb-3">Ace Greenhouse Tunnel Model</h4>
                             <div class="h-48 overflow-hidden bg-gradient-to-br from-green-100 to-blue-100 rounded-lg flex items-center justify-center">
-                                <img src="../images/genhouse-tunnel-modelre.jpg" 
-                                     alt="Ace Greenhouse Tunnel Model" 
-                                     class="w-full h-full object-cover">
+                                <i class="fas fa-seedling text-agri-green text-6xl"></i>
                             </div>
                         </div>
                         <div class="bg-white p-6 rounded-lg shadow-md">
                             <h4 class="text-lg font-semibold text-agri-green mb-3">Large Scale Roof Ventilated Greenhouse</h4>
                             <div class="h-48 overflow-hidden bg-gradient-to-br from-green-100 to-blue-100 rounded-lg flex items-center justify-center">
-                                <img src="../images/roof-ventilated-greenhouse.jpg" 
-                                     alt="Large Scale Roof Ventilated Greenhouse" 
-                                     class="w-full h-full object-cover">
-                            </div>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-md">
-                            <h4 class="text-lg font-semibold text-agri-green mb-3">Sanai Kadogo Model for Kitchen Gardening</h4>
-                            <div class="h-48 overflow-hidden bg-gradient-to-br from-green-100 to-blue-100 rounded-lg flex items-center justify-center">
-                                <img src="../images/kadogo-kitchen-gardening.jpg" 
-                                     alt="Sanai Kadogo Model for Kitchen Gardening" 
-                                     class="w-full h-full object-cover">
-                            </div>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-md">
-                            <h4 class="text-lg font-semibold text-agri-green mb-3">Greenhouse Farming - Capsicum</h4>
-                            <div class="h-48 overflow-hidden bg-gradient-to-br from-green-100 to-blue-100 rounded-lg flex items-center justify-center">
-                                <img src="../images/greenhouse-capsicum.jpg" 
-                                     alt="Greenhouse Farming - Capsicum" 
-                                     class="w-full h-full object-cover">
+                                <i class="fas fa-industry text-agri-green text-6xl"></i>
                             </div>
                         </div>
                     </div>
@@ -1823,647 +1569,7 @@
         </div>
     </section>
 
-    <!-- Irrigation Section -->
-    <section id="irrigation" class="section-padding bg-gradient-to-br from-gray-50 to-blue-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-dark mb-4">IRRIGATION, DRILLING AND WATER HARVESTING</h2>
-                <div class="w-20 h-1 bg-agri-green mx-auto"></div>
-            </div>
-            <div class="flex flex-col lg:flex-row gap-12">
-                <div class="lg:w-1/2">
-                    <p class="text-gray-700 mb-6 leading-relaxed">Irrigation is the artificial application of controlled amounts of water to agricultural crops and landscapes. We design, supply and install irrigation systems and fittings for crop production and lawn maintenance. We design and install both overhead and surface irrigation and also supply pumps, pipes and fittings for low cost surface irrigation through canals or basins. Our integrated management and market linkage services also extend to open field produced crops.</p>
-                    <p class="text-gray-700 mb-6 leading-relaxed">Water is the life sustaining component of any agricultural production venture. We therefore endeavor to ensure that our farmers have access to sufficient, good quality water for crop and animal production. Our greenhouses are designed to have gutters for water harvesting. We also provide dam liners for lining water harvesting dams. Our borehole services include hydro geological survey, drilling and extraction permit acquisition, drilling, test pumping and borehole equipping.</p>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-                        <div class="bg-white p-6 rounded-lg shadow-md">
-                            <h4 class="text-lg font-semibold text-agri-green mb-3">Intensive Onion Production Under Drip Irrigation</h4>
-                            <div class="h-48 overflow-hidden bg-gradient-to-br from-green-100 to-blue-100 rounded-lg flex items-center justify-center">
-                                <img src="../images/onion-drip-irrigation.jpg" 
-                                     alt="Intensive Onion Production Under Drip Irrigation" 
-                                     class="w-full h-full object-cover">
-                            </div>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-md">
-                            <h4 class="text-lg font-semibold text-agri-green mb-3">Pop Up Sprinklers for Lawn Irrigation</h4>
-                            <div class="h-48 overflow-hidden bg-gradient-to-br from-green-100 to-blue-100 rounded-lg flex items-center justify-center">
-                                <img src="../images/pop-up-sprinklers.jpg" 
-                                     alt="Pop Up Sprinklers for Lawn Irrigation" 
-                                     class="w-full h-full object-cover">
-                            </div>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-md">
-                            <h4 class="text-lg font-semibold text-agri-green mb-3">Dam for Water Collection</h4>
-                            <div class="h-48 overflow-hidden bg-gradient-to-br from-green-100 to-blue-100 rounded-lg flex items-center justify-center">
-                                <img src="../images/water-collection-dam.jpg" 
-                                     alt="Dam for Water Collection" 
-                                     class="w-full h-full object-cover">
-                            </div>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-md">
-                            <h4 class="text-lg font-semibold text-agri-green mb-3">Borehole Water Drilling</h4>
-                            <div class="h-48 overflow-hidden bg-gradient-to-br from-green-100 to-blue-100 rounded-lg flex items-center justify-center">
-                                <img src="../images/borehole-drilling.jpg" 
-                                     alt="Borehole Water Drilling" 
-                                     class="w-full h-full object-cover">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="lg:w-1/2">
-                    <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
-                        <h3 class="text-2xl font-semibold green-heading mb-6">Our Water Solutions</h3>
-                        <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <div class="w-6 h-6 bg-agri-green rounded-full flex items-center justify-center mr-3 mt-1">
-                                    <i class="fas fa-check text-white text-xs"></i>
-                                </div>
-                                <p class="text-gray-700">Complete irrigation system design and installation</p>
-                            </li>
-                            <li class="flex items-start">
-                                <div class="w-6 h-6 bg-agri-green rounded-full flex items-center justify-center mr-3 mt-1">
-                                    <i class="fas fa-check text-white text-xs"></i>
-                                </div>
-                                <p class="text-gray-700">Borehole drilling and equipping services</p>
-                            </li>
-                            <li class="flex items-start">
-                                <div class="w-6 h-6 bg-agri-green rounded-full flex items-center justify-center mr-3 mt-1">
-                                    <i class="fas fa-check text-white text-xs"></i>
-                                </div>
-                                <p class="text-gray-700">Water harvesting solutions including dam liners</p>
-                            </li>
-                            <li class="flex items-start">
-                                <div class="w-6 h-6 bg-agri-green rounded-full flex items-center justify-center mr-3 mt-1">
-                                    <i class="fas fa-check text-white text-xs"></i>
-                                </div>
-                                <p class="text-gray-700">Hydro-geological surveys and permit acquisition</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Agricultural Products Section -->
-    <section id="agri-products" class="section-padding bg-gradient-to-br from-gray-50 to-green-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-dark mb-4">OUR AGRICULTURAL PRODUCTS</h2>
-                <div class="w-20 h-1 bg-agri-green mx-auto"></div>
-                <p class="text-gray-600 max-w-3xl mx-auto mt-4 text-lg">We supply a wide range of agricultural products to support your farming operations.</p>
-            </div>
-
-            <!-- Irrigation Products -->
-            <div class="mb-20 fade-in">
-                <h3 class="text-2xl font-bold green-heading mb-8 text-center">Irrigation Products</h3>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Drip Irrigation Components -->
-                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
-                            <i class="fas fa-tint text-agri-green text-6xl"></i>
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-semibold text-dark mb-2">Drip Irrigation Components</h4>
-                            <p class="text-gray-600">Complete range of drip irrigation components including connectors, valves, and emitters.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- PVC & HDPE Pipes -->
-                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
-                            <i class="fas fa-pipe text-agri-green text-6xl"></i>
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-semibold text-dark mb-2">PVC & HDPE Pipes</h4>
-                            <p class="text-gray-600">High-quality pipes in various sizes for all your irrigation and water supply needs.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Irrigation Fittings & Filters -->
-                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
-                            <i class="fas fa-filter text-agri-green text-6xl"></i>
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-semibold text-dark mb-2">Fittings & Filters</h4>
-                            <p class="text-gray-600">Comprehensive range of irrigation fittings, filters, and accessories.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Greenhouse Materials -->
-                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
-                            <i class="fas fa-seedling text-agri-green text-6xl"></i>
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-semibold text-dark mb-2">Greenhouse Materials</h4>
-                            <p class="text-gray-600">All materials needed for greenhouse construction and maintenance.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Mulching Paper -->
-                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
-                            <i class="fas fa-layer-group text-agri-green text-6xl"></i>
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-semibold text-dark mb-2">Mulching Paper</h4>
-                            <p class="text-gray-600">Quality mulching paper for weed control and moisture retention.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Agricultural Nets -->
-                    <div class="product-item bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                        <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
-                            <i class="fas fa-network-wired text-agri-green text-6xl"></i>
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-semibold text-dark mb-2">Agricultural Nets</h4>
-                            <p class="text-gray-600">Various agricultural nets for shade, bird protection, and other applications.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Irrigation Components Section -->
-    <section id="irrigation-components" class="section-padding bg-gradient-to-br from-gray-50 to-blue-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-dark mb-4">IRRIGATION COMPONENTS</h2>
-                <div class="w-20 h-1 bg-agri-green mx-auto"></div>
-                <p class="text-gray-600 max-w-3xl mx-auto mt-4 text-lg">High-quality irrigation components for efficient water management in your farm.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                <!-- Component 1 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                    <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
-                        <img src="../images/pepsi-lateral-valve.jpg" 
-                             alt="Pepsi Lateral Valve" 
-                             class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h4 class="text-lg font-semibold text-dark mb-2">Pepsi Lateral Valve</h4>
-                        <p class="text-gray-600 mb-3">High-quality lateral valve for irrigation systems</p>
-                        <p class="text-agri-green font-bold text-xl">KES 35</p>
-                    </div>
-                </div>
-
-                <!-- Component 2 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                    <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
-                        <img src="../images/pe-pvc-pipes.jpg" 
-                             alt="Polyethylene (PE) & PVC Pipes" 
-                             class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h4 class="text-lg font-semibold text-dark mb-2">Polyethylene (PE) & PVC Pipes</h4>
-                        <p class="text-gray-600 mb-3">Various sizes available for all irrigation needs</p>
-                        <p class="text-agri-green font-bold text-xl">Various Prices</p>
-                    </div>
-                </div>
-
-                <!-- Component 3 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                    <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
-                        <img src="../images/start-connector.jpg" 
-                             alt="Start Connector without Ring" 
-                             class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h4 class="text-lg font-semibold text-dark mb-2">Start Connector without Ring</h4>
-                        <p class="text-gray-600 mb-3">Reliable start connector for drip systems</p>
-                        <p class="text-agri-green font-bold text-xl">KES 25</p>
-                    </div>
-                </div>
-
-                <!-- Component 4 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                    <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
-                        <img src="../images/pepsi-take-off.jpg" 
-                             alt="Pepsi Take Off (Start Swivel Connector)" 
-                             class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h4 class="text-lg font-semibold text-dark mb-2">Pepsi Take Off (Start Swivel Connector)</h4>
-                        <p class="text-gray-600 mb-3">Swivel connector for easy installation</p>
-                        <p class="text-agri-green font-bold text-xl">KES 25</p>
-                    </div>
-                </div>
-
-                <!-- Component 5 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                    <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
-                        <img src="../images/pepsi-end-cap.jpg" 
-                             alt="Pepsi End Cap" 
-                             class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h4 class="text-lg font-semibold text-dark mb-2">Pepsi End Cap</h4>
-                        <p class="text-gray-600 mb-3">End cap for closing irrigation lines</p>
-                        <p class="text-agri-green font-bold text-xl">KES 25</p>
-                    </div>
-                </div>
-
-                <!-- Component 6 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                    <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
-                        <img src="../images/pe-to-drip-connector.jpg" 
-                             alt="PE to Drip Connector" 
-                             class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h4 class="text-lg font-semibold text-dark mb-2">PE to Drip Connector</h4>
-                        <p class="text-gray-600 mb-3">Connector for PE pipe to drip line</p>
-                        <p class="text-agri-green font-bold text-xl">KES 25</p>
-                    </div>
-                </div>
-
-                <!-- Component 7 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                    <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
-                        <img src="../images/lateral-valve-barb.jpg" 
-                             alt="Lateral Valve, barb x barb" 
-                             class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h4 class="text-lg font-semibold text-dark mb-2">Lateral Valve, barb x barb</h4>
-                        <p class="text-gray-600 mb-3">Barbed lateral valve for connections</p>
-                        <p class="text-agri-green font-bold text-xl">KES 60</p>
-                    </div>
-                </div>
-
-                <!-- Component 8 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                    <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
-                        <img src="../images/pepsi-joiner.jpg" 
-                             alt="Pepsi Joiner (Drip to Drip Connector)" 
-                             class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h4 class="text-lg font-semibold text-dark mb-2">Pepsi Joiner (Drip to Drip Connector)</h4>
-                        <p class="text-gray-600 mb-3">Joiner for connecting drip lines</p>
-                        <p class="text-agri-green font-bold text-xl">KES 25</p>
-                    </div>
-                </div>
-
-                <!-- Component 9 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                    <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
-                        <img src="../images/online-emitter.jpg" 
-                             alt="Online Emitter (Button Dripper)" 
-                             class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h4 class="text-lg font-semibold text-dark mb-2">Online Emitter (Button Dripper)</h4>
-                        <p class="text-gray-600 mb-3">Button dripper for precise watering</p>
-                        <p class="text-agri-green font-bold text-xl">KES 25</p>
-                    </div>
-                </div>
-
-                <!-- Component 10 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                    <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
-                        <img src="../images/16mm-drip-tape.jpg" 
-                             alt="16mm Drip Tape" 
-                             class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h4 class="text-lg font-semibold text-dark mb-2">16mm Drip Tape</h4>
-                        <p class="text-gray-600 mb-3">1,000m, 0.4mm thickness</p>
-                        <p class="text-agri-green font-bold text-xl">KES 9,500</p>
-                    </div>
-                </div>
-
-                <!-- Component 11 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 card-hover">
-                    <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
-                        <img src="../images/16mm-pe-pipe.jpg" 
-                             alt="16mm PE Pipe" 
-                             class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h4 class="text-lg font-semibold text-dark mb-2">16mm PE Pipe</h4>
-                        <p class="text-gray-600 mb-3">500m roll for irrigation systems</p>
-                        <p class="text-agri-green font-bold text-xl">KES 9,500</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center">
-                <div class="bg-agri-green text-white p-6 rounded-xl inline-block">
-                    <h3 class="text-2xl font-bold mb-2">Sanai Integrated Services</h3>
-                    <p class="text-lg">Call: 0722 648580, Email: sanaiholdings@gmail.com</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="section-padding bg-gradient-to-br from-gray-50 to-green-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-dark mb-4">PRICE CATALOGUE</h2>
-                <div class="w-20 h-1 bg-agri-green mx-auto"></div>
-                <p class="text-gray-600 max-w-3xl mx-auto mt-4 text-lg">Indicative prices for our products and services are subject to confirmation at the time of order.</p>
-            </div>
-
-            <!-- Greenhouse Costs -->
-            <div class="mb-16 fade-in">
-                <h3 class="text-2xl font-bold green-heading mb-8 text-center">Greenhouse Costs</h3>
-                
-                <div class="overflow-x-auto bg-white rounded-xl shadow-lg p-6">
-                    <table class="price-table">
-                        <thead>
-                            <tr>
-                                <th>Size</th>
-                                <th>SQM</th>
-                                <th>Structure</th>
-                                <th>Irrigation with 1,000L tank</th>
-                                <th>Crop Support structure</th>
-                                <th>Installation</th>
-                                <th>Total (KES)</th>
-                                <th>Cost in USD/Sqm</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>08m x 15m</td>
-                                <td>120</td>
-                                <td>140,000</td>
-                                <td>21,000</td>
-                                <td>18,000</td>
-                                <td>12,000</td>
-                                <td>191,000</td>
-                                <td>15.91</td>
-                            </tr>
-                            <tr>
-                                <td>16m x 15m</td>
-                                <td>240</td>
-                                <td>235,000</td>
-                                <td>31,000</td>
-                                <td>28,000</td>
-                                <td>16,000</td>
-                                <td>310,000</td>
-                                <td>12.91</td>
-                            </tr>
-                            <tr>
-                                <td>08m x 24m</td>
-                                <td>192</td>
-                                <td>210,000</td>
-                                <td>23,000</td>
-                                <td>20,000</td>
-                                <td>12,000</td>
-                                <td>265,000</td>
-                                <td>13.80</td>
-                            </tr>
-                            <tr>
-                                <td>16m x 24m</td>
-                                <td>384</td>
-                                <td>300,000</td>
-                                <td>35,000</td>
-                                <td>35,000</td>
-                                <td>20,000</td>
-                                <td>390,000</td>
-                                <td>10.16</td>
-                            </tr>
-                            <tr>
-                                <td>08m x 30m</td>
-                                <td>240</td>
-                                <td>215,000</td>
-                                <td>25,000</td>
-                                <td>24,000</td>
-                                <td>15,000</td>
-                                <td>279,000</td>
-                                <td>11.63</td>
-                            </tr>
-                            <tr>
-                                <td>16m x 30m</td>
-                                <td>480</td>
-                                <td>370,000</td>
-                                <td>37,000</td>
-                                <td>50,000</td>
-                                <td>25,000</td>
-                                <td>482,000</td>
-                                <td>10.04</td>
-                            </tr>
-                            <tr>
-                                <td>24m x 30m</td>
-                                <td>720</td>
-                                <td>545,000</td>
-                                <td>50,000</td>
-                                <td>80,000</td>
-                                <td>45,000</td>
-                                <td>720,000</td>
-                                <td>10.00</td>
-                            </tr>
-                            <tr>
-                                <td>32m x 30m</td>
-                                <td>960</td>
-                                <td>750,000</td>
-                                <td>60,000</td>
-                                <td>105,000</td>
-                                <td>50,000</td>
-                                <td>965,000</td>
-                                <td>10.05</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <div class="mt-6 text-center">
-                    <p class="text-gray-700"><strong>Optional additions:</strong> Roof ventilation, gutters for water harvesting, entry porch and roll up system for climate control are additional features that can be added to the greenhouse at additional costs.</p>
-                </div>
-            </div>
-
-            <!-- Drip Irrigation Pricing -->
-            <div class="fade-in">
-                <h3 class="text-2xl font-bold green-heading mb-8 text-center">Drip Irrigation Installation</h3>
-                
-                <div class="overflow-x-auto bg-white rounded-xl shadow-lg p-6">
-                    <table class="price-table">
-                        <thead>
-                            <tr>
-                                <th>Acreage</th>
-                                <th>Quarter Acre with 1,500m of drip</th>
-                                <th>Half Acre with 3,000m of drip</th>
-                                <th>One Acre with 6,000m of drip</th>
-                                <th>Two Acres with 12,000m of drip</th>
-                                <th>Five Acres with 31,000m of drip</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Price (KES)</td>
-                                <td>60,000</td>
-                                <td>110,000</td>
-                                <td>190,000</td>
-                                <td>340,000</td>
-                                <td>932,000</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Quotation Section -->
-    <section id="quotation" class="section-padding bg-gradient-to-br from-gray-50 to-blue-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-dark mb-4">SAMPLE QUOTATION</h2>
-                <div class="w-20 h-1 bg-agri-green mx-auto"></div>
-            </div>
-            
-            <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
-                <div class="mb-8">
-                    <h3 class="text-2xl font-bold text-agri-green mb-4">Sanai Holdings Ltd</h3>
-                    <p class="text-gray-700">P.O Box 564-30400, Kabarnet, Kenya</p>
-                    <p class="text-gray-700">Supermarket. TEL: 0722 648580,</p>
-                    <p class="text-gray-700">Email: sanaiholdings@gmail.com</p>
-                </div>
-                
-                <div class="mb-8">
-                    <p class="text-gray-700"><strong>Date:</strong> October 30, 2020</p>
-                    <p class="text-gray-700"><strong>Client:</strong> Esther & Beat</p>
-                    <p class="text-gray-700">P.o Box 61- Kitengela</p>
-                    <p class="text-gray-700">Nairobi Att: Daniel</p>
-                </div>
-                
-                <div class="mb-8">
-                    <h4 class="text-xl font-semibold text-dark mb-2">Dear Daniel,</h4>
-                    <h4 class="text-xl font-semibold text-agri-green mb-4">Re: Quotation for supply and installation of drip irrigation 140m x 72m</h4>
-                    <p class="text-gray-700 mb-4">We refer to your RfQ regarding the above, and now have the pleasure of sending to your attention this quotation, terms and conditions as detailed hereunder: -</p>
-                </div>
-                
-                <div class="overflow-x-auto mb-8">
-                    <table class="quotation-table">
-                        <thead>
-                            <tr>
-                                <th>ITEM</th>
-                                <th>QNTY</th>
-                                <th>UNITS</th>
-                                <th>PRICE</th>
-                                <th>AMOUNT</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Main pipe 63mm</td>
-                                <td>(55-21) = 34</td>
-                                <td>Pcs</td>
-                                <td>950</td>
-                                <td>46,750.00</td>
-                            </tr>
-                            <tr>
-                                <td>Sub main 50mm</td>
-                                <td>300</td>
-                                <td>Mtrs</td>
-                                <td>140</td>
-                                <td>36,000.00</td>
-                            </tr>
-                            <tr>
-                                <td>Complete connectors</td>
-                                <td>500</td>
-                                <td>Pcs</td>
-                                <td>105</td>
-                                <td>47,500.00</td>
-                            </tr>
-                            <tr>
-                                <td>Ball cork 50mm</td>
-                                <td>8</td>
-                                <td>Pcs</td>
-                                <td>1200</td>
-                                <td>9,600.00</td>
-                            </tr>
-                            <tr>
-                                <td>Saddle clamp 63x11/2"</td>
-                                <td>8</td>
-                                <td>Pcs</td>
-                                <td>850</td>
-                                <td>6,800.00</td>
-                            </tr>
-                            <tr>
-                                <td>Pvc valve socket 50mm</td>
-                                <td>20</td>
-                                <td>Pcs</td>
-                                <td>190</td>
-                                <td>3,600.00</td>
-                            </tr>
-                            <tr>
-                                <td>Pvc elbow 50mm</td>
-                                <td>35</td>
-                                <td>Pcs</td>
-                                <td>190</td>
-                                <td>6,300.00</td>
-                            </tr>
-                            <tr>
-                                <td>P.e end cap 50mm</td>
-                                <td>8</td>
-                                <td>Pcs</td>
-                                <td>550</td>
-                                <td>4,400.00</td>
-                            </tr>
-                            <tr>
-                                <td>P.e elbow 50mm</td>
-                                <td>8</td>
-                                <td>Pcs</td>
-                                <td>650</td>
-                                <td>5,200.00</td>
-                            </tr>
-                            <tr>
-                                <td>Drip line 16mm</td>
-                                <td>17000</td>
-                                <td>Mtrs</td>
-                                <td>10</td>
-                                <td>136,000.00</td>
-                            </tr>
-                            <tr>
-                                <td>Main pipe fittings</td>
-                                <td>1</td>
-                                <td>Lamp sum</td>
-                                <td>9850</td>
-                                <td>9,850.00</td>
-                            </tr>
-                            <tr>
-                                <td>Other fittings & consumables</td>
-                                <td>1</td>
-                                <td>Lamp sum</td>
-                                <td>14500</td>
-                                <td>14,500.00</td>
-                            </tr>
-                            <tr class="font-bold bg-gray-50">
-                                <td colspan="4" class="text-right">Total Amount</td>
-                                <td>357,600.00</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <div class="mb-6">
-                    <h4 class="text-lg font-semibold text-dark mb-3">Notes:</h4>
-                    <p class="text-gray-700 mb-3">NB. It is assumed separate arrangements are being made to fetch the water from the river to the tanks, and that the client has made also arrangements to hoist the tanks to atleast 5 meters above ground. The quotation excludes:</p>
-                    <ul class="list-disc pl-5 text-gray-700 mb-4">
-                        <li>Transport of the materials and trenching</li>
-                        <li>Casual labour 30,000 (installation)</li>
-                        <li>Engineer's supervision fee 20,000</li>
-                    </ul>
-                    <p class="text-gray-700">NB. I strongly recommend use of diesel powered water pump for use. This can be sourced, sammy the banana guy has a new 16 HP pump at his shop and sure he can give at a friendly price. The solar pump may not be 100% reliable and may not guarantee results. We dont want to risk.</p>
-                </div>
-                
-                <div class="text-center mt-8">
-                    <p class="text-gray-700 italic">Thank you for considering Sanai Integrated Services for your irrigation needs.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-      <!-- Team Section -->
+    <!-- Team Section -->
     <section id="team" class="section-padding bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
@@ -2594,7 +1700,7 @@
         </div>
     </section>
 
-        <!-- Footer -->
+    <!-- Footer -->
     <footer class="bg-gradient-to-r from-dark to-gray-900 text-white py-12">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -2783,146 +1889,128 @@
             });
         });
 
-        // Performance optimization: Lazy load images
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        if (img.dataset.src) {
-                            img.src = img.dataset.src;
-                            img.classList.remove('lazy');
-                        }
-                        imageObserver.unobserve(img);
-                    }
-                });
-            });
-
-            document.querySelectorAll('img[data-src]').forEach(img => {
-                imageObserver.observe(img);
-            });
-        }
-
-        // Prevent background scrolling when mobile menu is open
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            document.body.style.overflow = document.body.style.overflow === 'hidden' ? '' : 'hidden';
-        });
-
-        // Close mobile menu when a link is clicked
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.getElementById('mobile-menu').classList.remove('open');
-                document.body.style.overflow = '';
-            });
-        });
-
-        // Enhanced 3D Gallery Functionality
+        // Enhanced Single Image Gallery Functionality
         document.addEventListener('DOMContentLoaded', function() {
-            const galleryCarousel = document.getElementById('gallery3dCarousel');
-            const galleryDots = document.getElementById('gallery3dDots');
-            const prevBtn = document.getElementById('prev3dBtn');
-            const nextBtn = document.getElementById('next3dBtn');
+            const galleryTrack = document.querySelector('.gallery-single-track');
+            const galleryDots = document.getElementById('gallerySingleDots');
+            const prevBtn = document.getElementById('prevSingleBtn');
+            const nextBtn = document.getElementById('nextSingleBtn');
+            const progressBar = document.getElementById('galleryProgress');
             
             let currentIndex = 0;
             const totalSlides = 13; // 13 images including new ones
-            let autoRotateInterval;
+            let autoSlideInterval;
+            let progressInterval;
+            const slideDuration = 5000; // 5 seconds per slide
             
             // Create navigation dots
             for (let i = 0; i < totalSlides; i++) {
                 const dot = document.createElement('div');
-                dot.classList.add('gallery-3d-dot');
+                dot.classList.add('gallery-single-dot');
                 if (i === 0) dot.classList.add('active');
                 dot.addEventListener('click', () => goToSlide(i));
                 galleryDots.appendChild(dot);
             }
             
-            // Function to position slides in 3D space
-            function positionSlides() {
-                const slides = document.querySelectorAll('.gallery-3d-slide');
-                const angle = 360 / totalSlides;
-                
-                slides.forEach((slide, index) => {
-                    const rotateY = angle * index;
-                    const translateZ = 400; // Distance from center
-                    
-                    slide.style.transform = `rotateY(${rotateY}deg) translateZ(${translateZ}px)`;
-                    slide.style.opacity = '1';
-                });
-            }
-            
-            // Function to rotate carousel
-            function rotateCarousel() {
-                const angle = 360 / totalSlides;
-                galleryCarousel.style.transform = `rotateY(${-currentIndex * angle}deg)`;
-                
-                // Update active dot
-                document.querySelectorAll('.gallery-3d-dot').forEach((dot, i) => {
-                    dot.classList.toggle('active', i === currentIndex);
-                });
-            }
-            
             // Function to go to specific slide
             function goToSlide(index) {
+                const slides = document.querySelectorAll('.gallery-single-slide');
+                const dots = document.querySelectorAll('.gallery-single-dot');
+                
+                // Remove active class from all slides and dots
+                slides.forEach(slide => slide.classList.remove('active', 'prev', 'next'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                // Update current index
                 currentIndex = index;
-                rotateCarousel();
-                resetAutoRotate();
+                
+                // Add active class to current slide and dot
+                slides[currentIndex].classList.add('active');
+                dots[currentIndex].classList.add('active');
+                
+                // Reset progress bar
+                resetProgressBar();
             }
             
             // Next slide function
             function nextSlide() {
-                currentIndex = (currentIndex + 1) % totalSlides;
-                rotateCarousel();
-                resetAutoRotate();
+                const nextIndex = (currentIndex + 1) % totalSlides;
+                goToSlide(nextIndex);
             }
             
             // Previous slide function
             function prevSlide() {
-                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-                rotateCarousel();
-                resetAutoRotate();
+                const prevIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                goToSlide(prevIndex);
             }
             
-            // Auto-rotate functionality
-            function startAutoRotate() {
-                autoRotateInterval = setInterval(nextSlide, 4000);
+            // Progress bar functionality
+            function startProgressBar() {
+                let width = 0;
+                progressBar.style.width = '0%';
+                
+                progressInterval = setInterval(() => {
+                    width += 1;
+                    progressBar.style.width = width + '%';
+                    
+                    if (width >= 100) {
+                        clearInterval(progressInterval);
+                        nextSlide();
+                    }
+                }, slideDuration / 100);
             }
             
-            function resetAutoRotate() {
-                clearInterval(autoRotateInterval);
-                startAutoRotate();
+            function resetProgressBar() {
+                clearInterval(progressInterval);
+                startProgressBar();
+            }
+            
+            // Auto-slide functionality
+            function startAutoSlide() {
+                autoSlideInterval = setInterval(nextSlide, slideDuration);
+            }
+            
+            function resetAutoSlide() {
+                clearInterval(autoSlideInterval);
+                startAutoSlide();
             }
             
             // Event listeners for buttons
-            prevBtn.addEventListener('click', prevSlide);
-            nextBtn.addEventListener('click', nextSlide);
-            
-            // Initialize 3D positioning
-            positionSlides();
-            rotateCarousel();
-            startAutoRotate();
-            
-            // Pause auto-rotate on hover
-            galleryCarousel.addEventListener('mouseenter', () => {
-                clearInterval(autoRotateInterval);
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                resetAutoSlide();
             });
             
-            galleryCarousel.addEventListener('mouseleave', () => {
-                startAutoRotate();
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                resetAutoSlide();
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                    resetAutoSlide();
+                } else if (e.key === 'ArrowRight') {
+                    nextSlide();
+                    resetAutoSlide();
+                }
             });
             
             // Touch swipe support for mobile
             let startX = 0;
             let endX = 0;
             
-            galleryCarousel.addEventListener('touchstart', (e) => {
+            galleryTrack.addEventListener('touchstart', (e) => {
                 startX = e.touches[0].clientX;
-                clearInterval(autoRotateInterval);
+                clearInterval(autoSlideInterval);
+                clearInterval(progressInterval);
             });
             
-            galleryCarousel.addEventListener('touchend', (e) => {
+            galleryTrack.addEventListener('touchend', (e) => {
                 endX = e.changedTouches[0].clientX;
                 handleSwipe();
-                startAutoRotate();
+                resetAutoSlide();
             });
             
             function handleSwipe() {
@@ -2938,21 +2026,19 @@
                 }
             }
             
-            // Keyboard navigation
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowLeft') {
-                    prevSlide();
-                } else if (e.key === 'ArrowRight') {
-                    nextSlide();
-                }
+            // Pause auto-slide on hover
+            galleryTrack.addEventListener('mouseenter', () => {
+                clearInterval(autoSlideInterval);
+                clearInterval(progressInterval);
             });
             
-            // Click on slide to center it
-            document.querySelectorAll('.gallery-3d-slide').forEach((slide, index) => {
-                slide.addEventListener('click', () => {
-                    goToSlide(index);
-                });
+            galleryTrack.addEventListener('mouseleave', () => {
+                resetAutoSlide();
             });
+            
+            // Initialize gallery
+            goToSlide(0);
+            startAutoSlide();
         });
     </script>
 </body>
