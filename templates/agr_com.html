@@ -2520,257 +2520,257 @@
         <i class="fas fa-chevron-up"></i>
     </button>
 
-    <script>
-        // Loading Bar Animation
-        window.addEventListener('load', function() {
-            const loadingBar = document.getElementById('loadingBar');
-            loadingBar.style.width = '100%';
+   <script>
+    // Loading Bar Animation
+    window.addEventListener('load', function() {
+        const loadingBar = document.getElementById('loadingBar');
+        loadingBar.style.width = '100%';
+        setTimeout(() => {
+            loadingBar.style.opacity = '0';
             setTimeout(() => {
-                loadingBar.style.opacity = '0';
-                setTimeout(() => {
-                    loadingBar.style.display = 'none';
-                }, 300);
-            }, 500);
-        });
+                loadingBar.style.display = 'none';
+            }, 300);
+        }, 500);
+    });
 
-        // Mobile Menu Toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('open');
-        });
+    // Mobile Menu Toggle
+    document.getElementById('mobile-menu-button').addEventListener('click', function() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenu.classList.toggle('open');
+    });
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const mobileMenu = document.getElementById('mobile-menu');
-            const menuButton = document.getElementById('mobile-menu-button');
-            
-            if (!mobileMenu.contains(event.target) && !menuButton.contains(event.target)) {
-                mobileMenu.classList.remove('open');
-            }
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    // Close mobile menu if open
-                    document.getElementById('mobile-menu').classList.remove('open');
-                }
-            });
-        });
-
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuButton = document.getElementById('mobile-menu-button');
         
-        // Back to top button
-        const backToTopButton = document.getElementById('backToTop');
-        
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 300) {
-                backToTopButton.classList.remove('opacity-0', 'invisible');
-                backToTopButton.classList.add('opacity-100', 'visible');
-            } else {
-                backToTopButton.classList.remove('opacity-100', 'visible');
-                backToTopButton.classList.add('opacity-0', 'invisible');
-            }
-        });
+        if (!mobileMenu.contains(event.target) && !menuButton.contains(event.target)) {
+            mobileMenu.classList.remove('open');
+        }
+    });
 
-        backToTopButton.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Fade-in animation on scroll
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        const fadeInOnScroll = () => {
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('visible');
-                }
-            });
-        };
-
-        window.addEventListener('scroll', fadeInOnScroll);
-        // Initial check
-        fadeInOnScroll();
-
-        // Enhanced form submission with better mobile feedback
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            
-            // Get form data
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            // Show loading state on submit button
-            const submitButton = this.querySelector('button[type="submit"]');
-            const originalText = submitButton.textContent;
-            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
-            submitButton.disabled = true;
-            
-            // Simulate processing delay for better UX
-            setTimeout(() => {
-                // Create mailto link
-                const mailtoLink = `mailto:sanaiholdings@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
-                    `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-                )}`;
-                
-                // Reset button state
-                submitButton.innerHTML = originalText;
-                submitButton.disabled = false;
-                
-                // Open email client
-                window.location.href = mailtoLink;
-                
-                // Show success message
-                alert('Thank you for your message! Your email client will open to send the message to sanaiholdings@gmail.com.');
-                this.reset();
-            }, 1000);
-        });
-
-        // Enhanced mobile button interactions
-        document.querySelectorAll('.btn-primary, .btn-secondary, .btn-agri, .btn-success').forEach(button => {
-            // Add touch feedback
-            button.addEventListener('touchstart', function() {
-                this.style.transform = 'translateY(0)';
-                this.style.boxShadow = '0 5px 10px rgba(0,0,0,0.2)';
-            });
-            
-            button.addEventListener('touchend', function() {
-                this.style.transform = '';
-                this.style.boxShadow = '';
-            });
-        });
-
-        // Performance optimization: Lazy load images
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        if (img.dataset.src) {
-                            img.src = img.dataset.src;
-                            img.classList.remove('lazy');
-                        }
-                        imageObserver.unobserve(img);
-                    }
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
                 });
-            });
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.remove('open');
+            }
+        });
+    });
 
-            document.querySelectorAll('img[data-src]').forEach(img => {
-                imageObserver.observe(img);
+    
+    // Back to top button
+    const backToTopButton = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+            backToTopButton.classList.remove('opacity-0', 'invisible');
+            backToTopButton.classList.add('opacity-100', 'visible');
+        } else {
+            backToTopButton.classList.remove('opacity-100', 'visible');
+            backToTopButton.classList.add('opacity-0', 'invisible');
+        }
+    });
+
+    backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // Fade-in animation on scroll
+    const fadeElements = document.querySelectorAll('.fade-in');
+    
+    const fadeInOnScroll = () => {
+        fadeElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementVisible = 150;
+            
+            if (elementTop < window.innerHeight - elementVisible) {
+                element.classList.add('visible');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', fadeInOnScroll);
+    // Initial check
+    fadeInOnScroll();
+
+    // Enhanced form submission with better mobile feedback
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+        
+        // Show loading state on submit button
+        const submitButton = this.querySelector('button[type="submit"]');
+        const originalText = submitButton.textContent;
+        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+        submitButton.disabled = true;
+        
+        // Simulate processing delay for better UX
+        setTimeout(() => {
+            // Create mailto link
+            const mailtoLink = `mailto:sanaiholdings@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+                `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+            )}`;
+            
+            // Reset button state
+            submitButton.innerHTML = originalText;
+            submitButton.disabled = false;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            alert('Thank you for your message! Your email client will open to send the message to sanaiholdings@gmail.com.');
+            this.reset();
+        }, 1000);
+    });
+
+    // Enhanced mobile button interactions
+    document.querySelectorAll('.btn-primary, .btn-secondary, .btn-agri, .btn-success').forEach(button => {
+        // Add touch feedback
+        button.addEventListener('touchstart', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = '0 5px 10px rgba(0,0,0,0.2)';
+        });
+        
+        button.addEventListener('touchend', function() {
+            this.style.transform = '';
+            this.style.boxShadow = '';
+        });
+    });
+
+    // Performance optimization: Lazy load images
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                    }
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            imageObserver.observe(img);
+        });
+    }
+
+    // Prevent background scrolling when mobile menu is open
+    document.getElementById('mobile-menu-button').addEventListener('click', function() {
+        document.body.style.overflow = document.body.style.overflow === 'hidden' ? '' : 'hidden';
+    });
+
+    // Close mobile menu when a link is clicked
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+        link.addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.remove('open');
+            document.body.style.overflow = '';
+        });
+    });
+
+    // Image Gallery Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const galleryTrack = document.getElementById('galleryTrack');
+        const galleryDots = document.getElementById('galleryDots');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        let currentIndex = 0;
+        const totalSlides = 7; // 7 images as requested
+        
+        // Create navigation dots
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('gallery-dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            galleryDots.appendChild(dot);
+        }
+        
+        // Function to go to specific slide
+        function goToSlide(index) {
+            currentIndex = index;
+            galleryTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            // Update active dot
+            document.querySelectorAll('.gallery-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentIndex);
             });
         }
-
-        // Prevent background scrolling when mobile menu is open
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            document.body.style.overflow = document.body.style.overflow === 'hidden' ? '' : 'hidden';
+        
+        // Next slide function
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            goToSlide(currentIndex);
+        }
+        
+        // Previous slide function
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            goToSlide(currentIndex);
+        }
+        
+        // Event listeners for buttons
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+        
+        // Auto-advance slides every 5 seconds
+        let slideInterval = setInterval(nextSlide, 5000);
+        
+        // Pause auto-advance on hover
+        galleryTrack.addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
         });
-
-        // Close mobile menu when a link is clicked
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.getElementById('mobile-menu').classList.remove('open');
-                document.body.style.overflow = '';
-            });
+        
+        galleryTrack.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(nextSlide, 5000);
         });
-
-        // Image Gallery Functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const galleryTrack = document.getElementById('galleryTrack');
-            const galleryDots = document.getElementById('galleryDots');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
+        
+        // Touch swipe support for mobile
+        let startX = 0;
+        let endX = 0;
+        
+        galleryTrack.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+        
+        galleryTrack.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].clientX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = startX - endX;
             
-            let currentIndex = 0;
-            const totalSlides = 7; // 7 images as requested
-            
-            // Create navigation dots
-            for (let i = 0; i < totalSlides; i++) {
-                const dot = document.createElement('div');
-                dot.classList.add('gallery-dot');
-                if (i === 0) dot.classList.add('active');
-                dot.addEventListener('click', () => goToSlide(i));
-                galleryDots.appendChild(dot);
-            }
-            
-            // Function to go to specific slide
-            function goToSlide(index) {
-                currentIndex = index;
-                galleryTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
-                
-                // Update active dot
-                document.querySelectorAll('.gallery-dot').forEach((dot, i) => {
-                    dot.classList.toggle('active', i === currentIndex);
-                });
-            }
-            
-            // Next slide function
-            function nextSlide() {
-                currentIndex = (currentIndex + 1) % totalSlides;
-                goToSlide(currentIndex);
-            }
-            
-            // Previous slide function
-            function prevSlide() {
-                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-                goToSlide(currentIndex);
-            }
-            
-            // Event listeners for buttons
-            prevBtn.addEventListener('click', prevSlide);
-            nextBtn.addEventListener('click', nextSlide);
-            
-            // Auto-advance slides every 5 seconds
-            let slideInterval = setInterval(nextSlide, 5000);
-            
-            // Pause auto-advance on hover
-            galleryTrack.addEventListener('mouseenter', () => {
-                clearInterval(slideInterval);
-            });
-            
-            galleryTrack.addEventListener('mouseleave', () => {
-                slideInterval = setInterval(nextSlide, 5000);
-            });
-            
-            // Touch swipe support for mobile
-            let startX = 0;
-            let endX = 0;
-            
-            galleryTrack.addEventListener('touchstart', (e) => {
-                startX = e.touches[0].clientX;
-            });
-            
-            galleryTrack.addEventListener('touchend', (e) => {
-                endX = e.changedTouches[0].clientX;
-                handleSwipe();
-            });
-            
-            function handleSwipe() {
-                const swipeThreshold = 50;
-                const diff = startX - endX;
-                
-                if (Math.abs(diff) > swipeThreshold) {
-                    if (diff > 0) {
-                        nextSlide(); // Swipe left
-                    } else {
-                        prevSlide(); // Swipe right
-                    }
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    nextSlide(); // Swipe left
+                } else {
+                    prevSlide(); // Swipe right
                 }
             }
-        });
-    </script>
+        }
+    });
+</script>
 </body>
 </html>
