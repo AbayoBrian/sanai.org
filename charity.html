@@ -144,29 +144,33 @@
         }
         
         .hero-bg {
-    background: 
-        /* Dual-tone overlay for maximum clarity */
-        linear-gradient(135deg, 
-            rgba(10, 30, 50, 0.3) 0%,      /* Dark blue tint */
-            rgba(30, 60, 90, 0.4) 50%,     /* Medium blue */
-            rgba(50, 80, 110, 0.3) 100%),  /* Light blue */
-        /* Subtle pattern overlay for texture */
-        repeating-linear-gradient(45deg, 
-            transparent, 
-            transparent 10px, 
-            rgba(255, 255, 255, 0.03) 10px, 
-            rgba(255, 255, 255, 0.03) 20px),
-        /* Your main image */
-        url('../images/field-day-testimonial.png');
-    
-    background-size: cover, auto, cover;
+    background: url('../images/field-day-testimonial.png');
+    background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    background-blend-mode: normal, overlay, normal;
-    
-    /* Image enhancement */
-    filter: contrast(1.1) brightness(1.05);
-    -webkit-filter: contrast(1.1) brightness(1.05);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add a sharp, clear glass effect overlay */
+.hero-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: contrast(1.2) saturate(1.1);
+    -webkit-backdrop-filter: contrast(1.2) saturate(1.1);
+    z-index: 1;
+}
+
+/* Ensure content stays above */
+.hero-bg > * {
+    position: relative;
+    z-index: 2;
 }
         
         .mango-hero-bg {
